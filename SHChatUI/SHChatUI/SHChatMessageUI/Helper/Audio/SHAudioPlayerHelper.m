@@ -1,0 +1,347 @@
+//
+//  SHAudioPlayerHelper.m
+//  后台播放语音队列Demo
+//
+//  Created by CSH on 16/6/2.
+//  Copyright © 2016年 CSH. All rights reserved.
+//
+
+#import "SHAudioPlayerHelper.h"
+#import "SHMessageMacroHeader.h"
+#import "SHFileHelper.h"
+#import "VoiceConverter.h"
+
+@interface SHAudioPlayerHelper ()<AVAudioPlayerDelegate>
+
+//播放器
+@property (nonatomic, strong) AVAudioPlayer *player;
+//播放的语音位置
+@property (nonatomic, assign) int playingIndex;
+//播放的语音数组
+@property (nonatomic, copy) NSArray *audioArr;
+//定时器
+@property (nonatomic, strong) NSTimer *timer;
+
+@end
+
+@implementation SHAudioPlayerHelper
+
+
+#pragma mark - 实例化
++ (id)shareInstance {
+    static SHAudioPlayerHelper *instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[SHAudioPlayerHelper alloc] init];
+        
+    });
+    return instance;
+}
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        [self changeProximityMonitorEnableState:YES];
+        [[UIDevice currentDevice] setProximityMonitoringEnabled:NO];
+    }
+    return self;
+}
+
+#pragma mark - 设置代理
+- (void)setDelegate:(id<SHAudioPlayerHelperDelegate>)delegate {
+    if (_delegate != delegate) {
+        _delegate = delegate;
+        
+        if (_delegate == nil) {
+            [self stopAudio];
+        }
+    }
+}
+
+
+#pragma mark - 初始化各个参数
+- (void)managerAudioWithFileArr:(NSArray *)fileArr isClear:(BOOL)isClear{
+    
+    if (isClear) {
+        //清除之前的队列
+        if (_player) {//如果有播放那就停止
+            [self stopAudio];
+        }
+        _playingIndex = 1;
+        _playingName = nil;
+        _player = nil;
+        self.audioArr = [NSArray arrayWithArray:fileArr];
+        [self playAudio];
+    }else{
+        //不清除之前的队列，做添加
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        [arr addObjectsFromArray:self.audioArr];
+        [arr addObjectsFromArray:fileArr];
+        
+        self.audioArr = [NSArray arrayWithArray:arr];
+        if (!_player && !_player.isPlaying) {//如果没有播放那么开始播放
+            _playingName = nil;
+            [self playAudio];
+        }
+    }
+    //添加通知，拔出耳机后暂停播放
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(routeChange:) name:AVAudioSessionRouteChangeNotification object:nil];
+    
+    
+}
+#pragma mark - pause
+#pragma mark 暂停播放语音
+- (void)pauseAudio {
+    if (_player) {
+        [_player pause];
+        if ([self.delegate respondsToSelector:@selector(didAudioPlayerPausePlay:)]) {
+            [self.delegate didAudioPlayerPausePlay:[self getAudioFileName]];
+        }
+    }
+}
+#pragma mark - stop
+#pragma mark 停止播放语音
+- (void)stopAudio {
+
+    if (_player && _player.isPlaying) {
+        [_player stop];
+    }
+    _player = nil;
+    _playingName = nil;
+    [[UIDevice currentDevice] setProximityMonitoringEnabled:NO];
+    if ([self.delegate respondsToSelector:@selector(didAudioPlayerStopPlay:error:)]) {
+        [self.delegate didAudioPlayerStopPlay:[self getAudioFileName] error:nil];
+    }
+    
+}
+
+#pragma mark - play
+#pragma mark 开始播放语音
+- (void)playAudio{
+    
+    NSString *audioPath = [self getAudioFileName];
+    if (audioPath.length > 0) {
+        
+        //不随着静音键和屏幕关闭而静音
+        //设置锁屏仍能继续播放
+        [[AVAudioSession sharedInstance] setActive: YES error: nil];
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+        
+        if (_playingName && [audioPath isEqualToString:_playingName]) {//上次播放的录音
+            if (_player) {
+                [_player play];
+                [[UIDevice currentDevice] setProximityMonitoringEnabled:YES];
+                if ([self.delegate respondsToSelector:@selector(didAudioPlayerBeginPlay:)]) {
+                    [self.delegate didAudioPlayerBeginPlay:audioPath];
+                }
+            }
+        } else {//不是上次播放的录音
+            if (_player) {
+                [_player stop];
+                self.player = nil;
+            }
+            
+            NSLog(@"语音路径：%@",audioPath);
+            //拼接WAV文件路径
+            NSString *wavfile= [NSString stringWithFormat:@"%@/%@.wav",kSHAudioWAVPath,[[[[audioPath componentsSeparatedByString:@"/"] lastObject] componentsSeparatedByString:@"."] firstObject]];
+            //判断本地是否存在
+            if ([[NSFileManager defaultManager] fileExistsAtPath:wavfile]) {
+                //存在此条语音
+            }else{
+                //不存在此条语音进行转换 AMR ——> WAV
+                [VoiceConverter amrToWav:audioPath wavSavePath:wavfile];
+            }
+            
+            NSError *error;
+            NSData *data = [NSData dataWithContentsOfFile:wavfile];
+            AVAudioPlayer *play = [[AVAudioPlayer alloc] initWithData:data error:&error];
+            
+            [[UIDevice currentDevice] setProximityMonitoringEnabled:YES];
+            play.delegate = self;
+            [play play];
+            
+            //播放开始回调
+            if ([self.delegate respondsToSelector:@selector(didAudioPlayerBeginPlay:)]) {
+                [self.delegate didAudioPlayerBeginPlay:audioPath];
+            }
+            
+            
+            self.player = play;
+            
+            if (!_player) {
+                //播放错误
+                if ([self.delegate respondsToSelector:@selector(didAudioPlayerStopPlay:error:)]) {
+                    [self.delegate didAudioPlayerStopPlay:audioPath error:[error description]];
+                }
+                
+                //播放下一条
+                [self playNext];
+            }
+            
+        }
+        
+        _playingName = audioPath;
+        
+    }else{
+        if (_playingIndex > _audioArr.count) {
+            NSLog(@"队列中没有播放文件了");
+            _playingIndex = 0;
+            [self stopAudio];
+        }
+    }
+}
+
+
+#pragma mark - 后台控制（为了后台播放）
+- (void)backgroundPlayAudio:(BOOL)isBackground{
+    
+    if (isBackground) {
+        //让app支持接受远程控制事件
+        [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+        [self timeStart];
+    }else{
+        [self timeStop];
+    }
+    
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    
+    [session setActive:YES error:nil];
+    
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+}
+
+#pragma mark 开始查找
+- (void)timeStart{
+    
+    if (!self.timer) {
+        NSTimer *time = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(isPlayAudio) userInfo:nil repeats:YES];
+        [[NSRunLoop mainRunLoop] addTimer:time forMode:NSRunLoopCommonModes];
+        self.timer = time;
+    }
+    
+}
+#pragma mark 停止查找
+- (void)timeStop{
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
+#pragma mark 是否存在播放
+- (void)isPlayAudio{
+    if (_player) {
+        [_player play];
+    }
+}
+
+#pragma mark - 是否正在播放
+- (BOOL)isPlaying{
+    if (!_player) {
+        return NO;
+    }
+    return _player.isPlaying;
+}
+
+#pragma mark - 获取播放路径
+- (NSString *)getAudioFileName{
+ 
+    if (self.audioArr.count >= _playingIndex && _playingIndex != 0) {
+        NSString * audioFileName = self.audioArr[_playingIndex - 1];
+        if (audioFileName.length > 0) {
+            return audioFileName;
+        }else{
+            return @"";
+        }
+    }else{
+        return @"";
+    }
+    
+}
+
+#pragma mark - 销毁音频
+- (void)deallocAudio{
+    
+    [self changeProximityMonitorEnableState:NO];
+    self.playingIndex = 0;
+    self.audioArr = nil;
+    self.playingName = nil;
+    self.player = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
+
+#pragma mark - AVAudioPlayerDelegate
+#pragma mark 语音播放完毕
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    
+    [self stopAudio];
+    
+    [self playNext];
+}
+
+#pragma mark - 播放下一个
+- (void)playNext{
+        
+    _playingIndex ++;
+    //播放
+    [self playAudio];
+   
+}
+
+
+#pragma mark - 近距离传感器
+- (void)changeProximityMonitorEnableState:(BOOL)enable {
+    [[UIDevice currentDevice] setProximityMonitoringEnabled:YES];
+    if ([UIDevice currentDevice].proximityMonitoringEnabled == YES) {
+        if (enable) {
+            
+            //添加近距离事件监听，添加前先设置为YES，如果设置完后还是NO的读话，说明当前设备没有近距离传感器
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sensorStateChange:) name:UIDeviceProximityStateDidChangeNotification object:nil];
+            
+        } else {
+            
+            //删除近距离事件监听
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceProximityStateDidChangeNotification object:nil];
+            [[UIDevice currentDevice] setProximityMonitoringEnabled:NO];
+        }
+    }
+}
+
+- (void)sensorStateChange:(NSNotificationCenter *)notification {
+    //如果此时手机靠近面部放在耳朵旁，那么声音将通过听筒输出，并将屏幕变暗
+    if ([[UIDevice currentDevice] proximityState] == YES) {
+        //用户接近屏幕
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+        
+    } else {
+        //用户没有接近屏幕
+         //后台播放
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+        if (!_player || !_player.isPlaying) {
+            //没有播放了，也没有在黑屏状态下，就可以把距离传感器关了
+            [[UIDevice currentDevice] setProximityMonitoringEnabled:NO];
+        }
+    }
+}
+
+#pragma mark - 一旦输出改变则执行此方法
+-(void)routeChange:(NSNotification *)notification
+{
+    NSDictionary *dic=notification.userInfo;
+    int changeReason= [dic[AVAudioSessionRouteChangeReasonKey] intValue];
+    //等于AVAudioSessionRouteChangeReasonOldDeviceUnavailable表示旧输出不可用
+    if (changeReason==AVAudioSessionRouteChangeReasonOldDeviceUnavailable) {
+        
+        AVAudioSessionRouteDescription *routeDescription=dic[AVAudioSessionRouteChangePreviousRouteKey];
+        AVAudioSessionPortDescription *portDescription= [routeDescription.outputs firstObject];
+        //原设备为耳机则暂停
+        if ([portDescription.portType isEqualToString:@"Headphones"]) {
+            //暂停
+            [self pauseAudio];
+        }
+    }
+
+}
+
+
+
+@end
