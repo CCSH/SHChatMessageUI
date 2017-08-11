@@ -93,6 +93,8 @@ static NSString * const reuseIdentifier = @"Cell";
     //添加下方输入框
     [self.view addSubview:self.chatInputView];
     
+    [self chatMessageInputView:self.chatInputView sendPrompt:@"我们已经是好友了！开始聊天吧"];
+    
     //滑到最下方
     [self tableViewScrollToBottom];
 }
