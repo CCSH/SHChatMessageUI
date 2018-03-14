@@ -1,9 +1,10 @@
-# 两种风格聊天界面(QQ、微信)
+两种风格聊天界面(QQ、微信)
+===
 # 消息格式
 文本、语音、图片、位置、拍照、视频、名片、提示消息、红包、表情
 # 功能
 消息长按、头像长按、消息发送状态、消息重发、消息点击、语音播放与暂停
-
+# 我这里微信qq主要区别是工具栏样式与气泡样式，微信部分到时候会补充进去有几种消息格式没有添加
 
 ![image](https://github.com/CCSH/SHChatMessageUI/blob/master/SHChatUI(QQ)/212D5EB7BB710D2ED32E35B756188C4B.jpg)
 ![image](https://github.com/CCSH/SHChatMessageUI/blob/master/SHChatUI(QQ)/212D5EB7BB710D2ED32E35B756188C4B.jpg)
