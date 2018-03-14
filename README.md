@@ -20,7 +20,7 @@
 * 消息点击
 * 语音播放与暂停
 * 消息预览
-<br>我这里微信qq主要区别是工具栏样式与气泡样式，微信部分到时候会补充进去有几种消息格式没有添加\ 
+<br>我这里微信qq主要区别是工具栏样式与气泡样式，微信部分有时间会补充进去有几种消息格式没有添加
 
 ![image](https://github.com/CCSH/SHChatMessageUI/blob/master/SHChatUI(QQ)/212D5EB7BB710D2ED32E35B756188C4B.jpg)
 ![image](https://github.com/CCSH/SHChatMessageUI/blob/master/SHChatUI(QQ)/212D5EB7BB710D2ED32E35B756188C4B.jpg)
