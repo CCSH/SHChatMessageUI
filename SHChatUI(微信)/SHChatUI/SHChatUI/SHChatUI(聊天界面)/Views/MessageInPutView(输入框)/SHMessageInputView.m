@@ -36,9 +36,6 @@ SHVoiceRecordHelperDelegate//录音代理
 //菜单控件
 @property (nonatomic, strong) SHShareMenuView *menuView;
 
-//用户光标位置
-@property (nonatomic, assign) NSInteger selectIndex;
-
 //其他
 @property (nonatomic, strong) SHVoiceRecordHelper *voiceRecordHelper;
 @property (nonatomic, assign) CGFloat playTime;
@@ -104,9 +101,9 @@ static CGFloat start_maxy;
 - (UITextView *)textView{
     if (!_textView) {
         _textView = [[UITextView alloc]init];
-        _textView.frame = CGRectMake(2*kSHInPutSpace + kSHInPutIcon_WH, self.height - kSHInPutSpace - kSHInPutIcon_WH, self.emojiBtn.x - self.changeBtn.maxX - 2*kSHInPutSpace, kSHInPutIcon_WH);
+        _textView.frame = CGRectMake(2*kSHInPutSpace + kSHInPutIcon_WH, self.height - kSHInPutIcon_WH - kSHInPutSpace, self.emojiBtn.x - self.changeBtn.maxX - 2*kSHInPutSpace, kSHInPutIcon_WH);
         _textView.delegate = self;
-        _textView.font = [UIFont fontWithName:@"HelveticaNeue" size:16];
+        _textView.font = [UIFont systemFontOfSize:17];
         _textView.returnKeyType = UIReturnKeySend;
         _textView.autocorrectionType = UITextAutocorrectionTypeNo;
         _textView.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -125,7 +122,7 @@ static CGFloat start_maxy;
 - (UIButton *)voiceBtn{
     if (!_voiceBtn) {
         _voiceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _voiceBtn.frame = CGRectMake(self.textView.x, self.height - kSHInPutSpace - kSHInPutIcon_WH, self.textView.width, kSHInPutIcon_WH);
+        _voiceBtn.frame = CGRectMake(self.textView.x, self.changeBtn.y, self.textView.width, kSHInPutIcon_WH);
         _voiceBtn.hidden = YES;
         //文字颜色
         [_voiceBtn setTitleColor:kRGB(76, 76, 76, 1) forState:UIControlStateNormal];
@@ -185,7 +182,7 @@ static CGFloat start_maxy;
         _emojiView.toolBarArr = @[@(SHEmoticonType_system),@(SHEmoticonType_gif),@(SHEmoticonType_custom),@(SHEmoticonType_recent)];
         [_emojiView reloadView];
         
-        [self.superview addSubview:_emojiView];
+//        [self.superview addSubview:_emojiView];
     }
     
     return _emojiView;
@@ -264,7 +261,7 @@ static CGFloat start_maxy;
 }
 
 #pragma mark - 监听实现
-#pragma mark 监听输入框的Y
+#pragma mark 监听输入框的位置
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqualToString:@"frame"]) {
@@ -299,6 +296,8 @@ static CGFloat start_maxy;
     self.emojiView.hidden = YES;
     self.menuView.hidden = YES;
     
+    self.textView.inputView = nil;
+    
     [self.textView resignFirstResponder];
     
     switch (inputType) {
@@ -315,6 +314,8 @@ static CGFloat start_maxy;
         {
             self.textView.hidden  = NO;
             
+            [self.textView reloadInputViews];
+            
             //弹出键盘
             [self.textView becomeFirstResponder];
         }
@@ -328,6 +329,7 @@ static CGFloat start_maxy;
             [UIView animateWithDuration:0.25 animations:^{
                 self.y = start_maxy - self.height;
             }];
+            [self remakesView];
         }
             break;
         case SHInputViewType_emotion://表情
@@ -337,13 +339,21 @@ static CGFloat start_maxy;
             self.textView.hidden  = NO;
             self.emojiView.hidden = NO;
             
+            self.textView.inputView = self.emojiView;
+            [self.textView reloadInputViews];
+            
+            //弹出键盘
+            [self.textView becomeFirstResponder];
+            
             //位置变化
-            self.emojiView.y = self.superview.height;
-            [UIView animateWithDuration:0.25 animations:^{
-                
-                self.y = start_maxy - self.height - self.emojiView.height;
-                self.emojiView.y = self.maxY;
-            }];
+//            self.emojiView.y = self.superview.height;
+//            [UIView animateWithDuration:0.25 animations:^{
+//
+//                self.y = start_maxy - self.height - self.emojiView.height;
+//                self.emojiView.y = self.maxY;
+//            }];
+//
+//            [self textViewDidChange:self.textView];
         }
             break;
         case SHInputViewType_menu://菜单
@@ -360,7 +370,7 @@ static CGFloat start_maxy;
                 self.y = start_maxy - self.height - self.menuView.height;
                 self.menuView.y = self.maxY;
             }];
-            
+            [self textViewDidChange:self.textView];
         }
             break;
         default:
@@ -375,8 +385,9 @@ static CGFloat start_maxy;
     if ([_delegate respondsToSelector:@selector(chatMessageWithSendText:)]) {
         [_delegate chatMessageWithSendText:text];
     }
+    
     self.textView.text = @"";
-    self.selectIndex = 0;
+    [self textViewDidChange:self.textView];
 }
 
 #pragma mark 发送语音
@@ -556,19 +567,53 @@ static CGFloat start_maxy;
 #pragma mark 开始编辑
 - (void)textViewDidBeginEditing:(UITextView *)textView{
     
-    //输入文本
-    self.inputType = SHInputViewType_text;
+    if (self.inputType == SHInputViewType_default) {
+        //输入文本
+        self.inputType = SHInputViewType_text;
+    }
+    
+    [self textViewDidChange:textView];
 }
 
 #pragma mark 结束编辑
 - (void)textViewDidEndEditing:(UITextView *)textView{
     
-    self.selectIndex = textView.selectedRange.location;
+    [self textViewDidChange:textView];
 }
 
 #pragma mark 文字改变
 - (void)textViewDidChange:(UITextView *)textView{
     
+    CGFloat padding = textView.textContainer.lineFragmentPadding;
+    
+    CGFloat maxH = ceil(textView.font.lineHeight*3 + 2*padding);
+    
+    CGFloat textH = [textView.text boundingRectWithSize:CGSizeMake(textView.width - 2*padding, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:textView.font} context:nil].size.height;
+    textH = ceil(MIN(maxH, textH));
+    textH = ceil(MAX(textH, kSHInPutIcon_WH));
+    
+    if (self.textView.height != textH) {
+        
+        self.y += (self.textView.height - textH);
+        self.textView.height = textH;
+        self.height = self.textView.height + 2*kSHInPutSpace;
+        self.changeBtn.y = self.height - kSHInPutSpace - kSHInPutIcon_WH;
+        self.emojiBtn.y = self.changeBtn.y;
+        self.menuBtn.y = self.changeBtn.y;
+        
+        [textView scrollRangeToVisible:NSMakeRange(textView.text.length, 1)];
+    }
+}
+
+#pragma mark 重制视图
+- (void)remakesView{
+    
+    self.textView.height = kSHInPutIcon_WH;
+    self.height = kSHInPutIcon_WH + 2*kSHInPutSpace;
+    self.y = start_maxy - self.height;
+    self.changeBtn.y = self.height - kSHInPutSpace - kSHInPutIcon_WH;
+    self.emojiBtn.y = self.changeBtn.y;
+    self.menuBtn.y = self.changeBtn.y;
 }
 
 #pragma mark - SHEmotionKeyboardDelegate
@@ -591,13 +636,17 @@ static CGFloat start_maxy;
                 break;
         }
     }else{
-        NSMutableString *str = [[NSMutableString alloc]initWithString:self.textView.text];
         
-        [str insertString:text atIndex:self.selectIndex];
-        self.selectIndex += text.length;
+        
+        NSInteger selectIndex = self.textView.selectedRange.location;
+        NSMutableString *str = [[NSMutableString alloc]initWithString:self.textView.text];
+
+        [str insertString:text atIndex:selectIndex];
         //放到文本框
         self.textView.text = str;
         [self textViewDidChange:self.textView];
+        
+        self.textView.selectedRange = NSMakeRange(selectIndex + text.length,0);
     }
 }
 
