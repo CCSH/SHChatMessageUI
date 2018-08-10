@@ -978,6 +978,7 @@ static NSString * const reuseIdentifier = @"SHChatMessageCell";
         //设置背景
         _bgImageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
         _bgImageView.image = [UIImage imageNamed:@"message_bg.jpeg"];
+        _bgImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     }
     return _bgImageView;
 }
@@ -990,6 +991,8 @@ static NSString * const reuseIdentifier = @"SHChatMessageCell";
         _chatTableView.backgroundColor = [UIColor clearColor];
         _chatTableView.delegate = self;
         _chatTableView.dataSource = self;
+        
+        _chatTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     }
     return _chatTableView;
 }
@@ -1058,6 +1061,7 @@ static NSString * const reuseIdentifier = @"SHChatMessageCell";
         [_unreadBtn setTitleColor:[UIColor redColor] forState:0];
         [_unreadBtn setBackgroundImage:[UIImage imageNamed:@"unread_bg.png"] forState:0];
         [_unreadBtn addTarget:self action:@selector(unreadClick:) forControlEvents:UIControlEventTouchUpInside];
+        _unreadBtn.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
         [self.view addSubview:_unreadBtn];
     }
     

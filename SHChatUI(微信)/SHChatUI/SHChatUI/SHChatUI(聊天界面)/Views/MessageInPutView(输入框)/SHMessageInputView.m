@@ -58,6 +58,8 @@ static CGFloat start_maxy;
     self.layer.borderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.4].CGColor;
     self.layer.borderWidth = 0.4;
     
+    self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    
     start_maxy = self.maxY;
     
     //添加改变输入状态按钮（语音、文字）
@@ -93,6 +95,8 @@ static CGFloat start_maxy;
         [_changeBtn setBackgroundImage:[UIImage imageNamed:@"chat_keyboard.png"] forState:UIControlStateSelected];
         
         [_changeBtn addTarget:self action:@selector(changeClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        _changeBtn.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
     }
     return _changeBtn;
 }
@@ -109,6 +113,8 @@ static CGFloat start_maxy;
         _textView.autocapitalizationType = UITextAutocapitalizationTypeNone;
         //UITextView内部判断send按钮是否可以用
         _textView.enablesReturnKeyAutomatically = YES;
+        
+        _textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
         _textView.layer.cornerRadius = 4;
         _textView.layer.masksToBounds = YES;
@@ -137,6 +143,8 @@ static CGFloat start_maxy;
         [_voiceBtn addTarget:self action:@selector(RemindDragExit:) forControlEvents:UIControlEventTouchDragExit];
         [_voiceBtn addTarget:self action:@selector(RemindDragEnter:) forControlEvents:UIControlEventTouchDragEnter];
         
+        _voiceBtn.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+        
         _voiceBtn.layer.cornerRadius = 4;
         _voiceBtn.layer.masksToBounds = YES;
         _voiceBtn.layer.borderColor = [[[UIColor lightGrayColor] colorWithAlphaComponent:0.4] CGColor];
@@ -152,6 +160,7 @@ static CGFloat start_maxy;
         _menuBtn.frame = CGRectMake(self.width - kSHInPutSpace - kSHInPutIcon_WH, self.changeBtn.y, kSHInPutIcon_WH, kSHInPutIcon_WH);
         [_menuBtn setBackgroundImage:[UIImage imageNamed:@"chat_menu.png"] forState:UIControlStateNormal];
         [_menuBtn addTarget:self action:@selector(menuClick:) forControlEvents:UIControlEventTouchUpInside];
+        _menuBtn.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
     }
     return _menuBtn;
 }
@@ -165,6 +174,7 @@ static CGFloat start_maxy;
         [_emojiBtn setBackgroundImage:[UIImage imageNamed:@"chat_keyboard.png"] forState:UIControlStateSelected];
         [_menuBtn setBackgroundImage:[UIImage new] forState:UIControlStateHighlighted];
         [_emojiBtn addTarget:self action:@selector(emojiClick:) forControlEvents:UIControlEventTouchUpInside];
+        _emojiBtn.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
     }
     return _emojiBtn;
 }
@@ -181,6 +191,8 @@ static CGFloat start_maxy;
         _emojiView.delegate = self;
         _emojiView.toolBarArr = @[@(SHEmoticonType_system),@(SHEmoticonType_gif),@(SHEmoticonType_custom),@(SHEmoticonType_recent)];
         [_emojiView reloadView];
+        
+        _emojiView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         
 //        [self.superview addSubview:_emojiView];
     }
@@ -595,11 +607,7 @@ static CGFloat start_maxy;
     if (self.textView.height != textH) {
         
         self.y += (self.textView.height - textH);
-        self.textView.height = textH;
-        self.height = self.textView.height + 2*kSHInPutSpace;
-        self.changeBtn.y = self.height - kSHInPutSpace - kSHInPutIcon_WH;
-        self.emojiBtn.y = self.changeBtn.y;
-        self.menuBtn.y = self.changeBtn.y;
+        self.height = textH + 2*kSHInPutSpace;
         
         [textView scrollRangeToVisible:NSMakeRange(textView.text.length, 1)];
     }
@@ -611,9 +619,6 @@ static CGFloat start_maxy;
     self.textView.height = kSHInPutIcon_WH;
     self.height = kSHInPutIcon_WH + 2*kSHInPutSpace;
     self.y = start_maxy - self.height;
-    self.changeBtn.y = self.height - kSHInPutSpace - kSHInPutIcon_WH;
-    self.emojiBtn.y = self.changeBtn.y;
-    self.menuBtn.y = self.changeBtn.y;
 }
 
 #pragma mark - SHEmotionKeyboardDelegate
