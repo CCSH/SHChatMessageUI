@@ -58,7 +58,7 @@ static CGFloat start_maxy;
     self.layer.borderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.4].CGColor;
     self.layer.borderWidth = 0.4;
     
-    self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     start_maxy = self.maxY;
     
@@ -143,7 +143,7 @@ static CGFloat start_maxy;
         [_voiceBtn addTarget:self action:@selector(RemindDragExit:) forControlEvents:UIControlEventTouchDragExit];
         [_voiceBtn addTarget:self action:@selector(RemindDragEnter:) forControlEvents:UIControlEventTouchDragEnter];
         
-        _voiceBtn.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+        _voiceBtn.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
         _voiceBtn.layer.cornerRadius = 4;
         _voiceBtn.layer.masksToBounds = YES;
@@ -587,12 +587,6 @@ static CGFloat start_maxy;
     [self textViewDidChange:textView];
 }
 
-#pragma mark 结束编辑
-- (void)textViewDidEndEditing:(UITextView *)textView{
-    
-    [self textViewDidChange:textView];
-}
-
 #pragma mark 文字改变
 - (void)textViewDidChange:(UITextView *)textView{
     
@@ -605,10 +599,8 @@ static CGFloat start_maxy;
     textH = ceil(MAX(textH, kSHInPutIcon_WH));
     
     if (self.textView.height != textH) {
-        
         self.y += (self.textView.height - textH);
         self.height = textH + 2*kSHInPutSpace;
-        
         [textView scrollRangeToVisible:NSMakeRange(textView.text.length, 1)];
     }
 }
@@ -616,7 +608,7 @@ static CGFloat start_maxy;
 #pragma mark 重制视图
 - (void)remakesView{
     
-    self.textView.height = kSHInPutIcon_WH;
+//    self.voiceBtn.height = kSHInPutIcon_WH;
     self.height = kSHInPutIcon_WH + 2*kSHInPutSpace;
     self.y = start_maxy - self.height;
 }
