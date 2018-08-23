@@ -18,4 +18,5 @@
 @property (nonatomic, assign) SHChatType chatType;
 //聊天ID
 @property (nonatomic, strong) NSString *chatId;
+
 @end
