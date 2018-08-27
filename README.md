@@ -1,4 +1,5 @@
 # 两种风格聊天界面(QQ、微信)
+**另外附上[`朋友圈界面代码`](https://github.com/CCSH/SHFriendTimeLineUI)**
 # 消息格式
 * 文本
 * 语音
@@ -29,5 +30,3 @@
 # QQ
 ![image](https://github.com/CCSH/SHChatMessageUI/blob/master/SHChatUI(QQ)/E4806C70A6A81336291D6785498A4FB5.jpg)
 ![image](https://github.com/CCSH/SHChatMessageUI/blob/master/SHChatUI(QQ)/60413BA90CA7DBEB358B59655C5E8BE1.jpg)
-
-**另外附上[`朋友圈界面代码`](https://github.com/CCSH/SHFriendTimeLineUI)**
