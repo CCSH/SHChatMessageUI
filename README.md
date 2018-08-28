@@ -1,6 +1,9 @@
 # 两种风格聊天界面(QQ、微信)
+
 >微信版本较新建议使用微信版本
+
 **另外附上[`朋友圈界面代码`](https://github.com/CCSH/SHFriendTimeLineUI)**
+
 # 消息格式
 * 文本
 * 语音
