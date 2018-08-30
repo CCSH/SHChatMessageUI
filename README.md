@@ -34,5 +34,5 @@
 ![image](https://github.com/CCSH/SHChatMessageUI/blob/master/SHChatUI(%E5%BE%AE%E4%BF%A1)/QQ20180702-183212-HD.gif)
 
 # QQ
-![image](https://github.com/CCSH/SHChatMessageUI/blob/master/SHChatUI(QQ)/E4806C70A6A81336291D6785498A4FB5.jpg)
-![image](https://github.com/CCSH/SHChatMessageUI/blob/master/SHChatUI(QQ)/60413BA90CA7DBEB358B59655C5E8BE1.jpg)
+<img src="https://github.com/CCSH/SHChatMessageUI/blob/master/SHChatUI(QQ)/E4806C70A6A81336291D6785498A4FB5.jpg" width="320" height="569"/>
+<img src="https://github.com/CCSH/SHChatMessageUI/blob/master/SHChatUI(QQ)/60413BA90CA7DBEB358B59655C5E8BE1.jpg" width="320" height="569"/>
