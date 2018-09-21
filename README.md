@@ -3,8 +3,9 @@
 >微信版本较新建议使用微信版本
 
 **另外附上**
-[`朋友圈界面代码`](https://github.com/CCSH/SHFriendTimeLineUI)
-[`录制小视频代码`](https://github.com/CCSH/SHShortVideo)
+[`朋友圈界面`](https://github.com/CCSH/SHFriendTimeLineUI)
+[`录制小视频`](https://github.com/CCSH/SHShortVideo)
+[`表情键盘`](https://github.com/CCSH/SHEmotionKeyboard)
 
 # 消息格式
 - [x] 文本
