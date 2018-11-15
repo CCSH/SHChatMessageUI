@@ -2,6 +2,9 @@
 
 >微信版本较新建议使用微信版本
 
+优化小视频录制自定义组件
+修复视频消息第一帧图片获取问题
+
 **另外附上**
 [`朋友圈界面`](https://github.com/CCSH/SHFriendTimeLineUI)
 [`录制小视频`](https://github.com/CCSH/SHShortVideo)
