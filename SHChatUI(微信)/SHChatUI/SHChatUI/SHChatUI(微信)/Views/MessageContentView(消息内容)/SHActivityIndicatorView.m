@@ -7,6 +7,7 @@
 //
 
 #import "SHActivityIndicatorView.h"
+#import "SHFileHelper.h"
 
 @interface SHActivityIndicatorView ()
 
@@ -24,7 +25,7 @@
         //失败图标
         _failBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _failBtn.userInteractionEnabled = NO;
-        [_failBtn setBackgroundImage:[UIImage imageNamed:@"message_fail.png"] forState:0];
+        [_failBtn setBackgroundImage:[SHFileHelper imageNamed:@"message_fail.png"] forState:0];
         [self addSubview:_failBtn];
     }
     return _failBtn;

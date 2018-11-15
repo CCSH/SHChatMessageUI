@@ -58,7 +58,7 @@
     if (!_messageVoiceImage) {
         //图片
         self.messageVoiceImage = [[UIImageView alloc] initWithFrame:CGRectMake(35, 15, 80, 90)];
-        self.messageVoiceImage.image = [UIImage imageNamed:@"voice_play_animation_0.png"];
+        self.messageVoiceImage.image = [SHFileHelper imageNamed:@"voice_play_animation_0.png"];
         
         [self.messageBgView addSubview:self.messageVoiceImage];
     }
@@ -114,7 +114,7 @@
             self.messageVoiceLabel.backgroundColor = kRGB(155, 57, 57, 1);
             
             self.messageVoiceLabel.text = @"松开手指，取消发送";
-            self.messageVoiceImage.image = [UIImage imageNamed:@"voice_change.png"];
+            self.messageVoiceImage.image = [SHFileHelper imageNamed:@"voice_change.png"];
 
             [self.overlayWindow addSubview:self];
         }
@@ -122,7 +122,7 @@
         case 3://警告
         {
             self.messageVoiceLabel.text = @"时间太短";
-            self.messageVoiceImage.image = [UIImage imageNamed:@"voice_failure.png"];
+            self.messageVoiceImage.image = [SHFileHelper imageNamed:@"voice_failure.png"];
             [self.overlayWindow addSubview:self];
             
         }
@@ -144,7 +144,7 @@
     if (self.hudType == 1) {
         
         NSString *imageName = [NSString stringWithFormat:@"voice_play_animation_%d.png",meter];
-        self.messageVoiceImage.image = [UIImage imageNamed:imageName];
+        self.messageVoiceImage.image = [SHFileHelper imageNamed:imageName];
     }
 }
 

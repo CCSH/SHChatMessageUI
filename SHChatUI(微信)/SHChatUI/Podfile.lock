@@ -1,0 +1,37 @@
+PODS:
+  - SHEmotionKeyboard (1.0.3):
+    - "UIView+SHExtension (= 0.0.1)"
+  - SHShortVideo (1.0.2):
+    - "UIView+SHExtension"
+  - "UIView+SHExtension (0.0.1)"
+  - VoiceConvert (0.0.3)
+
+DEPENDENCIES:
+  - SHEmotionKeyboard
+  - SHShortVideo
+  - VoiceConvert (from `https://github.com/DamianSheldon/VoiceConvert.git`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SHEmotionKeyboard
+    - SHShortVideo
+    - "UIView+SHExtension"
+
+EXTERNAL SOURCES:
+  VoiceConvert:
+    :git: https://github.com/DamianSheldon/VoiceConvert.git
+
+CHECKOUT OPTIONS:
+  VoiceConvert:
+    :commit: 5f03199db33a58d1321f21e08e4f36ed17bfba2e
+    :git: https://github.com/DamianSheldon/VoiceConvert.git
+
+SPEC CHECKSUMS:
+  SHEmotionKeyboard: 63b77ca24d318b2998fe29f44f9c3bf5eff8af80
+  SHShortVideo: a1f1732ad7d39c9b5707e30856d7345b2d84f7ab
+  "UIView+SHExtension": 7d2c58e60da7de044b17407900a211a54eb855de
+  VoiceConvert: 35530d58cfb1a5f5ba1e6243f21d0c7921f311e0
+
+PODFILE CHECKSUM: 84aa725dd003ecd7a931be33f7a86be4ea61a5da
+
+COCOAPODS: 1.5.3

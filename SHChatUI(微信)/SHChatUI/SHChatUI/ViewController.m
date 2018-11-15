@@ -27,7 +27,7 @@
 }
 
 - (IBAction)btnClick:(id)sender {
-    
+
     SHChatMessageViewController *view = [[SHChatMessageViewController alloc]init];
     [self.navigationController pushViewController:view animated:YES];
     

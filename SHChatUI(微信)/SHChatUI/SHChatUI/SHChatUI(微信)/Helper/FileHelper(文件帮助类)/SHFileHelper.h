@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "SHMessageType.h"
 
 /**
@@ -28,5 +29,8 @@
 
 //获取名字
 + (NSString *)getNameWithUrl:(NSString *)url;
+
+//获取图片
++ (UIImage *)imageNamed:(NSString *)name;
 
 @end

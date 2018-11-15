@@ -44,6 +44,7 @@
     
     NSString *filePath;
     NSData *data;
+    
     switch (type) {
         case SHMessageFileType_image://image
         {
@@ -64,7 +65,7 @@
             break;
         case SHMessageFileType_video://video
         {
-            filePath = [NSString stringWithFormat:@"%@/%@.gif",kSHPath_video,[SHMessageHelper getTimeWithZone]];
+            filePath = [NSString stringWithFormat:@"%@/%@.mp4",kSHPath_video,[SHMessageHelper getTimeWithZone]];
             data = [NSData dataWithContentsOfFile:content];
         }
             break;
@@ -112,12 +113,12 @@
             break;
         case SHMessageFileType_video://video
         {
-            return [NSString stringWithFormat:@"%@/%@.mp4",kSHPath_video,name];
+            return [NSString stringWithFormat:@"%@/%@.mp4",kSHPath_video,[self getNameWithUrl:name]];
         }
             break;
         case SHMessageFileType_video_image://视频图片
         {
-            return [NSString stringWithFormat:@"%@/%@.jpg",kSHPath_video_image,name];
+            return [NSString stringWithFormat:@"%@/%@.jpg",kSHPath_video_image,[self getNameWithUrl:name]];
         }
             break;
         default:
@@ -139,6 +140,16 @@
         return arr.firstObject;
     }
     return url;
+}
+
+//获取图片
++ (UIImage *)imageNamed:(NSString *)name{
+    
+    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"SHChatUI" ofType:@"bundle"]];
+    
+    NSString *path = [bundle pathForResource:[NSString stringWithFormat:@"/%@",name] ofType:@""];
+    
+    return [UIImage imageWithContentsOfFile:path];
 }
 
 @end

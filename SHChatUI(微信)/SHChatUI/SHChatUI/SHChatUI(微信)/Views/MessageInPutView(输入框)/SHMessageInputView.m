@@ -9,6 +9,7 @@
 #import "SHMessageInputView.h"
 #import <AVFoundation/AVFoundation.h>
 #import "SHChatMessageLocationViewController.h"
+#import "SHShortVideoViewController.h"
 
 @interface SHMessageInputView ()<
 UITextViewDelegate,
@@ -90,8 +91,8 @@ static CGFloat start_maxy;
         _changeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _changeBtn.frame = CGRectMake(kSHInPutSpace, self.height - kSHInPutSpace - kSHInPutIcon_WH, kSHInPutIcon_WH, kSHInPutIcon_WH);
         
-        [_changeBtn setBackgroundImage:[UIImage imageNamed:@"chat_voice.png"] forState:UIControlStateNormal];
-        [_changeBtn setBackgroundImage:[UIImage imageNamed:@"chat_keyboard.png"] forState:UIControlStateSelected];
+        [_changeBtn setBackgroundImage:[SHFileHelper imageNamed:@"chat_voice.png"] forState:UIControlStateNormal];
+        [_changeBtn setBackgroundImage:[SHFileHelper imageNamed:@"chat_keyboard.png"] forState:UIControlStateSelected];
         
         [_changeBtn addTarget:self action:@selector(changeClick:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -157,7 +158,7 @@ static CGFloat start_maxy;
     if (!_menuBtn) {
         _menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _menuBtn.frame = CGRectMake(self.width - kSHInPutSpace - kSHInPutIcon_WH, self.changeBtn.y, kSHInPutIcon_WH, kSHInPutIcon_WH);
-        [_menuBtn setBackgroundImage:[UIImage imageNamed:@"chat_menu.png"] forState:UIControlStateNormal];
+        [_menuBtn setBackgroundImage:[SHFileHelper imageNamed:@"chat_menu.png"] forState:UIControlStateNormal];
         [_menuBtn addTarget:self action:@selector(menuClick:) forControlEvents:UIControlEventTouchUpInside];
         _menuBtn.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
     }
@@ -169,8 +170,8 @@ static CGFloat start_maxy;
     if (!_emojiBtn) {
         _emojiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _emojiBtn.frame = CGRectMake(self.width - 2*(kSHInPutIcon_WH + kSHInPutSpace), self.changeBtn.y, kSHInPutIcon_WH, kSHInPutIcon_WH);
-        [_emojiBtn setBackgroundImage:[UIImage imageNamed:@"chat_face.png"] forState:UIControlStateNormal];
-        [_emojiBtn setBackgroundImage:[UIImage imageNamed:@"chat_keyboard.png"] forState:UIControlStateSelected];
+        [_emojiBtn setBackgroundImage:[SHFileHelper imageNamed:@"chat_face.png"] forState:UIControlStateNormal];
+        [_emojiBtn setBackgroundImage:[SHFileHelper imageNamed:@"chat_keyboard.png"] forState:UIControlStateSelected];
         [_menuBtn setBackgroundImage:[UIImage new] forState:UIControlStateHighlighted];
         [_emojiBtn addTarget:self action:@selector(emojiClick:) forControlEvents:UIControlEventTouchUpInside];
         _emojiBtn.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
@@ -516,29 +517,23 @@ static CGFloat start_maxy;
 #pragma mark 打开相机
 - (void)openCarema{
     
-    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-    if (authStatus == AVAuthorizationStatusRestricted|| authStatus == AVAuthorizationStatusDenied) {
-        
-        UIAlertView *ale = [[UIAlertView alloc]initWithTitle:@"提示" message:@"摄像头访问受限,请在设置-隐私中开启权限" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [ale show];
-    }else{
-
-        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+    SHShortVideoViewController *vc = [[SHShortVideoViewController alloc]init];
+//    vc.maxSeconds = 15;
+    @kSHWeak(self);
+    vc.finishBlock = ^(id content) {
+        @kSHStrong(self);
+        if ([content isKindOfClass:[NSString class]]) {
+            NSLog(@"视频路径：%@",content);
+            //发送视频
+            [self sendMessageWithVideo:content];
             
-            
-            UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-            picker.delegate = self;
-            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-            picker.mediaTypes =  [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
-            [self.supVC presentViewController:picker animated:YES completion:^{
-                [[UIApplication sharedApplication] setStatusBarHidden:YES];
-            }];
-        }else{
-            //如果没有提示用户
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"你的设备没有摄像头" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-            [alert show];
+        }else if ([content isKindOfClass:[UIImage class]]){
+            NSLog(@"图片内容：%@",content);
+            //发送图片与照片
+            [self sendMessageWithImage:content];
         }
-    }
+    };
+    [self.supVC presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark 打开定位

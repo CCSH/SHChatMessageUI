@@ -977,7 +977,7 @@ static NSString * const reuseIdentifier = @"SHChatMessageCell";
     if (!_bgImageView) {
         //设置背景
         _bgImageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
-        _bgImageView.image = [UIImage imageNamed:@"message_bg.jpeg"];
+        _bgImageView.image = [SHFileHelper imageNamed:@"message_bg.jpeg"];
         _bgImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     }
     return _bgImageView;
@@ -1007,7 +1007,7 @@ static NSString * const reuseIdentifier = @"SHChatMessageCell";
         _chatInputView.supVC = self;
         
         //图标
-        NSArray *plugIcons = @[@"sharemore_pic", @"sharemore_video",@"sharemore_voipvoice", @"sharemore_location",  @"sharemore_myfav", @"sharemore_friendcard"];
+        NSArray *plugIcons = @[@"sharemore_pic.png", @"sharemore_video.png",@"sharemore_voipvoice.png", @"sharemore_location.png",  @"sharemore_myfav.png", @"sharemore_friendcard.png"];
         //标题
         NSArray *plugTitle = @[@"照片", @"拍摄", @"通话", @"位置", @"红包", @"名片"];
         
@@ -1017,7 +1017,7 @@ static NSString * const reuseIdentifier = @"SHChatMessageCell";
         //配置Item按钮
         [plugIcons enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop)  {
             
-            SHShareMenuItem *shareMenuItem = [[SHShareMenuItem alloc] initWithIcon:[UIImage imageNamed:obj] title:plugTitle[idx]];
+            SHShareMenuItem *shareMenuItem = [[SHShareMenuItem alloc] initWithIcon:[SHFileHelper imageNamed:obj] title:plugTitle[idx]];
             [shareMenuItems addObject:shareMenuItem];
         }];
         
@@ -1059,7 +1059,7 @@ static NSString * const reuseIdentifier = @"SHChatMessageCell";
         
         _unreadBtn.titleLabel.font = [UIFont systemFontOfSize:16];
         [_unreadBtn setTitleColor:[UIColor redColor] forState:0];
-        [_unreadBtn setBackgroundImage:[UIImage imageNamed:@"unread_bg.png"] forState:0];
+        [_unreadBtn setBackgroundImage:[SHFileHelper imageNamed:@"unread_bg.png"] forState:0];
         [_unreadBtn addTarget:self action:@selector(unreadClick:) forControlEvents:UIControlEventTouchUpInside];
         _unreadBtn.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
         [self.view addSubview:_unreadBtn];

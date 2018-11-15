@@ -56,7 +56,7 @@
     if (!_readMarker) {
         _readMarker = [[UIImageView alloc]init];
         _readMarker.frame = CGRectMake(0, 1, 9, 9);
-        _readMarker.image = [UIImage imageNamed:@"unread.png"];
+        _readMarker.image = [SHFileHelper imageNamed:@"unread.png"];
         [self addSubview:_readMarker];
     }
     return _readMarker;
@@ -95,7 +95,7 @@
     if (!_videoIconView) {
         _videoIconView = [[UIImageView alloc]init];
         _videoIconView.size = CGSizeMake(30, 30);
-        _videoIconView.image = [UIImage imageNamed:@"chat_video.png"];
+        _videoIconView.image = [SHFileHelper imageNamed:@"chat_video.png"];
         [self addSubview:_videoIconView];
     }
     return _videoIconView;
@@ -191,7 +191,7 @@
     //图片
     if (!_redPaperImage) {
         _redPaperImage = [[UIImageView alloc]init];
-        _redPaperImage.image = [UIImage imageNamed:@"redpackage.png"];
+        _redPaperImage.image = [SHFileHelper imageNamed:@"redpackage.png"];
         _redPaperImage.contentMode = UIViewContentModeScaleToFill;
         [self.redPaperBg addSubview:_redPaperImage];
     }
@@ -330,9 +330,9 @@
     // 设置聊天气泡背景
     UIImage *normal = nil;
     if (isSend) {
-        normal = [UIImage imageNamed:@"chat_message_send"];
+        normal = [SHFileHelper imageNamed:@"chat_message_send@2x.png"];
     }else{
-        normal = [UIImage imageNamed:@"chat_message_receive"];
+        normal = [SHFileHelper imageNamed:@"chat_message_receive@2x.png"];
     }
     
     normal = [normal resizableImageWithCapInsets:UIEdgeInsetsMake(30, 25, 10, 25)];
@@ -378,7 +378,7 @@
                 [self setBackgroundImage:image forState:0];
             }else{//网络
                 //sdwebimage
-                [self setBackgroundImage:[UIImage imageNamed:@"chat_picture.png"] forState:0];
+                [self setBackgroundImage:[SHFileHelper imageNamed:@"chat_picture.png"] forState:0];
             }
         }
             break;
@@ -408,12 +408,12 @@
                 //语音图片
                 self.voiceView.x = self.width - kChat_angle_w - kChat_margin - self.voiceView.width - 5;
                 //动画
-                self.voiceView.image = [UIImage imageNamed:@"chat_send_voice4.png"];
+                self.voiceView.image = [SHFileHelper imageNamed:@"chat_send_voice4.png"];
                 self.voiceView.animationImages = [NSArray arrayWithObjects:
-                                                  [UIImage imageNamed:@"chat_send_voice1.png"],
-                                                  [UIImage imageNamed:@"chat_send_voice2.png"],
-                                                  [UIImage imageNamed:@"chat_send_voice3.png"],
-                                                  [UIImage imageNamed:@"chat_send_voice4.png"],nil];
+                                                  [SHFileHelper imageNamed:@"chat_send_voice1.png"],
+                                                  [SHFileHelper imageNamed:@"chat_send_voice2.png"],
+                                                  [SHFileHelper imageNamed:@"chat_send_voice3.png"],
+                                                  [SHFileHelper imageNamed:@"chat_send_voice4.png"],nil];
                 //时长
                 self.voiceNum.x = - (25 + set_space);
                 self.voiceNum.textAlignment = NSTextAlignmentRight;
@@ -423,12 +423,12 @@
                 self.voiceView.x = kChat_angle_w + kChat_margin + 5;
                 
                 //动画
-                self.voiceView.image = [UIImage imageNamed:@"chat_receive_voice4.png"];
+                self.voiceView.image = [SHFileHelper imageNamed:@"chat_receive_voice4.png"];
                 self.voiceView.animationImages = [NSArray arrayWithObjects:
-                                                  [UIImage imageNamed:@"chat_receive_voice1.png"],
-                                                  [UIImage imageNamed:@"chat_receive_voice2.png"],
-                                                  [UIImage imageNamed:@"chat_receive_voice3.png"],
-                                                  [UIImage imageNamed:@"chat_receive_voice4.png"],nil];
+                                                  [SHFileHelper imageNamed:@"chat_receive_voice1.png"],
+                                                  [SHFileHelper imageNamed:@"chat_receive_voice2.png"],
+                                                  [SHFileHelper imageNamed:@"chat_receive_voice3.png"],
+                                                  [SHFileHelper imageNamed:@"chat_receive_voice4.png"],nil];
                 //时长
                 self.voiceNum.x = self.width + set_space;
                 self.voiceNum.textAlignment = NSTextAlignmentLeft;
@@ -482,7 +482,7 @@
             
             self.cardPrompt.text = @"    个人名片";
             self.cardName.text = @"小明";
-            self.cardHead.image = [UIImage imageNamed:@"headImage.jpeg"];
+            self.cardHead.image = [SHFileHelper imageNamed:@"headImage.jpeg"];
             //编辑气泡
             [self makeMaskView:self.cardBg withImage:image];
             
@@ -559,7 +559,17 @@
             [self setBackgroundImage:nil forState:0];
             
             //视频第一帧图片路径
-            NSString *videoImagePath = [SHFileHelper getFilePathWithName:message.voiceName type:SHMessageFileType_video_image];
+            NSString *videoImagePath;
+            
+            //先看本地
+            if (message.videoName.length) {
+                videoImagePath = [SHFileHelper getFilePathWithName:message.videoName type:SHMessageFileType_video_image];
+            }
+            
+            //再看网络
+            if (!videoImagePath.length) {
+                videoImagePath = [SHFileHelper getFilePathWithName:message.videoUrl type:SHMessageFileType_video_image];
+            }
             
             if ([[NSFileManager defaultManager] fileExistsAtPath:videoImagePath]) {//本地
                 
@@ -569,9 +579,18 @@
                 //异步获取
                 dispatch_async(dispatch_get_global_queue(0, 0), ^{
                     
+                    //视频第一帧图片路径
+                    NSString *videoPath;
+                    if (message.videoName.length) {
+                        videoPath = [SHFileHelper getFilePathWithName:message.videoName type:SHMessageFileType_video];
+                    }
+                    
+                    if (!videoPath.length) {
+                        videoPath = message.videoUrl;
+                    }
+                    
                     //把第一帧图片保存到本地中
-                    NSString *videoImageName = [SHFileHelper getFileNameWithContent:message.videoUrl type:SHMessageFileType_video_image];
-                    NSString *imagePath = [SHFileHelper getFileNameWithContent:videoImageName type:SHMessageFileType_video_image];
+                    NSString *imagePath = [SHFileHelper getFilePathWithName:[SHFileHelper getFileNameWithContent:videoPath type:SHMessageFileType_video_image] type:SHMessageFileType_video_image];
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
                         

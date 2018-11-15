@@ -107,7 +107,7 @@
     
     // 设置头像
     self.btnHeadImage.frame = messageFrame.iconF;
-    [self.btnHeadImage setBackgroundImage:[UIImage imageNamed:message.avator] forState:0];
+    [self.btnHeadImage setBackgroundImage:[SHFileHelper imageNamed:message.avator] forState:0];
     
     // 设置昵称
     self.labelNum.frame = messageFrame.nameF;
