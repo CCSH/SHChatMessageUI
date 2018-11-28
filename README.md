@@ -1,6 +1,6 @@
-# 两种风格聊天界面(QQ、微信)
-
->微信版本较新建议使用微信版本
+# 两种方式创建聊天界面(微信)
+> 一种是不同聊天类型一种cell，控制控件的显隐
+> 一种是不同聊天类型多种cell，控制cell标示
 
 **另外附上**
 [`朋友圈界面`](https://github.com/CCSH/SHFriendTimeLineUI)
@@ -32,8 +32,4 @@
 >我这里微信qq主要区别是工具栏样式与气泡样式，微信部分有时间会补充进去有几种消息格式没有添加
 
 # 微信
-![image](https://github.com/CCSH/SHChatMessageUI/blob/master/SHChatUI(%E5%BE%AE%E4%BF%A1)/QQ20180702-183212-HD.gif)
-
-# QQ
-<img src="https://github.com/CCSH/SHChatMessageUI/blob/master/SHChatUI(QQ)/E4806C70A6A81336291D6785498A4FB5.jpg" width="320" height="569"/>
-<img src="https://github.com/CCSH/SHChatMessageUI/blob/master/SHChatUI(QQ)/60413BA90CA7DBEB358B59655C5E8BE1.jpg" width="320" height="569"/>
+![image](https://github.com/CCSH/SHChatMessageUI/blob/master/QQ20180702-183212-HD.gif)
