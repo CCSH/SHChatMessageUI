@@ -30,7 +30,6 @@
 - [x] 语音播放与暂停
 - [x] 消息发送状态
 - [x] 微信版 输入框随着输入自增高
->我这里微信qq主要区别是工具栏样式与气泡样式，微信部分有时间会补充进去有几种消息格式没有添加
 
 # 微信
 ![image](https://github.com/CCSH/SHChatMessageUI/blob/master/QQ20180702-183212-HD.gif)
