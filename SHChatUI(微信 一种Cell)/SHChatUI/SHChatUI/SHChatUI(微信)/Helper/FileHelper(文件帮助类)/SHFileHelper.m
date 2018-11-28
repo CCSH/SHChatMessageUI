@@ -145,11 +145,7 @@
 //获取图片
 + (UIImage *)imageNamed:(NSString *)name{
     
-    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"SHChatUI" ofType:@"bundle"]];
-    
-    NSString *path = [bundle pathForResource:[NSString stringWithFormat:@"/%@",name] ofType:@""];
-    
-    return [UIImage imageWithContentsOfFile:path];
+    return [UIImage imageNamed:[NSString stringWithFormat:@"SHChatUI.bundle/%@",name]];
 }
 
 @end
