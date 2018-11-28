@@ -1,0 +1,21 @@
+{
+  "name": "VoiceConvert",
+  "version": "0.0.3",
+  "summary": "VoiceConvert is a Cocoa Touch Static Library for converting between AMR and WAV.",
+  "description": "VoiceConvert convert AMR to WAV, vice versa. Android's default audio format is AMR, but iOS doesn't support it. When it comes to support cross platform we have to convertbetween AMR and WAV.",
+  "homepage": "https://github.com/DamianSheldon/VoiceConvert/blob/master/VoiceConvert.podspec",
+  "license": "MIT",
+  "authors": {
+    "Meiliang Dong": "dongmeilianghy@sina.com"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/DamianSheldon/VoiceConvert.git",
+    "tag": "0.0.3"
+  },
+  "source_files": "VoiceConvert/VoiceConvert/**/*.{h,m,mm}",
+  "libraries": "stdc++",
+  "vendored_libraries": "VoiceConvert/VoiceConvert/lib/*.a"
+}

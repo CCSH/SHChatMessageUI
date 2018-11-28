@@ -1,0 +1,10 @@
+platform  :ios,'8.0'
+inhibit_all_warnings!
+
+target 'SHChatUI' do
+    
+    pod 'SHEmotionKeyboard'
+    pod 'VoiceConvert',:git => "https://github.com/DamianSheldon/VoiceConvert.git"
+    pod 'SHShortVideo'
+    
+end

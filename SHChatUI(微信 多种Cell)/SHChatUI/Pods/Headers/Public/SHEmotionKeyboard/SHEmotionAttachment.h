@@ -1,0 +1,1 @@
+../../../SHEmotionKeyboard/SHEmotionKeyboard/SHEmotionAttachment.h
