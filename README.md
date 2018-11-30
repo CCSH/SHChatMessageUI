@@ -2,7 +2,7 @@
 * 一种是不同聊天类型一种cell，控制控件的显隐
 * 一种是不同聊天类型多种cell，控制cell标示
 * 具体哪个比较好看自身选择
-> 使用中有其他问题可以[`告诉我`](https://github.com/CCSH/SHChatMessageUI/issues/new)
+> 使用中如果有其他问题可以[`告诉我`](https://github.com/CCSH/SHChatMessageUI/issues/new)
 
 **另外附上**
 [`朋友圈界面`](https://github.com/CCSH/SHFriendTimeLineUI)
