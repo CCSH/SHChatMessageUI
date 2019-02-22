@@ -761,10 +761,12 @@ UITableViewDataSource
 - (void)didAudioPlayerBeginPlay:(NSString *)playerName{
     
     for (SHVoiceTableViewCell *cell in self.chatTableView.visibleCells) {
-        if ([cell.messageFrame.message.voiceName isEqualToString:playerName]) {
-            [cell playVoiceAnimation];
-        }else{
-            [cell stopVoiceAnimation];
+        if ([cell isKindOfClass:[SHVoiceTableViewCell class]]) {
+            if ([cell.messageFrame.message.voiceName isEqualToString:playerName]) {
+                [cell playVoiceAnimation];
+            }else{
+                [cell stopVoiceAnimation];
+            }
         }
     }
 }
@@ -773,8 +775,10 @@ UITableViewDataSource
 - (void)didAudioPlayerStopPlay:(NSString *)playerName error:(NSString *)error{
     
     for (SHVoiceTableViewCell *cell in self.chatTableView.visibleCells) {
-        if ([cell.messageFrame.message.voiceName isEqualToString:playerName]) {
-            [cell stopVoiceAnimation];
+        if ([cell isKindOfClass:[SHVoiceTableViewCell class]]) {
+            if ([cell.messageFrame.message.voiceName isEqualToString:playerName]) {
+                [cell stopVoiceAnimation];
+            }
         }
     }
 }
@@ -782,8 +786,10 @@ UITableViewDataSource
 #pragma mark 暂停播放
 - (void)didAudioPlayerPausePlay:(NSString *)playerName{
     for (SHVoiceTableViewCell *cell in self.chatTableView.visibleCells) {
-        if ([cell.messageFrame.message.voiceName isEqualToString:playerName]) {
-            [cell stopVoiceAnimation];
+        if ([cell isKindOfClass:[SHVoiceTableViewCell class]]) {
+            if ([cell.messageFrame.message.voiceName isEqualToString:playerName]) {
+                [cell stopVoiceAnimation];
+            }
         }
     }
 }

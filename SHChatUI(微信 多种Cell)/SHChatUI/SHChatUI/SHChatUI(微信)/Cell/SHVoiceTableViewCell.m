@@ -36,6 +36,7 @@
     [super setMessageFrame:messageFrame];
     
     SHMessage *message = messageFrame.message;
+    self.readMarker.hidden = YES;
     
     NSInteger set_space = 5;
     

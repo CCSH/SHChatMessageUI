@@ -602,7 +602,7 @@ static CGFloat start_maxy;
     
     if ([text isEqualToString:@"\n"]) {//点击了发送
         //发送文字
-        [self sendMessageWithText:textView.text];
+        [self sendMessageWithText:[SHEmotionTool getRealStrWithAtt:textView.attributedText]];
         return NO;
     }
     return YES;

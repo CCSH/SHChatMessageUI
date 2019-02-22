@@ -34,6 +34,8 @@
     
     SHMessage *message = messageFrame.message;
     
+    self.btnContent.backgroundColor = [UIColor blackColor];
+    
     //视频第一帧图片路径
     NSString *videoImagePath;
     
@@ -79,7 +81,7 @@
     }
     
     //设置frame
-    self.videoIconView.origin = CGPointMake((self.width - self.videoIconView.width)/2, (self.height - self.videoIconView.height)/2);
+    self.videoIconView.center = CGPointMake(self.btnContent.width/2, self.btnContent.height/2);
 }
 
 #pragma mark 视频消息视图
