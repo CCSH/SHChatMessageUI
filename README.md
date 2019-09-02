@@ -4,6 +4,8 @@
 * 具体哪个比较好 看自身选择
 > 使用中如果有其他问题可以[`告诉我`](https://github.com/CCSH/SHChatMessageUI/issues/new)
 
+> 内部表情键盘请更新到最新，适配全面屏，还有一些细节优化 可以 pod 导入 SHEmotionKeyboard
+
 **另外附上**
 [`朋友圈界面`](https://github.com/CCSH/SHFriendTimeLineUI)
 [`录制小视频`](https://github.com/CCSH/SHShortVideo)
