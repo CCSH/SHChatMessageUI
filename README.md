@@ -4,8 +4,6 @@
 * 考虑到性能，扩展消息、代码可读性方面推荐第二种，本人也在不定期维护第二种
 > 使用中如果有其他问题可以[`告诉我`](https://github.com/CCSH/SHChatMessageUI/issues/new)
 
-> 高度还原ui效果、交互、动画
-
 **另外附上**
 [`朋友圈界面`](https://github.com/CCSH/SHFriendTimeLineUI)
 [`录制小视频`](https://github.com/CCSH/SHShortVideo)
