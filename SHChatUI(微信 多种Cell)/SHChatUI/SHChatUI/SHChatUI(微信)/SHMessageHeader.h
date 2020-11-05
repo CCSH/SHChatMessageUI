@@ -18,9 +18,9 @@
 
 #pragma mark - 聊天资源路径
 //语音WAV路径
-#define kSHPath_voice_wav [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/Voice/WAV",CachesPatch]]
+#define kSHPath_audio_wav [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/Audio/WAV",CachesPatch]]
 //语音AMR路径
-#define kSHPath_voice_amr [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/Voice/AMR",CachesPatch]]
+#define kSHPath_audio_amr [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/Audio/AMR",CachesPatch]]
 //图片路径
 #define kSHPath_image [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/Image",CachesPatch]]
 //Gif路径
@@ -29,6 +29,8 @@
 #define kSHPath_video [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/Video",CachesPatch]]
 //视频第一帧图片路径
 #define kSHPath_video_image [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/VideoImage",CachesPatch]]
+//文件路径
+#define kSHPath_file [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/File",CachesPatch]]
 
 #pragma mark - 颜色定义
 //三原色
@@ -45,7 +47,9 @@
 //输入框控件间隔
 #define kSHInPutSpace 7
 //输入框控件宽高
-#define kSHInPutIcon_WH 35
+#define kSHInPutIcon_size CGSizeMake(35,35)
+//输入框最多几行
+#define kSHInPutNum 5
 
 //菜单一行几个
 #define kSHShareMenuPerRowItemCount 4
@@ -68,12 +72,12 @@
 #define kChatMessageInput_H 205
 
 //录音最大时长与最小
-#define kSHMaxRecordTime 60
+#define kSHMaxRecordTime 15
 #define kSHMinRecordTime 1
 
-#define kIsIphoneX (([[UIApplication sharedApplication] statusBarFrame].size.height > 20))
+#define kIsFull (kSHTopSafe > 20)
 
-#define kSHBottomSafe (kIsIphoneX?39:0)
+#define kSHBottomSafe (kIsFull?39:0)
 #define kSHTopSafe ([[UIApplication sharedApplication] statusBarFrame].size.height)
 
 #define kSHWeak(VAR) \
@@ -101,15 +105,13 @@ if(VAR == nil) return
 //音频播放
 #import "SHAudioPlayerHelper.h"
 //音频录制
-#import "SHVoiceRecordHelper.h"
+#import "SHAudioRecordHelper.h"
 //消息模型
 #import "SHMessage.h"
 //类型
 #import "SHMessageType.h"
 #import "SHMessageFrame.h"
 #import <UIKit/UIKit.h>
-
-#import "Singleton.h"
 
 //表情键盘
 #import "SHEmotionKeyboard.h"
@@ -118,9 +120,13 @@ if(VAR == nil) return
 #import "SHShareMenuView.h"
 //聊天cell
 #import "SHMessageTableViewCell.h"
-//聊天内容
-#import "SHMessageContentView.h"
 //长按菜单
 #import "SHMenuController.h"
 
-#import "UIView+SHExtension.h"
+#import "SHActivityIndicatorView.h"
+#import "SHTextView.h"
+#import <WebKit/WebKit.h>
+
+#import <UIView+SHExtension.h>
+#import <UIImage+SHExtension.h>
+#import <SHTool.h>

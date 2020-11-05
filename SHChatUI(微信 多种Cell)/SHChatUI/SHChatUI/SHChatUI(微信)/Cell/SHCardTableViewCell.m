@@ -10,8 +10,6 @@
 
 @interface SHCardTableViewCell ()
 
-// card 背景
-@property (nonatomic, retain) UIImageView *cardBg;
 // card line
 @property (nonatomic, retain) UIView *cardLine;
 // card 头像
@@ -41,57 +39,37 @@
     
     SHMessage *message = messageFrame.message;
     
-    self.cardPrompt.text = @"    个人名片";
+    self.cardPrompt.text = @"个人名片";
     self.cardName.text = message.card;
-    self.cardHead.image = [SHFileHelper imageNamed:@"headImage.jpeg"];
+    self.cardHead.image = [UIImage imageNamed:@"headImage"];
+    
+    if (message.bubbleMessageType == SHBubbleMessageType_Send) {
+        UIImage *image = [self.btnContent.currentBackgroundImage imageWithColor:[UIColor whiteColor]];
+        [self setBubbleImage:image];
+    }
 
+    CGFloat margin = (message.bubbleMessageType == SHBubbleMessageType_Send) ? 0 : kChat_angle_w;
     //设置frame
-    //背景
-    self.cardBg.size = CGSizeMake(self.btnContent.width, self.btnContent.height);
     //头像
-    self.cardHead.x = kChat_margin + (self.isSend?0:kChat_angle_w);
+    self.cardHead.x = kChat_margin + margin;
     //名字
     self.cardName.frame = CGRectMake(self.cardHead.maxX + kChat_margin, self.cardHead.y, self.btnContent.width - self.cardHead.maxX - 2*kChat_margin - kChat_angle_w, self.cardHead.height);
     //分割线
-    self.cardLine.frame = CGRectMake((self.isFirstResponder?0:kChat_angle_w),self.cardHead.maxY + kChat_margin ,self.btnContent.width - kChat_angle_w, 0.5);
+    self.cardLine.frame = CGRectMake(margin + kChat_margin,self.cardHead.maxY + kChat_margin ,self.btnContent.width - kChat_angle_w - 2*kChat_margin, 0.5);
     //提示信息
-    self.cardPrompt.frame = CGRectMake(self.cardLine.x, self.cardLine.maxY, self.cardLine.width, 20);
+    self.cardPrompt.frame = CGRectMake(margin + kChat_margin, self.cardLine.maxY - 0.5, self.btnContent.width - 2*kChat_margin - margin, 20);
     
-    UIImage *image = nil;
-    // 设置聊天气泡背景
-    if (self.isSend) {
-        image = [SHFileHelper imageNamed:@"chat_message_send@2x.png"];
-    }else{
-        image = [SHFileHelper imageNamed:@"chat_message_receive@2x.png"];
-    }
-    
-    image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(30, 25, 10, 25)];
-    [self.btnContent setBackgroundImage:image forState:UIControlStateNormal];
-    
-    //编辑气泡
-    [self.btnContent makeMaskView:self.cardBg image:image];
+
 }
 
 #pragma mark 名片消息视图
-- (UIImageView *)cardBg{
-    //背景
-    if (!_cardBg) {
-        _cardBg = [[UIImageView alloc]init];
-        _cardBg.origin = CGPointMake(0, 0);
-        _cardBg.backgroundColor = [UIColor whiteColor];
-        _cardBg.contentMode = UIViewContentModeScaleToFill;
-        [self.btnContent addSubview:_cardBg];
-    }
-    return _cardBg;
-}
-
 - (UIImageView *)cardHead{
     //头像
     if (!_cardHead) {
         _cardHead = [[UIImageView alloc]init];
         _cardHead.frame = CGRectMake(0, kChat_margin, 40, 40);
         _cardHead.contentMode = UIViewContentModeScaleToFill;
-        [self.cardBg addSubview:_cardHead];
+        [self.btnContent addSubview:_cardHead];
     }
     return _cardHead;
 }
@@ -103,7 +81,7 @@
         _cardName.textColor = [UIColor blackColor];
         _cardName.numberOfLines = 0;
         _cardName.font = [UIFont systemFontOfSize:14];
-        [self.cardBg addSubview:_cardName];
+        [self.btnContent addSubview:_cardName];
     }
     return _cardName;
 }
@@ -113,7 +91,7 @@
     if (!_cardLine) {
         _cardLine = [[UIView alloc]init];
         _cardLine.backgroundColor = kRGB(245, 245, 245, 1);
-        [self.cardBg addSubview:_cardLine];
+        [self.btnContent addSubview:_cardLine];
     }
     return _cardLine;
 }
@@ -126,7 +104,7 @@
         _cardPrompt.textColor = [UIColor grayColor];
         _cardPrompt.font = [UIFont systemFontOfSize:10];
         _cardPrompt.textAlignment = NSTextAlignmentLeft;
-        [self.cardBg addSubview:_cardPrompt];
+        [self.btnContent addSubview:_cardPrompt];
     }
     return _cardPrompt;
 }

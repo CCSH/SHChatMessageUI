@@ -1,9 +1,12 @@
+CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/SHEmotionKeyboard" "${PODS_ROOT}/Headers/Public/SHShortVideo" "${PODS_ROOT}/Headers/Public/UIView+SHExtension" "${PODS_ROOT}/Headers/Public/VoiceConvert"
-LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/SHEmotionKeyboard" "${PODS_CONFIGURATION_BUILD_DIR}/SHShortVideo" "${PODS_CONFIGURATION_BUILD_DIR}/UIView+SHExtension" "${PODS_CONFIGURATION_BUILD_DIR}/VoiceConvert" "${PODS_ROOT}/VoiceConvert/VoiceConvert/VoiceConvert/lib"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/SHEmotionKeyboard" -isystem "${PODS_ROOT}/Headers/Public/SHShortVideo" -isystem "${PODS_ROOT}/Headers/Public/UIView+SHExtension" -isystem "${PODS_ROOT}/Headers/Public/VoiceConvert"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"SHEmotionKeyboard" -l"SHShortVideo" -l"UIView+SHExtension" -l"VoiceConvert" -l"opencore-amrnb" -l"opencore-amrwb" -l"stdc++"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/SHEmotionKeyboard" "${PODS_ROOT}/Headers/Public/SHExtension" "${PODS_ROOT}/Headers/Public/SHShortVideo" "${PODS_ROOT}/Headers/Public/UIView+SHExtension" "${PODS_ROOT}/Headers/Public/VoiceConvert"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/SHEmotionKeyboard" "${PODS_CONFIGURATION_BUILD_DIR}/SHExtension" "${PODS_CONFIGURATION_BUILD_DIR}/SHShortVideo" "${PODS_CONFIGURATION_BUILD_DIR}/UIView+SHExtension" "${PODS_CONFIGURATION_BUILD_DIR}/VoiceConvert" "${PODS_ROOT}/VoiceConvert/VoiceConvert/VoiceConvert/lib"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/SHEmotionKeyboard" -isystem "${PODS_ROOT}/Headers/Public/UIView+SHExtension" -isystem "${PODS_ROOT}/Headers/Public/SHExtension" -isystem "${PODS_ROOT}/Headers/Public/SHShortVideo" -isystem "${PODS_ROOT}/Headers/Public/VoiceConvert"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"SHEmotionKeyboard" -l"SHExtension" -l"SHShortVideo" -l"UIView+SHExtension" -l"VoiceConvert" -l"opencore-amrnb" -l"opencore-amrwb" -l"stdc++"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
+PODS_XCFRAMEWORKS_BUILD_DIR = $(PODS_CONFIGURATION_BUILD_DIR)/XCFrameworkIntermediates
+USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES

@@ -33,14 +33,17 @@
     
     SHMessage *message = messageFrame.message;
     
+    //设置内容
     self.btnContent.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
     self.btnContent.layer.cornerRadius = 5;
-    self.btnContent.clipsToBounds = YES;
+    self.btnContent.layer.masksToBounds = YES;
 
     self.noteLab.text = message.note;
     
     //设置frame
     self.noteLab.frame = CGRectMake(kChat_margin, kChat_margin, self.btnContent.width - 2*kChat_margin, self.btnContent.height - 2*kChat_margin);
+    
+    [self setBubbleImage:nil];
 }
 
 #pragma mark 通知消息视图

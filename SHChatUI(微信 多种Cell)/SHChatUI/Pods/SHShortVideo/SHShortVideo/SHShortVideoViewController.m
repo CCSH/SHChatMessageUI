@@ -18,10 +18,10 @@
 #define kSHDevice_Width  [[UIScreen mainScreen] bounds].size.width  //主屏幕的宽度
 #define kSHDevice_Height [[UIScreen mainScreen] bounds].size.height //主屏幕的高度
 
-//是否是 iPhoneX
-#define  kSH_iPhoneX (kSHDevice_Width == 375.f && kSHDevice_Height == 812.f ? YES : NO)
+//是否是 全面屏
+#define  kSH_Full (kSH_StatusBarHeight != 20)
 //底部高度
-#define  kSH_SafeBottom (kSH_iPhoneX ? 34.f : 0.f)
+#define  kSH_SafeBottom (kSH_Full ? 34.f : 0.f)
 //状态栏高度
 #define  kSH_StatusBarHeight  ([UIApplication sharedApplication].statusBarFrame.size.height)
 
@@ -290,10 +290,10 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
    
    self.centerY = self.view.height - 100 - kSH_SafeBottom;
    //背景
-   self.bgView.frame = CGRectMake(0, kSH_iPhoneX?kSH_StatusBarHeight:0, self.view.width, self.view.height - kSH_SafeBottom);
+   self.bgView.frame = self.view.bounds;
    
    //摄像头切换
-   self.cameraBtn.frame = CGRectMake(self.view.width - 15 - 40,(kSH_iPhoneX?kSH_StatusBarHeight:0) + 23, 40, 40);
+   self.cameraBtn.frame = CGRectMake(self.view.width - 15 - 40,kSH_StatusBarHeight + 23, 40, 40);
    
    //录制
    self.takeImage.size = CGSizeMake(70, 70);
@@ -641,9 +641,6 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
       //结束录制
       [self stopVideo];
    }
-   
-   //预览图层和视频方向保持一致
-   connection.videoOrientation = [self.previewLayer connection].videoOrientation;
    
    //删除上次的临时文件
    if ([[NSFileManager defaultManager] fileExistsAtPath:self.tempPath]) {

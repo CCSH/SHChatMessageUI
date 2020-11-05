@@ -44,18 +44,8 @@
         view_y = (kChat_min_h - kChatFont_content.lineHeight)/2;
     }
     
-    self.textView.frame = CGRectMake(kChat_margin + (self.isSend?0:kChat_angle_w), view_y, self.btnContent.width - (2*kChat_margin + kChat_angle_w), self.btnContent.height - 2*view_y);
-    
-    UIImage *image = nil;
-    // 设置聊天气泡背景
-    if (self.isSend) {
-        image = [SHFileHelper imageNamed:@"chat_message_send@2x.png"];
-    }else{
-        image = [SHFileHelper imageNamed:@"chat_message_receive@2x.png"];
-    }
-    
-    image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(30, 25, 10, 25)];
-    [self.btnContent setBackgroundImage:image forState:UIControlStateNormal];
+    CGFloat margin = (message.bubbleMessageType == SHBubbleMessageType_Send) ? 0 : kChat_angle_w;
+    self.textView.frame = CGRectMake(margin + kChat_margin, view_y, self.btnContent.width - 2*kChat_margin - kChat_angle_w, self.btnContent.height - 2*view_y);
 }
 
 #pragma mark 文本消息视图
@@ -63,11 +53,13 @@
     //文本
     if (!_textView) {
         _textView = [[SHTextView alloc]init];
-        _textView.backgroundColor = [UIColor clearColor];
+        _textView.editable = NO;
         [self.btnContent addSubview:_textView];
     }
     return _textView;
 }
+
+
 
 
 @end

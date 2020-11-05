@@ -32,7 +32,7 @@
 //坐标
 @property (nonatomic, retain) SHMessageFrame *messageFrame;
 //内容
-@property (nonatomic, retain) SHMessageContentView *btnContent;
+@property (nonatomic, retain) UIButton *btnContent;
 //时间
 @property (nonatomic, retain) UILabel *labelTime;
 //ID
@@ -42,7 +42,7 @@
 //消息状态
 @property (nonatomic, retain) SHActivityIndicatorView *activityView;
 
-//是否发送
-@property (nonatomic, assign) BOOL isSend;
+//设置气泡背景
+- (void)setBubbleImage:(UIImage *)image;
 
 @end

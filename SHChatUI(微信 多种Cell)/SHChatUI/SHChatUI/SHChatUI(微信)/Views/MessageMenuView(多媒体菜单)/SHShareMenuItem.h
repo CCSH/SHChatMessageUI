@@ -33,8 +33,4 @@
  */
 @property (nonatomic, strong) UIFont *titleFont;
 
-- (instancetype)initWithIcon:(UIImage *)icon title:(NSString *)title;
-
-- (instancetype)initWithIcon:(UIImage *)icon title:(NSString *)title titleColor:(UIColor *)titleColor titleFont:(UIFont *)titleFont;
-
 @end

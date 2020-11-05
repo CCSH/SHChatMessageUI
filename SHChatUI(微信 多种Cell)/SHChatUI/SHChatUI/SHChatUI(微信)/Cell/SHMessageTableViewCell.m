@@ -58,6 +58,8 @@
 - (UIButton *)btnHeadImage{
     if (!_btnHeadImage) {
         _btnHeadImage = [UIButton buttonWithType:UIButtonTypeCustom];
+        _btnHeadImage.layer.cornerRadius = 5;
+        _btnHeadImage.layer.masksToBounds = YES;
         //点击头像
         [_btnHeadImage addTarget:self action:@selector(didSelectHeadImage)  forControlEvents:UIControlEventTouchUpInside];
         //长按头像
@@ -70,10 +72,10 @@
 }
 
 #pragma mark 创建内容
-- (SHMessageContentView *)btnContent{
+- (UIButton *)btnContent{
     if (!_btnContent) {
-        _btnContent = [SHMessageContentView buttonWithType:UIButtonTypeCustom];
-        [_btnContent addTarget:self action:@selector(didSelectMessage)  forControlEvents:UIControlEventTouchUpInside];
+        _btnContent = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_btnContent addTarget:self action:@selector(didSelectMessage) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:_btnContent];
     }
     return _btnContent;
@@ -95,13 +97,11 @@
     _messageFrame = messageFrame;
     SHMessage *message = messageFrame.message;
     
-    self.isSend = (message.bubbleMessageType == SHBubbleMessageType_Sending);
-    
     // 初始化 (如果不显示时间、头像、ID，在frame中就没有计算)
     //发送状态
     self.activityView.hidden = YES;
     
-    BOOL isSend = (message.bubbleMessageType == SHBubbleMessageType_Sending);
+    BOOL isSend = (message.bubbleMessageType == SHBubbleMessageType_Send);
     
     // 设置时间
     self.labelTime.frame = messageFrame.timeF;
@@ -109,7 +109,7 @@
     
     // 设置头像
     self.btnHeadImage.frame = messageFrame.iconF;
-    [self.btnHeadImage setBackgroundImage:[SHFileHelper imageNamed:message.avator] forState:0];
+    [self.btnHeadImage setBackgroundImage:[UIImage imageNamed:message.avator] forState:0];
     
     // 设置昵称
     self.labelNum.frame = messageFrame.nameF;
@@ -122,6 +122,16 @@
     
     // 设置内容
     self.btnContent.frame = messageFrame.contentF;
+    UIImage *image = nil;
+    // 设置聊天气泡背景
+    if (isSend) {
+        image = [SHFileHelper imageNamed:@"chat_message_send"];
+    }else{
+        image = [SHFileHelper imageNamed:@"chat_message_receive"];
+    }
+    
+   
+    [self setBubbleImage:image];
     
     // 设置发送状态样式
     self.activityView.messageState = message.messageState;
@@ -138,6 +148,14 @@
         longContent.minimumPressDuration = 0.4;
         [self.btnContent addGestureRecognizer:longContent];
     }
+}
+
+//设置气泡背景
+- (void)setBubbleImage:(UIImage *)image{
+    
+    image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(35, 25, 10, 25)];
+    [self.btnContent setBackgroundImage:image forState:UIControlStateNormal];
+    [self.btnContent setBackgroundImage:image forState:UIControlStateHighlighted];
 }
 
 #pragma mark - 点击事件
@@ -188,9 +206,9 @@
 }
 
 #pragma mark 添加第一响应
-- (BOOL)canBecomeFirstResponder {
-    return YES;
-}
+//- (BOOL)canBecomeFirstResponder {
+//    return YES;
+//}
 
 - (void)awakeFromNib {
     
@@ -203,7 +221,5 @@
     
     // Configure the view for the selected state
 }
-
-
 
 @end

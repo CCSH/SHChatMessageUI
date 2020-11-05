@@ -6,5 +6,6 @@ target 'SHChatUI' do
     pod 'SHEmotionKeyboard'
     pod 'VoiceConvert',:git => "https://github.com/DamianSheldon/VoiceConvert.git"
     pod 'SHShortVideo'
+    pod 'SHExtension'
     
 end

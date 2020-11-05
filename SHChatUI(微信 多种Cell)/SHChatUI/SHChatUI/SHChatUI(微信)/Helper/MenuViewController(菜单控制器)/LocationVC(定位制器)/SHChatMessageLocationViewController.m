@@ -278,7 +278,6 @@
         //        NSArray *areasOfInterest = placemark.areasOfInterest; //关联的或利益相关的地标
         
         self.message.locationName = placemark.name;
-        self.message.locationName = @"中国";
         
         self.navigationItem.rightBarButtonItem = nil;
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleDone target:self action:@selector(rightClick)];

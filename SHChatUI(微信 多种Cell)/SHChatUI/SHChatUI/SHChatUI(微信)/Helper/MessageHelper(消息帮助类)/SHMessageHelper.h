@@ -43,7 +43,7 @@
 - (CGFloat)getHeightWithTextView:(UITextView *)textView maxH:(CGFloat)maxH minH:(CGFloat)minH;
 
 //获取视频第一帧图片
-+ (UIImage *)getVideoImageWithVideoPath:(NSString *)videoPath;
++ (UIImage *)getVideoImage:(NSString *)path;
 
 //image 转 data
 + (NSData *)getDataWithImage:(UIImage *)image num:(CGFloat)num;

@@ -1,6 +1,21 @@
 PODS:
   - SHEmotionKeyboard (1.0.3):
     - "UIView+SHExtension (= 0.0.1)"
+  - SHExtension (1.1.0):
+    - SHExtension/NSString (= 1.1.0)
+    - SHExtension/Tool (= 1.1.0)
+    - SHExtension/UIButton (= 1.1.0)
+    - SHExtension/UIColor (= 1.1.0)
+    - SHExtension/UIImage (= 1.1.0)
+    - SHExtension/UIImageView (= 1.1.0)
+    - SHExtension/UIView (= 1.1.0)
+  - SHExtension/NSString (1.1.0)
+  - SHExtension/Tool (1.1.0)
+  - SHExtension/UIButton (1.1.0)
+  - SHExtension/UIColor (1.1.0)
+  - SHExtension/UIImage (1.1.0)
+  - SHExtension/UIImageView (1.1.0)
+  - SHExtension/UIView (1.1.0)
   - SHShortVideo (1.0.2):
     - "UIView+SHExtension"
   - "UIView+SHExtension (0.0.1)"
@@ -8,14 +23,17 @@ PODS:
 
 DEPENDENCIES:
   - SHEmotionKeyboard
+  - SHExtension
   - SHShortVideo
   - VoiceConvert (from `https://github.com/DamianSheldon/VoiceConvert.git`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - SHEmotionKeyboard
     - SHShortVideo
     - "UIView+SHExtension"
+  trunk:
+    - SHExtension
 
 EXTERNAL SOURCES:
   VoiceConvert:
@@ -28,10 +46,11 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   SHEmotionKeyboard: 63b77ca24d318b2998fe29f44f9c3bf5eff8af80
+  SHExtension: 4954f7c07cf43efbc430004a2c253c0e20d1a81d
   SHShortVideo: a1f1732ad7d39c9b5707e30856d7345b2d84f7ab
   "UIView+SHExtension": 7d2c58e60da7de044b17407900a211a54eb855de
   VoiceConvert: 35530d58cfb1a5f5ba1e6243f21d0c7921f311e0
 
-PODFILE CHECKSUM: 84aa725dd003ecd7a931be33f7a86be4ea61a5da
+PODFILE CHECKSUM: 7550f2a85fed9ee3fa843acde11bd0908eca388c
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.10.0.rc.1

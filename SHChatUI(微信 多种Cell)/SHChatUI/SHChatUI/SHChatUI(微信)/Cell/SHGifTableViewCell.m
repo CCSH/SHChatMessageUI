@@ -33,6 +33,7 @@
     
     SHMessage *message = messageFrame.message;
     
+    //设置内容
     //获取Gif路径 (自带Gif)
     NSString *gifPath = [[SHEmotionTool getEmojiPathWithType:SHEmoticonType_gif] stringByAppendingString:message.gifName];
     
@@ -43,19 +44,15 @@
     }
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:gifPath]) {//本地
-        
-        if (@available(iOS 9.0, *)) {
-            [self.gifView loadData:[NSData dataWithContentsOfFile:gifPath] MIMEType:@"image/gif" characterEncodingName:@"" baseURL:[NSURL new]];
-        } else {
-            // Fallback on earlier versions
-        }
+        [self.gifView loadData:[NSData dataWithContentsOfFile:gifPath] MIMEType:@"image/gif" characterEncodingName:@"" baseURL:[NSURL new]];
     }else{//网络
-        
         [self.gifView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:message.gifUrl]]];
     }
     
     //设置frame
     self.gifView.size = CGSizeMake(self.btnContent.width, self.btnContent.height);
+    
+    [self.btnContent setBackgroundImage:nil forState:0];
 }
 
 #pragma mark Gif消息视图

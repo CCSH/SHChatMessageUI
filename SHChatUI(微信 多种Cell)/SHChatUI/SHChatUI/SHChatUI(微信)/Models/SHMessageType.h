@@ -25,6 +25,7 @@ typedef enum {
     SHMessageBodyType_redPaper,       //红包类型
     SHMessageBodyType_gif,            //动图类型
     SHMessageBodyType_note,           //通知类型
+    SHMessageBodyType_file,           //文件类型
 }SHMessageBodyType;
 
 /**
@@ -37,6 +38,7 @@ typedef enum {
     SHMessageFileType_gif,          //gif类型
     SHMessageFileType_video,        //video类型
     SHMessageFileType_video_image,  //video图片类型
+    SHMessageFileType_file,         //file类型
 }SHMessageFileType;
 
 /**
@@ -73,7 +75,7 @@ typedef enum {
  *  发送方
  */
 typedef enum{
-    SHBubbleMessageType_Sending = 0, // 发送
+    SHBubbleMessageType_Send = 0, // 发送
     SHBubbleMessageType_Receiving, // 接收
 }SHBubbleMessageType;
 
@@ -91,7 +93,7 @@ typedef enum{
 typedef enum{
     SHSendMessageType_Successed = 1,  //发送成功
     SHSendMessageType_Failed,         //发送失败
-    SHSendMessageType_Delivering      //发送中
+    SHSendMessageType_Sending         //发送中
 }SHSendMessageStatus;
 
 

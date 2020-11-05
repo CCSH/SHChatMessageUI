@@ -14,11 +14,12 @@
 - (void)setMessage:(SHMessage *)message{
     _message = message;
     
-    //数据源的一些修改
+    //数据源的一些修改（计算时间、头像、id、聊天气泡大小）
     //这些消息状态只有成功
     switch (message.messageType) {
-        case SHMessageBodyType_redPaper:case SHMessageBodyType_note://红包、通知
-        {
+        case SHMessageBodyType_redPaper:
+        case SHMessageBodyType_note:
+        {//红包、通知
             message.messageState = SHSendMessageType_Successed;
         }
             break;
@@ -26,48 +27,41 @@
             break;
     }
     
+    // 判断收发
+    BOOL  isSend = (message.bubbleMessageType == SHBubbleMessageType_Send);
     // 判断特殊消息
     BOOL isSpecial = (message.messageType == SHMessageBodyType_note);
-    // 判断收发
-    BOOL  isSend = (message.bubbleMessageType == SHBubbleMessageType_Sending);
+    // 角
+    BOOL isAngle = NO;
+
     
-    // 特殊消息不显示用户名
-    if (isSpecial) {
-        _showName = NO;
-    }
-    
-    CGFloat content_y = 0;
+    CGFloat viewY = kChat_margin;
     
     // 计算时间
     if (_showTime){
         
-        content_y = content_y + kChat_margin;
-        
-        CGSize timeSize = [[SHMessageHelper getChatTimeWithTime:message.sendTime] boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, kChat_content_maxW) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:kChatFont_time} context:nil].size;
+        CGSize timeSize = [SHTool getSizeWithStr:[SHMessageHelper getChatTimeWithTime:message.sendTime] font:kChatFont_time maxSize:CGSizeMake(CGFLOAT_MAX, kChat_content_maxW)];
 
         CGFloat timeX = (kSHWidth - timeSize.width - 2*kChat_margin_time) / 2;
-        _timeF = CGRectMake(timeX, content_y, timeSize.width + 2*kChat_margin_time, timeSize.height + 2*kChat_margin_time);
+        _timeF = CGRectMake(timeX, viewY, timeSize.width + 2*kChat_margin_time, timeSize.height + 2*kChat_margin_time);
         
-        content_y = content_y + _timeF.size.height + kChat_margin;
+        viewY = CGRectGetMaxY(_timeF) + kChat_margin;
     }
-    
-    // 计算头像
-    if (!isSpecial) {//特殊消息没有头像
-        
-        content_y = content_y + kChat_margin;
-        
+
+    if (!isSpecial) {//特殊消息没有头像、用户名
+        // 计算头像
         CGFloat iconX = kChat_margin;
         if (isSend) {//发送方
-            iconX = kSHWidth - kChat_margin - kChat_icon_wh;
+            iconX = kSHWidth - kChat_margin - kChat_icon;
         }
-        _iconF = CGRectMake(iconX, content_y, kChat_icon_wh, kChat_icon_wh);
-    }
-    
-    // 计算用户名
-    if (_showName){
-        CGFloat nameX = kChat_margin + kChat_icon_wh  + kChat_margin + kChat_angle_w;
-        _nameF = CGRectMake(nameX, content_y , kSHWidth - 2*nameX, kChat_name_h);
-        content_y = content_y + kChat_name_h;
+        _iconF = CGRectMake(iconX, viewY, kChat_icon, kChat_icon);
+        
+        // 计算用户名
+        if (_showName){
+            CGFloat nameX = kChat_margin + kChat_icon  + kChat_margin + kChat_angle_w;
+            _nameF = CGRectMake(nameX, viewY , kSHWidth - 2*nameX, kChat_name_h);
+            viewY = CGRectGetMaxY(_nameF) + kChat_margin;
+        }
     }
     
     // 计算整体聊天气泡的Size
@@ -76,9 +70,9 @@
     switch (_message.messageType) {
         case SHMessageBodyType_text://文字
         {
-            NSMutableAttributedString *str = [SHEmotionTool getAttWithStr:message.text font:kChatFont_content];
+            NSAttributedString *att = [SHEmotionTool getAttWithStr:message.text font:kChatFont_content];
             
-            contentSize = [str boundingRectWithSize:CGSizeMake((kChat_content_maxW - 2*kChat_angle_w), CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+            contentSize = [att boundingRectWithSize:CGSizeMake((kChat_content_maxW - 2*kChat_angle_w), CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
             
             //其他微调
             if (kChatFont_content.lineHeight < kChat_min_h) {//为了使聊天内容与最小高度对齐
@@ -91,26 +85,27 @@
             break;
         case SHMessageBodyType_image://图片
         {
-            contentSize = [SHMessageHelper getSizeWithMaxSize:CGSizeMake(kChat_pic_wh, kChat_pic_wh) size:CGSizeMake(message.imageWidth, message.imageHeight)];
+            isAngle = YES;
+            contentSize = [SHMessageHelper getSizeWithMaxSize:kChat_pic_size size:CGSizeMake(message.imageWidth, message.imageHeight)];
         }
             break;
         case SHMessageBodyType_voice://语音
         {
-            contentSize = CGSizeMake(((kChat_voice_maxW - 60)/kSHMaxRecordTime)*[message.voiceDuration intValue] + 60, kChat_min_h);
-            if (contentSize.width > kChat_voice_maxW) {//限制最大宽
-                contentSize.width = kChat_voice_maxW;
+            contentSize = CGSizeMake(((kChat_voice_size.width - 60)/kSHMaxRecordTime)*[message.audioDuration intValue] + 60, kChat_voice_size.height);
+            if (contentSize.width > kChat_voice_size.width) {//限制最大宽
+                contentSize.width = kChat_voice_size.width;
             }
-            contentSize.width +=  kChat_angle_w;
+            contentSize.width += kChat_angle_w;
         }
             break;
         case SHMessageBodyType_location://位置
         {
-            contentSize = CGSizeMake(kChat_location_w, kChat_location_h);
+            contentSize = kChat_location_size;
         }
             break;
         case SHMessageBodyType_note://通知
         {
-            contentSize = [message.note boundingRectWithSize:CGSizeMake(kChat_content_maxW, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:kChatFont_note} context:nil].size;
+            contentSize = [message.note boundingRectWithSize:CGSizeMake(kChat_content_maxW - 2*kChat_margin, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:kChatFont_note} context:nil].size;
             //要预留出来边距
             contentSize.height += 2*kChat_margin;
             contentSize.width += 2*kChat_margin;
@@ -118,46 +113,62 @@
             break;
         case SHMessageBodyType_card://名片
         {
-            contentSize = CGSizeMake(kChat_card_w, kChat_card_h);
+            contentSize = kChat_card_size;
             contentSize.width +=  kChat_angle_w;
         }
             break;
         case SHMessageBodyType_redPaper://红包
         {
-            contentSize = CGSizeMake(kChat_redPackage_w, kChat_redPackage_h);
+            contentSize = kChat_red_size;
             contentSize.width +=  kChat_angle_w;
         }
             break;
         case SHMessageBodyType_gif://Gif
         {
-            contentSize = [SHMessageHelper getSizeWithMaxSize:CGSizeMake(kChat_gif_wh, kChat_gif_wh) size:CGSizeMake(self.message.gifWidth, self.message.gifHeight)];
+            contentSize = [SHMessageHelper getSizeWithMaxSize:kChat_gif_size size:CGSizeMake(self.message.gifWidth, self.message.gifHeight)];
         }
             break;
         case SHMessageBodyType_video://视频
         {
-            contentSize = CGSizeMake(kChat_video_wh, kChat_video_wh);
+            isAngle = YES;
+            contentSize = [SHMessageHelper getSizeWithMaxSize:kChat_video_size size:CGSizeMake(message.videoWidth, message.videoHeight)];
+        }
+            break;
+        case SHMessageBodyType_file://文件
+        {
+            contentSize = kChat_file_size;
         }
             break;
         default:
             break;
     }
-    
-    CGFloat content_x = 0;
+
+    // 计算X轴
+    CGFloat viewX = 0;
     
     if (isSpecial) {//特殊消息 居中显示
         
-        content_x = (kSHWidth - contentSize.width)/2;
+        viewX = (kSHWidth - contentSize.width)/2;
         
     }else{//其他消息 根据发送方X轴不一样
         
-        content_x = CGRectGetMaxX(_iconF) + kChat_margin;
+        viewX = CGRectGetMaxX(_iconF) + kChat_margin;
         if (isSend) {
-            content_x = CGRectGetMidX(_iconF) - kChat_margin - contentSize.width - 2*kChat_margin;
+            viewX = CGRectGetMidX(_iconF) - kChat_margin - contentSize.width - 2*kChat_margin;
         }
     }
     
+    if (isAngle) {
+        //没有角的
+        if (message.bubbleMessageType == SHBubbleMessageType_Send) {
+            viewX -= kChat_angle_w;
+        }else{
+            viewX += kChat_angle_w;
+        }
+    }
+
     //聊天气泡frame
-    _contentF = CGRectMake(content_x, content_y, contentSize.width, contentSize.height);
+    _contentF = CGRectMake(viewX, viewY, contentSize.width, contentSize.height);
     //cell高度
     _cell_h = CGRectGetMaxY(_contentF)  + kChat_margin;
 }

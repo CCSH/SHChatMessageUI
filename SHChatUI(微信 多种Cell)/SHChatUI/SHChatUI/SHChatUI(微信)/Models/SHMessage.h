@@ -46,22 +46,24 @@
 //消息发送与接收
 @property (nonatomic, assign) SHBubbleMessageType bubbleMessageType;
 
+//所有资源文件(公共字段)
+@property (nonatomic, copy) NSString *fileName;
+@property (nonatomic, copy) NSString *fileUrl;
+@property (nonatomic, copy) NSString *fileSize;
+
 //文本
 @property (nonatomic, copy) NSString *text;
 //图片
-@property (nonatomic, copy) NSString *imageName;
 @property (nonatomic, assign) CGFloat imageWidth;
 @property (nonatomic, assign) CGFloat imageHeight;
-
 @property (nonatomic, copy) NSString *thumbnailUrl;
 @property (nonatomic, copy) NSString *originUrl;
 //视频
-@property (nonatomic, copy) NSString *videoName;
-@property (nonatomic, copy) NSString *videoUrl;
+@property (nonatomic, assign) CGFloat videoWidth;
+@property (nonatomic, assign) CGFloat videoHeight;
+@property (nonatomic, copy) NSString *videoDuration;
 //语音
-@property (nonatomic, copy) NSString *voiceName;
-@property (nonatomic, copy) NSString *voiceUrl;
-@property (nonatomic, copy) NSString *voiceDuration;
+@property (nonatomic, copy) NSString *audioDuration;
 //位置
 @property (nonatomic, copy) NSString *locationName;
 @property (nonatomic, assign) CGFloat lon;
@@ -69,15 +71,19 @@
 //提示
 @property (nonatomic, copy) NSString *note;
 //名片
-@property (nonatomic, strong) NSString *card;
+@property (nonatomic, copy) NSString *card;
 //红包
-@property (nonatomic, strong) NSString *redPackage;
+@property (nonatomic, copy) NSString *redPackage;
+@property (nonatomic, assign) BOOL isReceive;//是否可以领取
 //通话
 @property (nonatomic, strong) NSString *callInfo;
 //Gif
-@property (nonatomic, strong) NSString *gifName;
-@property (nonatomic, strong) NSString *gifUrl;
+@property (nonatomic, copy) NSString *gifName;
+@property (nonatomic, copy) NSString *gifUrl;
 @property (nonatomic, assign) CGFloat gifWidth;
 @property (nonatomic, assign) CGFloat gifHeight;
+//文件
+@property (nonatomic, copy) NSString *displayName;
+
 
 @end

@@ -90,7 +90,7 @@
     message.messageId = [self getTimeWithZone];
     message.isRead = YES;
     message.messageRead = YES;
-    message.messageState = SHSendMessageType_Delivering;
+    message.messageState = SHSendMessageType_Sending;
     message.sendTime = [self getTimeWithZone];
     message.bubbleMessageType = arc4random()%2;
     
@@ -102,7 +102,7 @@
     
     message.userId = @"123";
     message.userName = @"小明";
-    message.avator = @"headImage.jpeg";
+    message.avator = @"headImage";
     
     return message;
 }
@@ -198,19 +198,19 @@
 }
 
 #pragma mark - 获取视频第一帧图片
-+ (UIImage *)getVideoImageWithVideoPath:(NSString *)videoPath {
++ (UIImage *)getVideoImage:(NSString *)path {
     
-    if (!videoPath.length){
+    if (!path.length){
         return nil;
     }
     
     AVURLAsset *asset;
-    if ([videoPath hasPrefix:@"http"]) {//网络
+    if ([path hasPrefix:@"http"]) {//网络
         
-        asset = [[AVURLAsset alloc] initWithURL:[NSURL URLWithString:videoPath] options:nil];
+        asset = [[AVURLAsset alloc] initWithURL:[NSURL URLWithString:path] options:nil];
     }else{//本地
         
-        asset = [[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath:videoPath] options:nil];
+        asset = [[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath:path] options:nil];
     }
     
     NSParameterAssert(asset);
@@ -225,11 +225,11 @@
     if (!thumbnailImageRef)
         NSLog(@"thumbnailImageGenerationError ==== %@", thumbnailImageGenerationError);
     
-    UIImage *thumbnailImage = thumbnailImageRef ? [[UIImage alloc] initWithCGImage:thumbnailImageRef] : nil;
+    UIImage *image = thumbnailImageRef ? [[UIImage alloc] initWithCGImage:thumbnailImageRef] : nil;
     
     CGImageRelease(thumbnailImageRef);
     
-    return thumbnailImage;
+    return image;
 }
 
 #pragma mark image 转 data

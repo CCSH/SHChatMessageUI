@@ -25,15 +25,20 @@
     [super setMessageFrame:messageFrame];
     
     SHMessage *message = messageFrame.message;
+    //设置内容
+    self.btnContent.layer.cornerRadius = 5;
+    self.btnContent.layer.masksToBounds = YES;
+    self.btnContent.backgroundColor = [UIColor whiteColor];
+    [self setBubbleImage:nil];
 
-    NSString *filePath = [SHFileHelper getFilePathWithName:message.imageName type:SHMessageFileType_image];
+    NSString *filePath = [SHFileHelper getFilePathWithName:message.fileName type:SHMessageFileType_image];
     UIImage *image = [UIImage imageWithContentsOfFile:filePath];
-    
+  
     if (image) {//本地
-        [self.btnContent setBackgroundImage:image forState:0];
+        [self.btnContent setImage:image forState:0];
     }else{//网络
-        //sdwebimage
-        [self.btnContent setBackgroundImage:[SHFileHelper imageNamed:@"chat_picture.png"] forState:0];
+        [self.btnContent setImage:[SHFileHelper imageNamed:@"chat_picture"] forState:0];
+//        [self.btnContent sd_setImageWithURL:[NSURL URLWithString:message.fileUrl] forState:0 placeholderImage:[SHFileHelper imageNamed:@"chat_picture"]];
     }
 }
 

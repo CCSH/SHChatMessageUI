@@ -242,7 +242,7 @@ static NSMutableArray *_collectImages;
             textAttachment.emotion = emotion;
             //调整位置
             CGFloat height = font.lineHeight;
-            textAttachment.bounds = CGRectMake(0, -3, height, height);
+            textAttachment.bounds = CGRectMake(0, -4, height, height);
             
             return [NSAttributedString attributedStringWithAttachment:textAttachment];
         }

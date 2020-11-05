@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C401722212E9BAE004B19B3 /* UIView+SHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4016A8212E9BAE004B19B3 /* UIView+SHExtension.m */; };
 		5C40174D212E9BAE004B19B3 /* SHMessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4016D6212E9BAE004B19B3 /* SHMessageFrame.m */; };
 		5C40174E212E9BAE004B19B3 /* SHMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4016D8212E9BAE004B19B3 /* SHMessage.m */; };
 		5C40174F212E9BAE004B19B3 /* SHMessageType.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4016DA212E9BAE004B19B3 /* SHMessageType.m */; };
@@ -17,12 +16,11 @@
 		5C401753212E9BAE004B19B3 /* SHMessageVoiceHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4016E8212E9BAE004B19B3 /* SHMessageVoiceHUD.m */; };
 		5C401754212E9BAE004B19B3 /* SHTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4016ED212E9BAE004B19B3 /* SHTextView.m */; };
 		5C401755212E9BAE004B19B3 /* SHActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4016EE212E9BAE004B19B3 /* SHActivityIndicatorView.m */; };
-		5C401756212E9BAE004B19B3 /* SHMessageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4016F1212E9BAE004B19B3 /* SHMessageContentView.m */; };
 		5C401757212E9BAE004B19B3 /* SHMessageInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4016F3212E9BAE004B19B3 /* SHMessageInputView.m */; };
 		5C401758212E9BAE004B19B3 /* SHShareMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4016F6212E9BAE004B19B3 /* SHShareMenuView.m */; };
 		5C401759212E9BAE004B19B3 /* SHShareMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4016F7212E9BAE004B19B3 /* SHShareMenuItem.m */; };
 		5C401761212E9BAE004B19B3 /* SHAudioPlayerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C401712212E9BAE004B19B3 /* SHAudioPlayerHelper.m */; };
-		5C401762212E9BAE004B19B3 /* SHVoiceRecordHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C401713212E9BAE004B19B3 /* SHVoiceRecordHelper.m */; };
+		5C401762212E9BAE004B19B3 /* SHAudioRecordHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C401713212E9BAE004B19B3 /* SHAudioRecordHelper.m */; };
 		5C401763212E9BAE004B19B3 /* SHMessageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C401716212E9BAE004B19B3 /* SHMessageHelper.m */; };
 		5C401764212E9BAE004B19B3 /* SHFileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C40171A212E9BAE004B19B3 /* SHFileHelper.m */; };
 		5C401765212E9BAE004B19B3 /* SHChatMessageLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C40171E212E9BAE004B19B3 /* SHChatMessageLocationViewController.m */; };
@@ -36,7 +34,7 @@
 		5C69460B20C6221F006D88A3 /* SHChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C69460A20C6221F006D88A3 /* SHChatUITests.m */; };
 		5C69461620C6221F006D88A3 /* SHChatUIUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C69461520C6221F006D88A3 /* SHChatUIUITests.m */; };
 		5C9452E821AE6DC8009BAEB9 /* SHTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9452E721AE6DC8009BAEB9 /* SHTextTableViewCell.m */; };
-		5C9452EB21AE71E9009BAEB9 /* SHVoiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9452EA21AE71E9009BAEB9 /* SHVoiceTableViewCell.m */; };
+		5C9452EB21AE71E9009BAEB9 /* SHAudioTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9452EA21AE71E9009BAEB9 /* SHAudioTableViewCell.m */; };
 		5C9452EE21AE777E009BAEB9 /* SHLocationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9452ED21AE777E009BAEB9 /* SHLocationTableViewCell.m */; };
 		5C9452F121AE7FE2009BAEB9 /* SHImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9452F021AE7FE2009BAEB9 /* SHImageTableViewCell.m */; };
 		5C9452F421AE8068009BAEB9 /* SHNoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9452F321AE8068009BAEB9 /* SHNoteTableViewCell.m */; };
@@ -45,6 +43,7 @@
 		5C9452FD21AE843A009BAEB9 /* SHRedPaperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9452FC21AE843A009BAEB9 /* SHRedPaperTableViewCell.m */; };
 		5C94530021AE85C9009BAEB9 /* SHVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9452FF21AE85C9009BAEB9 /* SHVideoTableViewCell.m */; };
 		5CB76AA5219D6698005218A3 /* SHChatUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5CB76AA4219D6698005218A3 /* SHChatUI.bundle */; };
+		8367654E2551599A0088C02F /* SHFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8367654D2551599A0088C02F /* SHFileTableViewCell.m */; };
 		B60A0FEA2C296247E81759E5 /* libPods-SHChatUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA24F4CD281D21D1E8D3DC9 /* libPods-SHChatUI.a */; };
 /* End PBXBuildFile section */
 
@@ -68,9 +67,6 @@
 /* Begin PBXFileReference section */
 		09364128E552D45E4CA47290 /* Pods-SHChatUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHChatUI.release.xcconfig"; path = "Pods/Target Support Files/Pods-SHChatUI/Pods-SHChatUI.release.xcconfig"; sourceTree = "<group>"; };
 		1DA24F4CD281D21D1E8D3DC9 /* libPods-SHChatUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SHChatUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C4016A5212E9BAE004B19B3 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
-		5C4016A8212E9BAE004B19B3 /* UIView+SHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SHExtension.m"; sourceTree = "<group>"; };
-		5C4016A9212E9BAE004B19B3 /* UIView+SHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SHExtension.h"; sourceTree = "<group>"; };
 		5C4016D6212E9BAE004B19B3 /* SHMessageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMessageFrame.m; sourceTree = "<group>"; };
 		5C4016D7212E9BAE004B19B3 /* SHMessageType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMessageType.h; sourceTree = "<group>"; };
 		5C4016D8212E9BAE004B19B3 /* SHMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMessage.m; sourceTree = "<group>"; };
@@ -89,18 +85,16 @@
 		5C4016EC212E9BAE004B19B3 /* SHTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHTextView.h; sourceTree = "<group>"; };
 		5C4016ED212E9BAE004B19B3 /* SHTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHTextView.m; sourceTree = "<group>"; };
 		5C4016EE212E9BAE004B19B3 /* SHActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHActivityIndicatorView.m; sourceTree = "<group>"; };
-		5C4016EF212E9BAE004B19B3 /* SHMessageContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMessageContentView.h; sourceTree = "<group>"; };
 		5C4016F0212E9BAE004B19B3 /* SHActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHActivityIndicatorView.h; sourceTree = "<group>"; };
-		5C4016F1212E9BAE004B19B3 /* SHMessageContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMessageContentView.m; sourceTree = "<group>"; };
 		5C4016F3212E9BAE004B19B3 /* SHMessageInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMessageInputView.m; sourceTree = "<group>"; };
 		5C4016F4212E9BAE004B19B3 /* SHMessageInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMessageInputView.h; sourceTree = "<group>"; };
 		5C4016F6212E9BAE004B19B3 /* SHShareMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHShareMenuView.m; sourceTree = "<group>"; };
 		5C4016F7212E9BAE004B19B3 /* SHShareMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHShareMenuItem.m; sourceTree = "<group>"; };
 		5C4016F8212E9BAE004B19B3 /* SHShareMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHShareMenuView.h; sourceTree = "<group>"; };
 		5C4016F9212E9BAE004B19B3 /* SHShareMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHShareMenuItem.h; sourceTree = "<group>"; };
-		5C4016FC212E9BAE004B19B3 /* SHVoiceRecordHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHVoiceRecordHelper.h; sourceTree = "<group>"; };
+		5C4016FC212E9BAE004B19B3 /* SHAudioRecordHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAudioRecordHelper.h; sourceTree = "<group>"; };
 		5C401712212E9BAE004B19B3 /* SHAudioPlayerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAudioPlayerHelper.m; sourceTree = "<group>"; };
-		5C401713212E9BAE004B19B3 /* SHVoiceRecordHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHVoiceRecordHelper.m; sourceTree = "<group>"; };
+		5C401713212E9BAE004B19B3 /* SHAudioRecordHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAudioRecordHelper.m; sourceTree = "<group>"; };
 		5C401714212E9BAE004B19B3 /* SHAudioPlayerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAudioPlayerHelper.h; sourceTree = "<group>"; };
 		5C401716212E9BAE004B19B3 /* SHMessageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMessageHelper.m; sourceTree = "<group>"; };
 		5C401717212E9BAE004B19B3 /* SHMessageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMessageHelper.h; sourceTree = "<group>"; };
@@ -128,8 +122,8 @@
 		5C69461720C6221F006D88A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C9452E621AE6DC8009BAEB9 /* SHTextTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHTextTableViewCell.h; sourceTree = "<group>"; };
 		5C9452E721AE6DC8009BAEB9 /* SHTextTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHTextTableViewCell.m; sourceTree = "<group>"; };
-		5C9452E921AE71E9009BAEB9 /* SHVoiceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHVoiceTableViewCell.h; sourceTree = "<group>"; };
-		5C9452EA21AE71E9009BAEB9 /* SHVoiceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHVoiceTableViewCell.m; sourceTree = "<group>"; };
+		5C9452E921AE71E9009BAEB9 /* SHAudioTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHAudioTableViewCell.h; sourceTree = "<group>"; };
+		5C9452EA21AE71E9009BAEB9 /* SHAudioTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHAudioTableViewCell.m; sourceTree = "<group>"; };
 		5C9452EC21AE777E009BAEB9 /* SHLocationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHLocationTableViewCell.h; sourceTree = "<group>"; };
 		5C9452ED21AE777E009BAEB9 /* SHLocationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHLocationTableViewCell.m; sourceTree = "<group>"; };
 		5C9452EF21AE7FE2009BAEB9 /* SHImageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHImageTableViewCell.h; sourceTree = "<group>"; };
@@ -145,6 +139,8 @@
 		5C9452FE21AE85C9009BAEB9 /* SHVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHVideoTableViewCell.h; sourceTree = "<group>"; };
 		5C9452FF21AE85C9009BAEB9 /* SHVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHVideoTableViewCell.m; sourceTree = "<group>"; };
 		5CB76AA4219D6698005218A3 /* SHChatUI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SHChatUI.bundle; sourceTree = "<group>"; };
+		8367654C2551599A0088C02F /* SHFileTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHFileTableViewCell.h; sourceTree = "<group>"; };
+		8367654D2551599A0088C02F /* SHFileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHFileTableViewCell.m; sourceTree = "<group>"; };
 		B8DD6D491E65A756784D9135 /* Pods-SHChatUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHChatUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHChatUI/Pods-SHChatUI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,7 +175,6 @@
 			children = (
 				5CB76AA4219D6698005218A3 /* SHChatUI.bundle */,
 				5C4016DC212E9BAE004B19B3 /* SHMessageHeader.h */,
-				5C4016A5212E9BAE004B19B3 /* Singleton.h */,
 				5C4016A6212E9BAE004B19B3 /* Category(类别) */,
 				5C4016D5212E9BAE004B19B3 /* Models */,
 				5C4016DD212E9BAE004B19B3 /* Cell */,
@@ -193,29 +188,19 @@
 		5C4016A6212E9BAE004B19B3 /* Category(类别) */ = {
 			isa = PBXGroup;
 			children = (
-				5C4016A7212E9BAE004B19B3 /* UIView */,
 			);
 			path = "Category(类别)";
-			sourceTree = "<group>";
-		};
-		5C4016A7212E9BAE004B19B3 /* UIView */ = {
-			isa = PBXGroup;
-			children = (
-				5C4016A9212E9BAE004B19B3 /* UIView+SHExtension.h */,
-				5C4016A8212E9BAE004B19B3 /* UIView+SHExtension.m */,
-			);
-			path = UIView;
 			sourceTree = "<group>";
 		};
 		5C4016D5212E9BAE004B19B3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5C4016D9212E9BAE004B19B3 /* SHMessageFrame.h */,
 				5C4016D6212E9BAE004B19B3 /* SHMessageFrame.m */,
 				5C4016D7212E9BAE004B19B3 /* SHMessageType.h */,
-				5C4016D8212E9BAE004B19B3 /* SHMessage.m */,
-				5C4016D9212E9BAE004B19B3 /* SHMessageFrame.h */,
 				5C4016DA212E9BAE004B19B3 /* SHMessageType.m */,
 				5C4016DB212E9BAE004B19B3 /* SHMessage.h */,
+				5C4016D8212E9BAE004B19B3 /* SHMessage.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -227,12 +212,12 @@
 				5C4016DF212E9BAE004B19B3 /* SHMessageTableViewCell.m */,
 				5C9452E621AE6DC8009BAEB9 /* SHTextTableViewCell.h */,
 				5C9452E721AE6DC8009BAEB9 /* SHTextTableViewCell.m */,
-				5C9452E921AE71E9009BAEB9 /* SHVoiceTableViewCell.h */,
-				5C9452EA21AE71E9009BAEB9 /* SHVoiceTableViewCell.m */,
-				5C9452EC21AE777E009BAEB9 /* SHLocationTableViewCell.h */,
-				5C9452ED21AE777E009BAEB9 /* SHLocationTableViewCell.m */,
 				5C9452EF21AE7FE2009BAEB9 /* SHImageTableViewCell.h */,
 				5C9452F021AE7FE2009BAEB9 /* SHImageTableViewCell.m */,
+				5C9452E921AE71E9009BAEB9 /* SHAudioTableViewCell.h */,
+				5C9452EA21AE71E9009BAEB9 /* SHAudioTableViewCell.m */,
+				5C9452EC21AE777E009BAEB9 /* SHLocationTableViewCell.h */,
+				5C9452ED21AE777E009BAEB9 /* SHLocationTableViewCell.m */,
 				5C9452F221AE8068009BAEB9 /* SHNoteTableViewCell.h */,
 				5C9452F321AE8068009BAEB9 /* SHNoteTableViewCell.m */,
 				5C9452F521AE8141009BAEB9 /* SHCardTableViewCell.h */,
@@ -243,6 +228,8 @@
 				5C9452FC21AE843A009BAEB9 /* SHRedPaperTableViewCell.m */,
 				5C9452FE21AE85C9009BAEB9 /* SHVideoTableViewCell.h */,
 				5C9452FF21AE85C9009BAEB9 /* SHVideoTableViewCell.m */,
+				8367654C2551599A0088C02F /* SHFileTableViewCell.h */,
+				8367654D2551599A0088C02F /* SHFileTableViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -259,29 +246,22 @@
 		5C4016E3212E9BAE004B19B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5C4016E4212E9BAE004B19B3 /* MessageMenuController(长按菜单) */,
+				5C4016F4212E9BAE004B19B3 /* SHMessageInputView.h */,
+				5C4016F3212E9BAE004B19B3 /* SHMessageInputView.m */,
+				5C4016E5212E9BAE004B19B3 /* SHMenuController.h */,
+				5C4016E6212E9BAE004B19B3 /* SHMenuController.m */,
 				5C4016E7212E9BAE004B19B3 /* MessageHelperView(语音) */,
 				5C4016EA212E9BAE004B19B3 /* MessageContentView(消息内容) */,
-				5C4016F2212E9BAE004B19B3 /* MessageInPutView(输入框) */,
 				5C4016F5212E9BAE004B19B3 /* MessageMenuView(多媒体菜单) */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		5C4016E4212E9BAE004B19B3 /* MessageMenuController(长按菜单) */ = {
-			isa = PBXGroup;
-			children = (
-				5C4016E5212E9BAE004B19B3 /* SHMenuController.h */,
-				5C4016E6212E9BAE004B19B3 /* SHMenuController.m */,
-			);
-			path = "MessageMenuController(长按菜单)";
-			sourceTree = "<group>";
-		};
 		5C4016E7212E9BAE004B19B3 /* MessageHelperView(语音) */ = {
 			isa = PBXGroup;
 			children = (
-				5C4016E8212E9BAE004B19B3 /* SHMessageVoiceHUD.m */,
 				5C4016E9212E9BAE004B19B3 /* SHMessageVoiceHUD.h */,
+				5C4016E8212E9BAE004B19B3 /* SHMessageVoiceHUD.m */,
 			);
 			path = "MessageHelperView(语音)";
 			sourceTree = "<group>";
@@ -289,40 +269,21 @@
 		5C4016EA212E9BAE004B19B3 /* MessageContentView(消息内容) */ = {
 			isa = PBXGroup;
 			children = (
-				5C4016EB212E9BAE004B19B3 /* SHTextView */,
-				5C4016EF212E9BAE004B19B3 /* SHMessageContentView.h */,
-				5C4016F1212E9BAE004B19B3 /* SHMessageContentView.m */,
+				5C4016EC212E9BAE004B19B3 /* SHTextView.h */,
+				5C4016ED212E9BAE004B19B3 /* SHTextView.m */,
 				5C4016F0212E9BAE004B19B3 /* SHActivityIndicatorView.h */,
 				5C4016EE212E9BAE004B19B3 /* SHActivityIndicatorView.m */,
 			);
 			path = "MessageContentView(消息内容)";
 			sourceTree = "<group>";
 		};
-		5C4016EB212E9BAE004B19B3 /* SHTextView */ = {
-			isa = PBXGroup;
-			children = (
-				5C4016EC212E9BAE004B19B3 /* SHTextView.h */,
-				5C4016ED212E9BAE004B19B3 /* SHTextView.m */,
-			);
-			path = SHTextView;
-			sourceTree = "<group>";
-		};
-		5C4016F2212E9BAE004B19B3 /* MessageInPutView(输入框) */ = {
-			isa = PBXGroup;
-			children = (
-				5C4016F4212E9BAE004B19B3 /* SHMessageInputView.h */,
-				5C4016F3212E9BAE004B19B3 /* SHMessageInputView.m */,
-			);
-			path = "MessageInPutView(输入框)";
-			sourceTree = "<group>";
-		};
 		5C4016F5212E9BAE004B19B3 /* MessageMenuView(多媒体菜单) */ = {
 			isa = PBXGroup;
 			children = (
-				5C4016F6212E9BAE004B19B3 /* SHShareMenuView.m */,
-				5C4016F7212E9BAE004B19B3 /* SHShareMenuItem.m */,
 				5C4016F8212E9BAE004B19B3 /* SHShareMenuView.h */,
+				5C4016F6212E9BAE004B19B3 /* SHShareMenuView.m */,
 				5C4016F9212E9BAE004B19B3 /* SHShareMenuItem.h */,
+				5C4016F7212E9BAE004B19B3 /* SHShareMenuItem.m */,
 			);
 			path = "MessageMenuView(多媒体菜单)";
 			sourceTree = "<group>";
@@ -330,7 +291,7 @@
 		5C4016FA212E9BAE004B19B3 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				5C4016FB212E9BAE004B19B3 /* VoiceHelper(语音帮助类) */,
+				5C4016FB212E9BAE004B19B3 /* AudioHelper(语音帮助类) */,
 				5C401715212E9BAE004B19B3 /* MessageHelper(消息帮助类) */,
 				5C401718212E9BAE004B19B3 /* FileHelper(文件帮助类) */,
 				5C40171B212E9BAE004B19B3 /* MenuViewController(菜单控制器) */,
@@ -338,22 +299,22 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		5C4016FB212E9BAE004B19B3 /* VoiceHelper(语音帮助类) */ = {
+		5C4016FB212E9BAE004B19B3 /* AudioHelper(语音帮助类) */ = {
 			isa = PBXGroup;
 			children = (
-				5C4016FC212E9BAE004B19B3 /* SHVoiceRecordHelper.h */,
-				5C401712212E9BAE004B19B3 /* SHAudioPlayerHelper.m */,
-				5C401713212E9BAE004B19B3 /* SHVoiceRecordHelper.m */,
+				5C4016FC212E9BAE004B19B3 /* SHAudioRecordHelper.h */,
+				5C401713212E9BAE004B19B3 /* SHAudioRecordHelper.m */,
 				5C401714212E9BAE004B19B3 /* SHAudioPlayerHelper.h */,
+				5C401712212E9BAE004B19B3 /* SHAudioPlayerHelper.m */,
 			);
-			path = "VoiceHelper(语音帮助类)";
+			path = "AudioHelper(语音帮助类)";
 			sourceTree = "<group>";
 		};
 		5C401715212E9BAE004B19B3 /* MessageHelper(消息帮助类) */ = {
 			isa = PBXGroup;
 			children = (
-				5C401716212E9BAE004B19B3 /* SHMessageHelper.m */,
 				5C401717212E9BAE004B19B3 /* SHMessageHelper.h */,
+				5C401716212E9BAE004B19B3 /* SHMessageHelper.m */,
 			);
 			path = "MessageHelper(消息帮助类)";
 			sourceTree = "<group>";
@@ -602,19 +563,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SHChatUI/Pods-SHChatUI-resources.sh",
-				"${PODS_ROOT}/SHEmotionKeyboard/SHEmotionKeyboard/SHEmotionKeyboard.bundle",
-				"${PODS_ROOT}/SHShortVideo/SHShortVideo/SHShortVideo.bundle",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SHChatUI/Pods-SHChatUI-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SHEmotionKeyboard.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SHShortVideo.bundle",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SHChatUI/Pods-SHChatUI-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SHChatUI/Pods-SHChatUI-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SHChatUI/Pods-SHChatUI-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5DE5FABF19AE7D0888ED66CB /* [CP] Check Pods Manifest.lock */ = {
@@ -642,22 +600,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C9452EB21AE71E9009BAEB9 /* SHVoiceTableViewCell.m in Sources */,
+				5C9452EB21AE71E9009BAEB9 /* SHAudioTableViewCell.m in Sources */,
 				5C401757212E9BAE004B19B3 /* SHMessageInputView.m in Sources */,
 				5C401765212E9BAE004B19B3 /* SHChatMessageLocationViewController.m in Sources */,
 				5C40174F212E9BAE004B19B3 /* SHMessageType.m in Sources */,
 				5C9452E821AE6DC8009BAEB9 /* SHTextTableViewCell.m in Sources */,
 				5C9452FA21AE82A2009BAEB9 /* SHGifTableViewCell.m in Sources */,
 				5C94530021AE85C9009BAEB9 /* SHVideoTableViewCell.m in Sources */,
+				8367654E2551599A0088C02F /* SHFileTableViewCell.m in Sources */,
 				5C401752212E9BAE004B19B3 /* SHMenuController.m in Sources */,
 				5C401754212E9BAE004B19B3 /* SHTextView.m in Sources */,
 				5C9452FD21AE843A009BAEB9 /* SHRedPaperTableViewCell.m in Sources */,
 				5C6945F620C6221E006D88A3 /* ViewController.m in Sources */,
 				5C401750212E9BAE004B19B3 /* SHMessageTableViewCell.m in Sources */,
 				5C9452F721AE8141009BAEB9 /* SHCardTableViewCell.m in Sources */,
-				5C401762212E9BAE004B19B3 /* SHVoiceRecordHelper.m in Sources */,
+				5C401762212E9BAE004B19B3 /* SHAudioRecordHelper.m in Sources */,
 				5C401761212E9BAE004B19B3 /* SHAudioPlayerHelper.m in Sources */,
-				5C401756212E9BAE004B19B3 /* SHMessageContentView.m in Sources */,
 				5C69460120C6221F006D88A3 /* main.m in Sources */,
 				5C9452EE21AE777E009BAEB9 /* SHLocationTableViewCell.m in Sources */,
 				5C401755212E9BAE004B19B3 /* SHActivityIndicatorView.m in Sources */,
@@ -665,7 +623,6 @@
 				5C6945F320C6221E006D88A3 /* AppDelegate.m in Sources */,
 				5C401759212E9BAE004B19B3 /* SHShareMenuItem.m in Sources */,
 				5C401758212E9BAE004B19B3 /* SHShareMenuView.m in Sources */,
-				5C401722212E9BAE004B19B3 /* UIView+SHExtension.m in Sources */,
 				5C9452F421AE8068009BAEB9 /* SHNoteTableViewCell.m in Sources */,
 				5C401751212E9BAE004B19B3 /* SHChatMessageViewController.m in Sources */,
 				5C401763212E9BAE004B19B3 /* SHMessageHelper.m in Sources */,
@@ -845,7 +802,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YHGV678NGG;
+				DEVELOPMENT_TEAM = G94X5Y9CST;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SHChatUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -859,10 +816,11 @@
 					"$(PROJECT_DIR)/SHChatUI/SHChatUI(聊天界面)/Helper/VoiceHelper(语音帮助类)/VoiceConvert/VoiceConvert/VoiceConvert/lib",
 					"$(PROJECT_DIR)/SHChatUI/SHChatUI(微信)/Helper/VoiceHelper(语音帮助类)/VoiceConvert/VoiceConvert/VoiceConvert/lib",
 				);
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = csh.SHChatUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -873,7 +831,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YHGV678NGG;
+				DEVELOPMENT_TEAM = G94X5Y9CST;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SHChatUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -887,10 +845,11 @@
 					"$(PROJECT_DIR)/SHChatUI/SHChatUI(聊天界面)/Helper/VoiceHelper(语音帮助类)/VoiceConvert/VoiceConvert/VoiceConvert/lib",
 					"$(PROJECT_DIR)/SHChatUI/SHChatUI(微信)/Helper/VoiceHelper(语音帮助类)/VoiceConvert/VoiceConvert/VoiceConvert/lib",
 				);
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = csh.SHChatUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

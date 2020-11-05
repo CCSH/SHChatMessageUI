@@ -11,12 +11,10 @@
 @class SHMessage;
 
 //内容最大宽度（截取到气泡）
-#define kChat_content_maxW (kSHWidth - 4*kChat_margin - 2*kChat_icon_wh - kChat_angle_w - 40)
+#define kChat_content_maxW (kSHWidth - 4*kChat_margin - 2*kChat_icon - kChat_angle_w - 40)
+
 //消息中控件与内容间隔
 static NSInteger const kChat_margin = 10;
-
-//单行气泡高度
-static NSInteger const kChat_min_h = 45;
 
 //time
 //时间间隙
@@ -24,43 +22,43 @@ static NSInteger const kChat_margin_time = 7;
 
 //icon
 //头像宽高
-static NSInteger const kChat_icon_wh = 45;
+static NSInteger const kChat_icon = 45;
 
 //name
 //名字高度
 static NSInteger const kChat_name_h = 15;
 
 //聊天气泡角的宽度
-static NSInteger const kChat_angle_w = 4;
+static NSInteger const kChat_angle_w = 6;
 
-//内容的宽
+//单行气泡高度
+static NSInteger const kChat_min_h = kChat_icon;
+
+//内容设置
 //图片
-//图片宽高
-static NSInteger const kChat_pic_wh = 160;
+//图片最大宽高
+#define kChat_pic_size CGSizeMake(160, 160)
 //语音
-//语音最大宽度
-static NSInteger const kChat_voice_maxW = 160;
+//语音最大size
+#define kChat_voice_size CGSizeMake(160, kChat_min_h)
 //位置
-//位置宽
-static NSInteger const kChat_location_w = 200;
-//位置高
-static NSInteger const kChat_location_h = 100;
+//位置size
+#define kChat_location_size CGSizeMake(200, 120)
 //名片
-//名片的宽
-static NSInteger const kChat_card_w = 200;
-//名片的高
-static NSInteger const kChat_card_h = 80;
+//名片的size
+#define kChat_card_size CGSizeMake(200, 80)
 //视频
-//视频宽高
-static NSInteger const kChat_video_wh = 120;
+//视频最大zise
+#define kChat_video_size CGSizeMake(160, 160)
 //动图
-//Gif的宽高
-static NSInteger const kChat_gif_wh = 100;
+//Gif最大size
+#define kChat_gif_size CGSizeMake(100, 100)
 //红包
-//红包的宽
-static NSInteger const kChat_redPackage_w = 200;
-//红包的高
-static NSInteger const kChat_redPackage_h = 80;
+//红包size
+#define kChat_red_size CGSizeMake(200, 80)
+//文件
+//文字size
+#define kChat_file_size CGSizeMake(200, 76)
 
 //字体
 //时间字体

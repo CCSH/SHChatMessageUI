@@ -15,22 +15,25 @@
  */
 @interface SHFileHelper : NSObject
 
-//获取文件路径（没有的话创建）
+#pragma mark 获取文件路径（没有的话创建）
 + (NSString *)getCreateFilePath:(NSString *)path;
 
-//获取录音设置
+#pragma mark 获取录音设置
 + (NSDictionary *)getAudioRecorderSettingDict;
 
-//获取资源名字并且保存资源
-+ (NSString *)getFileNameWithContent:(id)content type:(SHMessageFileType)type;
+#pragma mark 获取资源路径并且保存资源
++ (NSString *)saveFileWithContent:(id)content type:(SHMessageFileType)type;
 
-//获取资源路径
+#pragma mark 获取资源路径
 + (NSString *)getFilePathWithName:(NSString *)name type:(SHMessageFileType)type;
 
-//获取名字
-+ (NSString *)getNameWithUrl:(NSString *)url;
+#pragma mark 获取文件名
++ (NSString *)getFileNameWithPath:(NSString *)path;
 
-//获取图片
+#pragma mark 获取图片
 + (UIImage *)imageNamed:(NSString *)name;
+
+#pragma mark 获取文件大小
++ (NSString *)getFileSize:(NSString *)path;
 
 @end

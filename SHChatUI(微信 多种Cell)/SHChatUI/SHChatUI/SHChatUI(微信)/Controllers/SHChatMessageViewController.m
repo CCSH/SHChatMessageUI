@@ -8,7 +8,7 @@
 
 #import "SHChatMessageViewController.h"
 #import "SHMessageInputView.h"
-#import "SHVoiceTableViewCell.h"
+#import "SHAudioTableViewCell.h"
 
 #import "SHChatMessageLocationViewController.h"
 #import <AVFoundation/AVFoundation.h>
@@ -76,9 +76,6 @@ UITableViewDataSource
     [self.view sendSubviewToBack:self.bgImageView];
     //添加加载
     self.chatTableView.refreshControl = self.refresh;
-    //添加键盘监听
-    [self addKeyboardNote];
-    
     //配置未读控件
     self.unreadBtn.tag = 20;
     [self configUnread:20];
@@ -209,7 +206,7 @@ UITableViewDataSource
     SHMessage *message = [SHMessageHelper addPublicParameters];
     
     message.messageType = SHMessageBodyType_text;
-    message.text = @"GitHub：https://github.com/CCSH";
+    message.text = @"https://github.com/CCSH";
     
     return message;
 }
@@ -220,7 +217,7 @@ UITableViewDataSource
     SHMessage *message = [SHMessageHelper addPublicParameters];
     
     message.messageType = SHMessageBodyType_image;
-    message.imageName = @"headImage.jpeg";
+    message.fileName = @"headImage";
     message.imageWidth = 150;
     message.imageHeight = 200;
     
@@ -233,7 +230,7 @@ UITableViewDataSource
     SHMessage *message = [SHMessageHelper addPublicParameters];
     
     message.messageType = SHMessageBodyType_video;
-    message.videoName = @"123";
+    message.fileName = @"123";
     
     return message;
 }
@@ -244,8 +241,8 @@ UITableViewDataSource
     SHMessage *message = [SHMessageHelper addPublicParameters];
     
     message.messageType = SHMessageBodyType_voice;
-    message.voiceName = [NSString stringWithFormat:@"%u",arc4random()%1000000];
-    message.voiceDuration = @"2";
+    message.fileName = [NSString stringWithFormat:@"%u",arc4random()%1000000];
+    message.audioDuration = @"2";
     
     return message;
 }
@@ -366,7 +363,7 @@ UITableViewDataSource
             break;
         case SHMessageBodyType_voice://语音
         {
-            reuseIdentifier = @"SHVoiceTableViewCell";
+            reuseIdentifier = @"SHAudioTableViewCell";
         }
             break;
         case SHMessageBodyType_location://位置
@@ -402,6 +399,11 @@ UITableViewDataSource
         case SHMessageBodyType_video://视频
         {
             reuseIdentifier = @"SHVideoTableViewCell";
+        }
+            break;
+        case SHMessageBodyType_file://文件
+        {
+            reuseIdentifier = @"SHFileTableViewCell";
         }
             break;
         default:
@@ -445,7 +447,7 @@ UITableViewDataSource
     SHMessage *message = [SHMessageHelper addPublicParameters];
     
     message.messageType = SHMessageBodyType_image;
-    message.imageName = imageName;
+    message.fileName = imageName;
     message.imageWidth = size.width;
     message.imageHeight = size.height;
     
@@ -454,29 +456,29 @@ UITableViewDataSource
 }
 
 #pragma mark 发送视频
-- (void)chatMessageWithSendVideo:(NSString *)videoName{
+- (void)chatMessageWithSendVideo:(NSString *)videoName fileSize:(NSString *)fileSize duration:(NSString *)duration size:(CGSize)size{
     
     SHMessage *message = [SHMessageHelper addPublicParameters];
     
     message.messageType = SHMessageBodyType_video;
-    message.videoName = videoName;
+    message.fileName = videoName;
+    message.fileSize = fileSize;
+    message.videoWidth = size.width;
+    message.videoHeight = size.height;
+    message.videoDuration = duration;
     
     //添加到聊天界面
     [self addChatMessageWithMessage:message isBottom:YES];
 }
 
-#pragma mark 发送语音
-- (void)chatMessageWithSendVoice:(NSString *)voiceName duration:(NSString *)duration{
+#pragma mark 发送音频
+- (void)chatMessageWithSendAudio:(NSString *)audioName duration:(NSInteger)duration{
     
     SHMessage *message = [SHMessageHelper addPublicParameters];
     
     message.messageType = SHMessageBodyType_voice;
-    message.voiceName = voiceName;
-    message.voiceDuration = duration;
-    
-    if (message.bubbleMessageType == SHBubbleMessageType_Receiving) {
-        message.messageRead = NO;
-    }
+    message.fileName = audioName;
+    message.audioDuration = [NSString stringWithFormat:@"%ld",(long)duration];
     
     //添加到聊天界面
     [self addChatMessageWithMessage:message isBottom:YES];
@@ -546,16 +548,52 @@ UITableViewDataSource
     [self addChatMessageWithMessage:message isBottom:YES];
 }
 
+#pragma mark 发送文件
+- (void)chatMessageWithSendFile:(NSString *)fileName displayName:(NSString *)displayName fileSize:(NSString *)fileSize{
+    
+    SHMessage *message = [SHMessageHelper addPublicParameters];
+    
+    message.messageType = SHMessageBodyType_file;
+    message.fileName = fileName;
+    message.displayName = displayName;
+    message.fileSize = fileSize;
+    //添加到聊天界面
+    [self addChatMessageWithMessage:message isBottom:YES];
+}
+
 #pragma mark 工具栏高度改变
 - (void)toolbarHeightChange{
     
     //改变聊天界面高度
-    CGRect frame = self.chatTableView.frame;
-    frame.size.height = self.chatInputView.y;
-    self.chatTableView.frame = frame;
+    self.chatTableView.height = self.chatInputView.y;
     [self.view layoutIfNeeded];
     //滚动到底部
     [self tableViewScrollToBottom];
+}
+
+
+#pragma mark 下方菜单点击
+- (void)didSelecteMenuItem:(SHShareMenuItem *)menuItem index:(NSInteger)index{
+    
+    if ([menuItem.title isEqualToString:@"照片"]){
+        
+        [self.chatInputView openPhoto];
+    }else if ([menuItem.title isEqualToString:@"拍摄"]){
+        
+        [self.chatInputView openCarema];
+    }else if ([menuItem.title isEqualToString:@"位置"]){
+        
+        [self.chatInputView openLocation];
+    }else if ([menuItem.title isEqualToString:@"名片"]){
+        
+        [self.chatInputView openCard];
+    }else if ([menuItem.title isEqualToString:@"红包"]) {
+        
+        [self.chatInputView openRedPaper];
+    }else if ([menuItem.title isEqualToString:@"文件"]) {
+        
+        [self.chatInputView openFile];
+    }
 }
 
 #pragma mark - SHChatMessageCellDelegate
@@ -608,12 +646,12 @@ UITableViewDataSource
 #pragma mark 点击消息处理
 - (void)didSelectMessageWithMessage:(SHMessage *)message{
     
+    BOOL isRefresh = NO;
     //判断消息类型
     switch (message.messageType) {
         case SHMessageBodyType_image://图片
         {
             NSLog(@"点击了 --- 图片消息");
-
         }
             break;
         case SHMessageBodyType_voice://语音
@@ -621,8 +659,9 @@ UITableViewDataSource
             NSLog(@"点击了 --- 语音消息");
             SHAudioPlayerHelper *audio = [SHAudioPlayerHelper shareInstance];
             audio.delegate = self;
-            SHVoiceTableViewCell *cell = (SHVoiceTableViewCell *)self.selectCell;
+            SHAudioTableViewCell *cell = (SHAudioTableViewCell *)self.selectCell;
             
+            //如果此条正在播放则停止
             if (cell.isPlaying) {
                 //正在播放
                 cell.isPlaying = NO;
@@ -631,6 +670,9 @@ UITableViewDataSource
                 //未播放
                 cell.isPlaying = YES;
                 [audio managerAudioWithFileArr:@[message] isClear:YES];
+            }
+            if (message.messageRead) {
+                isRefresh = YES;
             }
         }
             break;
@@ -648,7 +690,7 @@ UITableViewDataSource
         {
             NSLog(@"点击了 --- 视频消息");
             //本地路径
-            NSString *videoPath = [SHFileHelper getFilePathWithName:message.videoName type:SHMessageFileType_video];
+            NSString *videoPath = [SHFileHelper getFilePathWithName:message.fileName type:SHMessageFileType_video];
             
             if ([[NSFileManager defaultManager] fileExistsAtPath:videoPath]) {//如果本地路径存在
                 
@@ -660,8 +702,8 @@ UITableViewDataSource
                 
             }else{//使用URL
                 
-                if (message.videoUrl.length) {
-                    AVPlayer *player = [AVPlayer playerWithURL:[NSURL fileURLWithPath:message.videoUrl]];
+                if (message.fileUrl.length) {
+                    AVPlayer *player = [AVPlayer playerWithURL:[NSURL fileURLWithPath:message.fileUrl]];
                     AVPlayerViewController *playerViewController = [AVPlayerViewController new];
                     playerViewController.player = player;
                     [self.navigationController pushViewController:playerViewController animated:YES];
@@ -678,6 +720,11 @@ UITableViewDataSource
         case SHMessageBodyType_redPaper://红包
         {
             NSLog(@"点击了 --- 红包消息");
+    
+            if (!message.isReceive) {
+                message.isReceive = YES;
+                isRefresh = YES;
+            }
         }
             break;
         case SHMessageBodyType_gif://Gif
@@ -691,6 +738,11 @@ UITableViewDataSource
     
     //修改消息状态
     message.messageRead = YES;
+    
+    //刷新
+    if (isRefresh) {
+        [self.chatTableView reloadData];
+    }
 }
 
 #pragma mark 获取长按菜单内容
@@ -721,27 +773,6 @@ UITableViewDataSource
     return YES;
 }
 
-#pragma mark 下方菜单点击
-- (void)didSelecteMenuItem:(SHShareMenuItem *)menuItem index:(NSInteger)index{
-    
-    if ([menuItem.title isEqualToString:@"照片"]){
-        
-        [self.chatInputView openPhoto];
-    }else if ([menuItem.title isEqualToString:@"拍摄"]){
-        
-        [self.chatInputView openCarema];
-    }else if ([menuItem.title isEqualToString:@"位置"]){
-        
-        [self.chatInputView openLocation];
-    }else if ([menuItem.title isEqualToString:@"名片"]){
-        
-        [self.chatInputView openCard];
-    }else if ([menuItem.title isEqualToString:@"红包"]) {
-        
-        [self.chatInputView openRedPaper];
-    }
-}
-
 #pragma mark - 长按菜单内容点击
 #pragma mark 复制
 - (void)copyItem{
@@ -758,38 +789,31 @@ UITableViewDataSource
 
 #pragma mark - SHAudioPlayerHelperDelegate
 #pragma mark 开始播放
-- (void)didAudioPlayerBeginPlay:(NSString *)playerName{
+- (void)audioPlayerStartPlay:(NSString *)playMark{
     
-    for (SHVoiceTableViewCell *cell in self.chatTableView.visibleCells) {
-        if ([cell isKindOfClass:[SHVoiceTableViewCell class]]) {
-            if ([cell.messageFrame.message.voiceName isEqualToString:playerName]) {
+    for (SHAudioTableViewCell *cell in self.chatTableView.visibleCells) {
+        if ([cell isKindOfClass:[SHAudioTableViewCell class]]) {
+            if ([cell.messageFrame.message.messageId isEqualToString:playMark]) {
                 [cell playVoiceAnimation];
             }else{
                 [cell stopVoiceAnimation];
             }
+            break;
         }
     }
 }
 
 #pragma mark 结束播放
-- (void)didAudioPlayerStopPlay:(NSString *)playerName error:(NSString *)error{
-    
-    for (SHVoiceTableViewCell *cell in self.chatTableView.visibleCells) {
-        if ([cell isKindOfClass:[SHVoiceTableViewCell class]]) {
-            if ([cell.messageFrame.message.voiceName isEqualToString:playerName]) {
-                [cell stopVoiceAnimation];
-            }
-        }
+- (void)audioPlayerEndPlay:(NSString *)playMark error:(NSError *)error{
+    if (error) {
+        NSLog(@"音频播放错误：%@",error.description);
     }
-}
-
-#pragma mark 暂停播放
-- (void)didAudioPlayerPausePlay:(NSString *)playerName{
-    for (SHVoiceTableViewCell *cell in self.chatTableView.visibleCells) {
-        if ([cell isKindOfClass:[SHVoiceTableViewCell class]]) {
-            if ([cell.messageFrame.message.voiceName isEqualToString:playerName]) {
+    for (SHAudioTableViewCell *cell in self.chatTableView.visibleCells) {
+        if ([cell isKindOfClass:[SHAudioTableViewCell class]]) {
+            if ([cell.messageFrame.message.messageId isEqualToString:playMark]) {
                 [cell stopVoiceAnimation];
             }
+            break;
         }
     }
 }
@@ -798,7 +822,8 @@ UITableViewDataSource
 #pragma mark 添加到下方聊天界面
 - (void)addChatMessageWithMessage:(SHMessage *)message isBottom:(BOOL)isBottom{
     
-    if (message.messageState == SHSendMessageType_Delivering) {
+    //模拟发送状态
+    if (message.messageState == SHSendMessageType_Sending) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             message.messageState = SHSendMessageType_Failed;
             [self addChatMessageWithMessage:message isBottom:NO];
@@ -806,7 +831,7 @@ UITableViewDataSource
     }
     
     //判断是否重复
-    SHMessageFrame *messageFrame = [self dealDataWithMessage:message dateSoure:self.dataSource  setTime:self.timeArr.lastObject];
+    SHMessageFrame *messageFrame = [self dealDataWithMessage:message dateSoure:self.dataSource setTime:self.timeArr.lastObject];
     
     if (messageFrame) {//做添加
         
@@ -823,6 +848,15 @@ UITableViewDataSource
         //滚动到底部
         [self tableViewScrollToBottom];
     }
+    
+    //发送到消息服务器(资源文件在这里上传) 上传完毕更新数据源 主要是本地数据库的数据 界面资源用本地就可以
+    //文件路径
+    if (message.fileName.length) {
+        NSString *path = [SHFileHelper getFilePathWithName:message.fileName type:SHMessageFileType_file];
+        //上传
+        message.fileUrl = path;
+    }
+    
 }
 
 #pragma mark 处理数据属性
@@ -908,7 +942,7 @@ UITableViewDataSource
             
             //模拟数据
             model.messageState = SHSendMessageType_Successed;
-            model.bubbleMessageType = SHBubbleMessageType_Sending;
+            model.bubbleMessageType = SHBubbleMessageType_Send;
             //添加消息到聊天界面
             [self addChatMessageWithMessage:model isBottom:YES];
         }
@@ -986,53 +1020,13 @@ UITableViewDataSource
     }
 }
 
-#pragma mark - 键盘通知
-#pragma mark 添加键盘通知
-- (void)addKeyboardNote {
-    
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    
-    // 1.显示键盘
-    [center addObserver:self selector:@selector(keyboardChange:) name:UIKeyboardWillShowNotification object:nil];
-    
-    // 2.隐藏键盘
-    [center addObserver:self selector:@selector(keyboardChange:) name:UIKeyboardWillHideNotification object:nil];
-}
-
-#pragma mark 键盘通知执行
-- (void)keyboardChange:(NSNotification *)notification {
-    
-    NSDictionary *userInfo = [notification userInfo];
-    NSTimeInterval animationDuration;
-    UIViewAnimationCurve animationCurve;
-    CGRect keyboardEndFrame;
-    
-    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
-    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
-    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
-
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:animationDuration];
-    [UIView setAnimationCurve:animationCurve];
-    
-    CGRect newFrame = self.chatInputView.frame;
-    newFrame.origin.y = keyboardEndFrame.origin.y - newFrame.size.height;
-    
-    if ([notification.name isEqualToString:@"UIKeyboardWillHideNotification"]) {
-        newFrame.origin.y -= kSHBottomSafe;
-    }
-    self.chatInputView.frame = newFrame;
-    
-    [UIView commitAnimations];
-}
-
 #pragma mark - 懒加载
 #pragma mark 背景图片
 - (UIImageView *)bgImageView{
     if (!_bgImageView) {
         //设置背景
         _bgImageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
-        _bgImageView.image = [SHFileHelper imageNamed:@"message_bg.jpeg"];
+        _bgImageView.image = [UIImage imageNamed:@"message_bg.jpeg"];
         _bgImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     }
     return _bgImageView;
@@ -1061,29 +1055,33 @@ UITableViewDataSource
         _chatInputView.delegate = self;
         _chatInputView.supVC = self;
         
-        //图标
-        NSArray *plugIcons = @[@"sharemore_pic.png", @"sharemore_video.png",@"sharemore_voipvoice.png", @"sharemore_location.png",  @"sharemore_myfav.png", @"sharemore_friendcard.png"];
-        //标题
-        NSArray *plugTitle = @[@"照片", @"拍摄", @"通话", @"位置", @"红包", @"名片"];
+        NSArray *moreItem = @[
+            @{@"chat_more_pic" : @"照片"},
+            @{@"chat_more_video" : @"拍摄"},
+            @{@"chat_more_call" : @"通话"},
+            @{@"chat_more_loc" : @"位置"},
+            @{@"chat_more_red" : @"红包"},
+            @{@"chat_more_card" : @"名片"},
+            @{@"chat_more_file" : @"文件"},
+        ];
         
         // 添加第三方接入数据
         NSMutableArray *shareMenuItems = [NSMutableArray array];
         
         //配置Item按钮
-        [plugIcons enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop)  {
-            
-            SHShareMenuItem *shareMenuItem = [[SHShareMenuItem alloc] initWithIcon:[SHFileHelper imageNamed:obj] title:plugTitle[idx]];
-            [shareMenuItems addObject:shareMenuItem];
+        [moreItem enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop)  {
+
+            SHShareMenuItem *item = [SHShareMenuItem new];
+            item.icon = [SHFileHelper imageNamed:obj.allKeys[0]];
+            item.title = obj.allValues[0];
+            [shareMenuItems addObject:item];
         }];
         
         _chatInputView.shareMenuItems = shareMenuItems;
         [_chatInputView reloadView];
         
         if (kSHBottomSafe) {
-            UIView *view = [[UIView alloc]init];
-            view.frame = CGRectMake(0, _chatInputView.maxY, kSHWidth, kSHBottomSafe);
-            view.backgroundColor = kInPutViewColor;
-            [self.view addSubview:view];
+      
         }
     }
     return _chatInputView;
@@ -1164,8 +1162,7 @@ UITableViewDataSource
 
 #pragma mark - 销毁
 - (void)dealloc{
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self.chatInputView clear];
 }
 
 @end

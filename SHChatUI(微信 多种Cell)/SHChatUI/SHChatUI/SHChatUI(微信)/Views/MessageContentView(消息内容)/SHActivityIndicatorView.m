@@ -25,7 +25,7 @@
         //失败图标
         _failBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _failBtn.userInteractionEnabled = NO;
-        [_failBtn setBackgroundImage:[SHFileHelper imageNamed:@"message_fail.png"] forState:0];
+        [_failBtn setBackgroundImage:[SHFileHelper imageNamed:@"message_fail"] forState:0];
         [self addSubview:_failBtn];
     }
     return _failBtn;
@@ -59,7 +59,7 @@
     [self.activity stopAnimating];
     
     switch (messageState) {
-        case SHSendMessageType_Delivering://发送中
+        case SHSendMessageType_Sending://发送中
         {
             self.hidden = NO;
             self.activity.hidden = NO;
