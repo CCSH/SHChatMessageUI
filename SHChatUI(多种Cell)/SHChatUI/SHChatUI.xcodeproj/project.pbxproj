@@ -175,7 +175,6 @@
 			children = (
 				5CB76AA4219D6698005218A3 /* SHChatUI.bundle */,
 				5C4016DC212E9BAE004B19B3 /* SHMessageHeader.h */,
-				5C4016A6212E9BAE004B19B3 /* Category(类别) */,
 				5C4016D5212E9BAE004B19B3 /* Models */,
 				5C4016DD212E9BAE004B19B3 /* Cell */,
 				5C4016E0212E9BAE004B19B3 /* Controllers */,
@@ -183,13 +182,6 @@
 				5C4016FA212E9BAE004B19B3 /* Helper */,
 			);
 			path = "SHChatUI(微信)";
-			sourceTree = "<group>";
-		};
-		5C4016A6212E9BAE004B19B3 /* Category(类别) */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Category(类别)";
 			sourceTree = "<group>";
 		};
 		5C4016D5212E9BAE004B19B3 /* Models */ = {

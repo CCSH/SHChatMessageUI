@@ -3,99 +3,99 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		036F347708EE06D18B8B106FD85CCACD /* SHShortVideo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0668EE6B8B77013E62946FD02C511D88 /* SHShortVideo-dummy.m */; };
+		036F347708EE06D18B8B106FD85CCACD /* SHShortVideo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E593FD57E914014B0957878461254218 /* SHShortVideo-dummy.m */; };
 		0409E354452A22CDC67DB2089574E46F /* Pods-SHChatUI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EFBBB5DDF4575F45C6F6FADA076671 /* Pods-SHChatUI-dummy.m */; };
-		074DC41114651992468A3D06334FDA31 /* wav.mm in Sources */ = {isa = PBXBuildFile; fileRef = 71F7F57F2A9C3DD06E9AC4C54A089DE6 /* wav.mm */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		0B0C4998597CB9F06AB0B049934C90E7 /* UIView+SHExtension.podspec in Sources */ = {isa = PBXBuildFile; fileRef = 0819D5C80341317F3F4635298802FAD7 /* UIView+SHExtension.podspec */; };
-		1029F6F75D9A4EF77FA4A028642BC076 /* interf_enc.h in Headers */ = {isa = PBXBuildFile; fileRef = 2613886BC421F13A15ACB524BBE59C58 /* interf_enc.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		1406AF574BFD66628F30C971342BFA49 /* UIColor+SHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5EE2A9F77D50F43659DD8D93678ECE /* UIColor+SHExtension.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		14365CF6F3D3D5AF1E7624FC7DFECF48 /* UIView+SHExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A4D41FB334BF1D84997E46C0C05D003 /* UIView+SHExtension.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		1A404577FB42965E9410E695DDF06849 /* VoiceConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 81A3599D7D4164A34CC2BCFB19A278FC /* VoiceConverter.mm */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		28E984CA6E6C7C7FD9B471E03EB495BD /* SHShortVideoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B515EC3CD08C03A5B9C38A51CFB0E66C /* SHShortVideoViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		28F74837AFC4C26F2C20FFB4A6CAC268 /* SHEmotionTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0C834C63E3586F4E1328B8DCE920A5 /* SHEmotionTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2991301B5C5AF9CD0DAE425A6C61EB57 /* SHEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 034BBCAE89319E4051A22BD4688511CC /* SHEmotionKeyboard.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		2DBCBB79F1A41671F61822A15042A819 /* UIView+SHExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A583A8DD805F0B18DB86337E078EA1CF /* UIView+SHExtension-dummy.m */; };
-		37FF2D1CAC061B2F35EDEFB02CC12ACA /* SHTool.h in Headers */ = {isa = PBXBuildFile; fileRef = D4C2DAAE075B40E35A36FBFC14B3EA44 /* SHTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		3D9832A40CBBCF46639FD6C0C5EAA700 /* UIView+SHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5421EE03382E963ACFECC223650ED476 /* UIView+SHExtension.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		4CE7EE4000A1572C4FF166089713B745 /* SHEmotionKeyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = E1ECB682E9DA31E8181E642E86884B6A /* SHEmotionKeyboard.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		51648977625545B3E3EACBFA4E0D08CF /* SHEmotionKeyboard-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F745609D8D1F16B73A11CA580F2E9E /* SHEmotionKeyboard-dummy.m */; };
-		52568B18075D873B3F171D8983E9120D /* VoiceConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D1036B652E27015711A4AE39B0F923 /* VoiceConverter.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		562C8EE6E9107B7BFAAF81B49738EA98 /* SHEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A230DE2E88698702C40CD834E1837D5C /* SHEmotionTool.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		5C93DCBB70137DE5CE0CA6BD601EDB1C /* amrFileCodec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05D5643E02E729A23275AA52BA27154F /* amrFileCodec.mm */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		5E30590D2C7C490BD0DC023121EB6DCF /* UIImage+SHExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 02007C6FFEA20A0A60A9B7D0B3C2111C /* UIImage+SHExtension.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		70C5A49E96211187A35A228A7B779B06 /* SHEmotionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6852CA69479E33DC0417EF03CE2690F2 /* SHEmotionModel.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		713871980D21E62A8E7B4F4CD865BE23 /* SHShortVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB41E8F792B9F2DB04F2985938A9776 /* SHShortVideoViewController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		72C0647A6C97127D2B02D6CA9222E483 /* SHEmotionAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AFFDEB90B6FDF9B07236678DAAF0854 /* SHEmotionAttachment.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		84A9F6521BD5B70008A457CC10A59AFE /* wav.h in Headers */ = {isa = PBXBuildFile; fileRef = 596743F404609924C313C8F8C5145DA6 /* wav.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		8FAEE921612F7D418620C275A706FF81 /* SHShortAVPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 546BAE563B388349DBBC5C4A3DCCA242 /* SHShortAVPlayer.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		912D719DEC6B8975CD6D4E6565020C4C /* SHEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EEC69190FD561858C192C7C5186DE9 /* SHEmotionAttachment.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		9929BF57DF0E13EF69475F97D78E1CD7 /* NSString+SHExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = D6CB8C11ABCA333C4E0585B706BB6A57 /* NSString+SHExtension.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A32E78FD9C96179752512A8A502808E0 /* UIView+SHExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4BDEF6D7A7AEBB5B881BCE23FC564B /* UIView+SHExtension.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A7A959E6EF09F197A0C9724F9E5CA76C /* NSString+SHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 254C34F8F8DBBAE29091DDC64B28EF4F /* NSString+SHExtension.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		AC40BED028016761D28196E696FB95C9 /* UIImageView+SHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB3DE4991D97689EE81427FA516F59B /* UIImageView+SHExtension.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		B0620A5BB30FB3668C4CA08FEBF296AE /* UIColor+SHExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 943C6EB34F35359EF1581BB9AC2EAA39 /* UIColor+SHExtension.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		B9FEA32DD4CD6D779CC986CE87297DED /* interf_dec.h in Headers */ = {isa = PBXBuildFile; fileRef = 82EAFFDD5E534ED504270EB40CBF1EE1 /* interf_dec.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C30FA7F318B15EFDBCBEDBDE67B43259 /* SHTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E03729776B34D02B673CA2CD7CA35589 /* SHTool.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C70C2AEB923999CA51CD33FAD045F8DD /* amrFileCodec.h in Headers */ = {isa = PBXBuildFile; fileRef = B4F376CBF4BA4461BA058A2D840B8714 /* amrFileCodec.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C720714808090A104C89C0BBBE8BA48D /* UIView+SHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F16547345659DA6165FD45A503CE77F /* UIView+SHExtension.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		CE9E8D2129EBDFF55C727C79E7DCB8D8 /* SHShortAVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 612E26734E9A5358B3EA0D19E021DC7D /* SHShortAVPlayer.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		D5071CAF381AA925772BEC41E3136D6E /* SHEmotionModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A19CA8D1FB686E96B6C274A77E569EF /* SHEmotionModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		DC82CA46E7E700520F3D9D43DCF2B06B /* VoiceConvert-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE4F15B81E22CAA3AE5B5D9F650F8FC /* VoiceConvert-dummy.m */; };
-		DDAE1D7B6D1B42CA06152C7325CB76FA /* SHExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 723F9BFA69137A8A43B8CF4E1B0032E8 /* SHExtension-dummy.m */; };
-		EA503FCFBE4ACBE10EE0CC791C4431BF /* UIImageView+SHExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 550AC5D9ADD16EB701080F062A2B567E /* UIImageView+SHExtension.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		F4393A6774FA2DCCD375940C50F4B8F9 /* dec_if.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BFA5246110AB2F8FBE34A7902FFDD6F /* dec_if.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		F642A79310D07AEF23ACD64D4B98BEB1 /* UIImage+SHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DA079DF1F915D96DA4D454D0C46E81E5 /* UIImage+SHExtension.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		FEB8C4AA9AAB3F83BE60E7154AE9251E /* if_rom.h in Headers */ = {isa = PBXBuildFile; fileRef = FD4F9BD20AEC3A89169C8C51548C0A71 /* if_rom.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		074DC41114651992468A3D06334FDA31 /* wav.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3B4875542F2B517189EDE626A6459967 /* wav.mm */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0D80988925629B5042631ECD46E8BE3C /* NSString+SHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B7B369485A74F1DB3DF3020F6D7CFAC7 /* NSString+SHExtension.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1029F6F75D9A4EF77FA4A028642BC076 /* interf_enc.h in Headers */ = {isa = PBXBuildFile; fileRef = F02C6FAD64BECB041C2F81CCBA661711 /* interf_enc.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1441C21BA38EC24215077AB98F52CCD1 /* UIImage+SHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E034A794D3D65FF54FA34BF3083C0E /* UIImage+SHExtension.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1A404577FB42965E9410E695DDF06849 /* VoiceConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5DAEA0437E3651960DC9F45454916307 /* VoiceConverter.mm */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1D0808AA376841E7600B611922324A04 /* UIView+SHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF399A54B90AF59CF46D9E98BAF4937 /* UIView+SHExtension.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1E91A1EFEBB37844E287827EA0FED7D7 /* UIView+SHExtension.podspec in Sources */ = {isa = PBXBuildFile; fileRef = AC6AA601B86B366A6597113E5724997A /* UIView+SHExtension.podspec */; };
+		28E984CA6E6C7C7FD9B471E03EB495BD /* SHShortVideoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 934DB6C9764CFDDF7D2A31C39FF97844 /* SHShortVideoViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		28F74837AFC4C26F2C20FFB4A6CAC268 /* SHEmotionTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 7601E8DD558B5B549A921F00A415F9A0 /* SHEmotionTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2991301B5C5AF9CD0DAE425A6C61EB57 /* SHEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D17F42BEAD22A27EE8E453D3219BBDD /* SHEmotionKeyboard.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		29CC4CB094E177A01D12DA5113A05304 /* UIImageView+SHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E63F619F75C6D43E894D028220B750 /* UIImageView+SHExtension.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2AE02B382822E3DC64685C4C9ED73A94 /* UIColor+SHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D439CD837019FA1920493D0899AD4CB3 /* UIColor+SHExtension.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		345931B9DB0C45FBCC39825D2D08BC4F /* UIView+SHExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 111C665F9B0205590CA681B00C3D51DF /* UIView+SHExtension.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4CE7EE4000A1572C4FF166089713B745 /* SHEmotionKeyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = DE61696721D06E25803E83B9A134CD64 /* SHEmotionKeyboard.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		51648977625545B3E3EACBFA4E0D08CF /* SHEmotionKeyboard-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C642818F19772D26259959B136FE1C93 /* SHEmotionKeyboard-dummy.m */; };
+		52568B18075D873B3F171D8983E9120D /* VoiceConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 22706966848092D239D5DFFE98064ED1 /* VoiceConverter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		562C8EE6E9107B7BFAAF81B49738EA98 /* SHEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = ED557AB1AB0B9E5E91977D7FCBBEE397 /* SHEmotionTool.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5C93DCBB70137DE5CE0CA6BD601EDB1C /* amrFileCodec.mm in Sources */ = {isa = PBXBuildFile; fileRef = A7DCD7868A85DA6D86A42831A3CD562A /* amrFileCodec.mm */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		70C5A49E96211187A35A228A7B779B06 /* SHEmotionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD3EE439D69C18EF6ADB74074076009 /* SHEmotionModel.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		713871980D21E62A8E7B4F4CD865BE23 /* SHShortVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D339623063599CB0FBC6979B2E86 /* SHShortVideoViewController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		72C0647A6C97127D2B02D6CA9222E483 /* SHEmotionAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = F05C6A1BB5F08B796E7532EEC02E2B61 /* SHEmotionAttachment.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7A9E840DAA3BDA20B934DEC4A1551C93 /* UIView+SHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A5E0C75904735451ACAC3EF8F2CAF /* UIView+SHExtension.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		826307C4EBEF192EA1268E600610587C /* UIImageView+SHExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = EB29AA9544D5572866CCD2DFA9BAB520 /* UIImageView+SHExtension.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		84A9F6521BD5B70008A457CC10A59AFE /* wav.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CD752DA0937DE97D4B479F07BFF90A3 /* wav.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8D7B0955CCEF55D0999FBE03CA03CA23 /* UIView+SHExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D01386B59F9CCDB7BA1B05B6381DD8 /* UIView+SHExtension-dummy.m */; };
+		8FAEE921612F7D418620C275A706FF81 /* SHShortAVPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = B566F3184A3A48C5F15CADDE7D28BB6E /* SHShortAVPlayer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		912D719DEC6B8975CD6D4E6565020C4C /* SHEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 815C5312C7EA6E3268BB03FAAD9FA1AE /* SHEmotionAttachment.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		963D9B98FF78DA94ABD718C17C73FD02 /* UIView+SHExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C5EB7F93BE5C88B5590F4BCBAE00F5E /* UIView+SHExtension.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		AC4DD9FDDF95D03576D3FD0FA42FDE0F /* SHTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D296F3D775BF0743FB118E2D4B207006 /* SHTool.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B50BEE7BB3BE3A847239B8F9B6AF9E28 /* NSString+SHExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B97C5D54D126953AA6DD1BC71F5984F /* NSString+SHExtension.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B9FEA32DD4CD6D779CC986CE87297DED /* interf_dec.h in Headers */ = {isa = PBXBuildFile; fileRef = AD6AEAC2FD97E979109137D4CA924F23 /* interf_dec.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BDC8C4E4E403B755C7589F57662E9FD6 /* UIImage+SHExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = E6C5B420CE7C2673225FAECB97A1818E /* UIImage+SHExtension.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C70C2AEB923999CA51CD33FAD045F8DD /* amrFileCodec.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C1289A8B533F01B3D5D7FC220FECA66 /* amrFileCodec.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C7205683D4A2BE28C88E3EB0A91307B1 /* UIColor+SHExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = BA30D404DC3B4B63C201C1080EF8BAB8 /* UIColor+SHExtension.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CE9E8D2129EBDFF55C727C79E7DCB8D8 /* SHShortAVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CD2C5790A79F0475D95B912FEB673A /* SHShortAVPlayer.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D5071CAF381AA925772BEC41E3136D6E /* SHEmotionModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D60141ACD840680FF1719D473CD9E5E /* SHEmotionModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DC82CA46E7E700520F3D9D43DCF2B06B /* VoiceConvert-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A57CAE2026E14176CD10C4DC21B8055D /* VoiceConvert-dummy.m */; };
+		DE4B520E80A382432A0A6DD38160353E /* SHTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E20F25DA543F930F89684DE6C0BB73A /* SHTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F4393A6774FA2DCCD375940C50F4B8F9 /* dec_if.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B8D9940561D61794968F487EF9B9A1A /* dec_if.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F44CB40CEA66219F17509D28B9B4B3AA /* SHExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 179A825E89230B6B7EC28F547D45276B /* SHExtension-dummy.m */; };
+		FEB8C4AA9AAB3F83BE60E7154AE9251E /* if_rom.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F89057F5A8F5E903A2068DFBB3D33D4 /* if_rom.h */; settings = {ATTRIBUTES = (Project, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2E0C6E64600E7D72764831D7A6766ECF /* PBXContainerItemProxy */ = {
+		24D4B8EEFF068FED3E6E4CE69BEF0DA9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 1A54DBE71FB2BFF2F48B062451CA79C8;
 			remoteInfo = "UIView+SHExtension";
 		};
-		425574EBEAC4CC98860D33DE3EED96DB /* PBXContainerItemProxy */ = {
+		6D8DEB2C49F5AF82211901846EB966E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 1160A3E55D5FEA5C56601BFA236AEC8F;
 			remoteInfo = SHShortVideo;
 		};
-		531FF52FB0AB1480E5862B3B02BBCA8E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CE7219D803F4ACF35C2F645EE1177799;
-			remoteInfo = SHExtension;
-		};
-		67F3F8BF1DD70DCA14A06158550DB374 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 93C31BE24E13379780AA0A401F28599E;
-			remoteInfo = SHEmotionKeyboard;
-		};
-		7C1BCFF3661E38BB9153209CF326E854 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EA501B60434B4556EA53FAE11928914E;
-			remoteInfo = VoiceConvert;
-		};
-		A4E087EDB77341D30C31A5A31ADCE9D0 /* PBXContainerItemProxy */ = {
+		8AA58AC9860B75EC7AAD57294D5049EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 1A54DBE71FB2BFF2F48B062451CA79C8;
 			remoteInfo = "UIView+SHExtension";
 		};
-		BF7B3145EB07DEC274E15641775ED471 /* PBXContainerItemProxy */ = {
+		97E0D6A2B0A959EC51CE3793055AF6FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE7219D803F4ACF35C2F645EE1177799;
+			remoteInfo = SHExtension;
+		};
+		A9A51F6B9ADC23ADD49E12BEA398F587 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93C31BE24E13379780AA0A401F28599E;
+			remoteInfo = SHEmotionKeyboard;
+		};
+		B74A94CD9DC2A9B7DEF25C0FE0497829 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA501B60434B4556EA53FAE11928914E;
+			remoteInfo = VoiceConvert;
+		};
+		BFDA2E1351EE17B01F6961E44BD0CB2F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -105,83 +105,90 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00184A8C95B478902FAC59C171A2D079 /* UIView+SHExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UIView+SHExtension.debug.xcconfig"; sourceTree = "<group>"; };
-		0064B19BACDA997DC02ECA77FD2E14A2 /* SHExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SHExtension-prefix.pch"; sourceTree = "<group>"; };
-		02007C6FFEA20A0A60A9B7D0B3C2111C /* UIImage+SHExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+SHExtension.h"; path = "SHExtension/UIImage+SHExtension.h"; sourceTree = "<group>"; };
-		034BBCAE89319E4051A22BD4688511CC /* SHEmotionKeyboard.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHEmotionKeyboard.m; path = SHEmotionKeyboard/SHEmotionKeyboard.m; sourceTree = "<group>"; };
-		05D5643E02E729A23275AA52BA27154F /* amrFileCodec.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = amrFileCodec.mm; path = VoiceConvert/VoiceConvert/amrwapper/amrFileCodec.mm; sourceTree = "<group>"; };
-		0668EE6B8B77013E62946FD02C511D88 /* SHShortVideo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SHShortVideo-dummy.m"; sourceTree = "<group>"; };
-		0819D5C80341317F3F4635298802FAD7 /* UIView+SHExtension.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "UIView+SHExtension.podspec"; sourceTree = "<group>"; };
-		0AFFDEB90B6FDF9B07236678DAAF0854 /* SHEmotionAttachment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHEmotionAttachment.h; path = SHEmotionKeyboard/SHEmotionAttachment.h; sourceTree = "<group>"; };
-		0BFA5246110AB2F8FBE34A7902FFDD6F /* dec_if.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = dec_if.h; path = "VoiceConvert/VoiceConvert/opencore-amrwb/dec_if.h"; sourceTree = "<group>"; };
-		184009802A08FD39D1B26A9FB2EC799A /* UIView+SHExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+SHExtension-prefix.pch"; sourceTree = "<group>"; };
-		1C0C834C63E3586F4E1328B8DCE920A5 /* SHEmotionTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHEmotionTool.h; path = SHEmotionKeyboard/SHEmotionTool.h; sourceTree = "<group>"; };
-		21D1036B652E27015711A4AE39B0F923 /* VoiceConverter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VoiceConverter.h; path = VoiceConvert/VoiceConvert/VoiceConverter.h; sourceTree = "<group>"; };
-		254C34F8F8DBBAE29091DDC64B28EF4F /* NSString+SHExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+SHExtension.m"; path = "SHExtension/NSString+SHExtension.m"; sourceTree = "<group>"; };
-		2613886BC421F13A15ACB524BBE59C58 /* interf_enc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = interf_enc.h; path = "VoiceConvert/VoiceConvert/opencore-amrnb/interf_enc.h"; sourceTree = "<group>"; };
-		2A330E4DC4F8C0B948FD62F24A62B8E3 /* libSHExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSHExtension.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A788EA10128C8E22818247CA6C8DEE8 /* VoiceConvert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VoiceConvert.debug.xcconfig; sourceTree = "<group>"; };
+		0C1289A8B533F01B3D5D7FC220FECA66 /* amrFileCodec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = amrFileCodec.h; path = VoiceConvert/VoiceConvert/amrwapper/amrFileCodec.h; sourceTree = "<group>"; };
+		0D60141ACD840680FF1719D473CD9E5E /* SHEmotionModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHEmotionModel.h; path = SHEmotionKeyboard/SHEmotionModel.h; sourceTree = "<group>"; };
+		111C665F9B0205590CA681B00C3D51DF /* UIView+SHExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+SHExtension.h"; sourceTree = "<group>"; };
+		1735501411CF9939BD786B875D67C9A6 /* SHEmotionKeyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SHEmotionKeyboard.release.xcconfig; sourceTree = "<group>"; };
+		179A825E89230B6B7EC28F547D45276B /* SHExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SHExtension-dummy.m"; sourceTree = "<group>"; };
+		22706966848092D239D5DFFE98064ED1 /* VoiceConverter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VoiceConverter.h; path = VoiceConvert/VoiceConvert/VoiceConverter.h; sourceTree = "<group>"; };
+		2A330E4DC4F8C0B948FD62F24A62B8E3 /* libSHExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSHExtension.a; path = libSHExtension.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A569C29FC8FBBA44A7DF6C59E5B76AF /* Pods-SHChatUI-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SHChatUI-acknowledgements.plist"; sourceTree = "<group>"; };
-		2F6B73A74A5AC4A5D905A33BF1B22A0E /* libPods-SHChatUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SHChatUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2FB41E8F792B9F2DB04F2985938A9776 /* SHShortVideoViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHShortVideoViewController.m; path = SHShortVideo/SHShortVideoViewController.m; sourceTree = "<group>"; };
-		32C65F1256D5201366F383F307BFA112 /* libSHEmotionKeyboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSHEmotionKeyboard.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		3EAEA0451065449B16AA4FE23863AAC0 /* libUIView+SHExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libUIView+SHExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B96C39C4DA9C9C8C27CD9E4FD573ECC /* SHShortVideo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SHShortVideo.release.xcconfig; sourceTree = "<group>"; };
+		2D17F42BEAD22A27EE8E453D3219BBDD /* SHEmotionKeyboard.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHEmotionKeyboard.m; path = SHEmotionKeyboard/SHEmotionKeyboard.m; sourceTree = "<group>"; };
+		2F6B73A74A5AC4A5D905A33BF1B22A0E /* libPods-SHChatUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-SHChatUI.a"; path = "libPods-SHChatUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		32C65F1256D5201366F383F307BFA112 /* libSHEmotionKeyboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSHEmotionKeyboard.a; path = libSHEmotionKeyboard.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B4875542F2B517189EDE626A6459967 /* wav.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = wav.mm; path = VoiceConvert/VoiceConvert/amrwapper/wav.mm; sourceTree = "<group>"; };
+		3B8D9940561D61794968F487EF9B9A1A /* dec_if.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = dec_if.h; path = "VoiceConvert/VoiceConvert/opencore-amrwb/dec_if.h"; sourceTree = "<group>"; };
+		3EAEA0451065449B16AA4FE23863AAC0 /* libUIView+SHExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libUIView+SHExtension.a"; path = "libUIView+SHExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41A5AD94D27CC9732A2FB09644EE1092 /* Pods-SHChatUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SHChatUI.debug.xcconfig"; sourceTree = "<group>"; };
-		4DDE4707DD37F2FDBDACFD6997DDA23D /* libopencore-amrnb.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libopencore-amrnb.a"; path = "VoiceConvert/VoiceConvert/lib/libopencore-amrnb.a"; sourceTree = "<group>"; };
+		490A5E0C75904735451ACAC3EF8F2CAF /* UIView+SHExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+SHExtension.m"; sourceTree = "<group>"; };
 		51344B35713E0AB9570AA4F0AA3F6570 /* Pods-SHChatUI-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SHChatUI-acknowledgements.markdown"; sourceTree = "<group>"; };
-		53EEC69190FD561858C192C7C5186DE9 /* SHEmotionAttachment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHEmotionAttachment.m; path = SHEmotionKeyboard/SHEmotionAttachment.m; sourceTree = "<group>"; };
-		5421EE03382E963ACFECC223650ED476 /* UIView+SHExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+SHExtension.m"; sourceTree = "<group>"; };
-		546BAE563B388349DBBC5C4A3DCCA242 /* SHShortAVPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHShortAVPlayer.h; path = SHShortVideo/SHShortAVPlayer.h; sourceTree = "<group>"; };
-		550AC5D9ADD16EB701080F062A2B567E /* UIImageView+SHExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+SHExtension.h"; path = "SHExtension/UIImageView+SHExtension.h"; sourceTree = "<group>"; };
-		596743F404609924C313C8F8C5145DA6 /* wav.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = wav.h; path = VoiceConvert/VoiceConvert/amrwapper/wav.h; sourceTree = "<group>"; };
-		5A19CA8D1FB686E96B6C274A77E569EF /* SHEmotionModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHEmotionModel.h; path = SHEmotionKeyboard/SHEmotionModel.h; sourceTree = "<group>"; };
-		5AEC30F95CDF520150EABE28CAD230E8 /* SHShortVideo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SHShortVideo.debug.xcconfig; sourceTree = "<group>"; };
-		5E4CC2C9B7993BB9920F3AC2EFAEBFC2 /* SHShortVideo-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SHShortVideo-prefix.pch"; sourceTree = "<group>"; };
-		612E26734E9A5358B3EA0D19E021DC7D /* SHShortAVPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHShortAVPlayer.m; path = SHShortVideo/SHShortAVPlayer.m; sourceTree = "<group>"; };
-		641A98E4DE2A9AEAF0742009E48DE255 /* SHExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SHExtension.debug.xcconfig; sourceTree = "<group>"; };
-		6852CA69479E33DC0417EF03CE2690F2 /* SHEmotionModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHEmotionModel.m; path = SHEmotionKeyboard/SHEmotionModel.m; sourceTree = "<group>"; };
-		69C301BB5F33DEE35227AA9162A699F6 /* libSHShortVideo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSHShortVideo.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F608886B268E6268F7C665C00A200A0 /* UIView+SHExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UIView+SHExtension.release.xcconfig"; sourceTree = "<group>"; };
-		71F7F57F2A9C3DD06E9AC4C54A089DE6 /* wav.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = wav.mm; path = VoiceConvert/VoiceConvert/amrwapper/wav.mm; sourceTree = "<group>"; };
-		723F9BFA69137A8A43B8CF4E1B0032E8 /* SHExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SHExtension-dummy.m"; sourceTree = "<group>"; };
-		7A4D41FB334BF1D84997E46C0C05D003 /* UIView+SHExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+SHExtension.h"; path = "SHExtension/UIView+SHExtension.h"; sourceTree = "<group>"; };
-		7C4AF405C05F49045A8F23624B0E4C88 /* SHShortVideo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SHShortVideo.release.xcconfig; sourceTree = "<group>"; };
-		7C5EE2A9F77D50F43659DD8D93678ECE /* UIColor+SHExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+SHExtension.m"; path = "SHExtension/UIColor+SHExtension.m"; sourceTree = "<group>"; };
+		53264A167BE1C54B96F510EF80D9A0B1 /* SHEmotionKeyboard-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SHEmotionKeyboard-prefix.pch"; sourceTree = "<group>"; };
+		5DAEA0437E3651960DC9F45454916307 /* VoiceConverter.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = VoiceConverter.mm; path = VoiceConvert/VoiceConvert/VoiceConverter.mm; sourceTree = "<group>"; };
+		6270626D08E2C65CCCDC8B5242970FAC /* SHExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SHExtension-prefix.pch"; sourceTree = "<group>"; };
+		69C301BB5F33DEE35227AA9162A699F6 /* libSHShortVideo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSHShortVideo.a; path = libSHShortVideo.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B97C5D54D126953AA6DD1BC71F5984F /* NSString+SHExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+SHExtension.h"; path = "SHExtension/NSString+SHExtension.h"; sourceTree = "<group>"; };
+		6BB2DD81BBDBCC3BB7457D2BEECB8ADC /* VoiceConvert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VoiceConvert.release.xcconfig; sourceTree = "<group>"; };
+		6FEB1A99E1B5BD004B8B4BADC001CB1F /* libopencore-amrwb.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libopencore-amrwb.a"; path = "VoiceConvert/VoiceConvert/lib/libopencore-amrwb.a"; sourceTree = "<group>"; };
+		700D34FE92DBBC6E516D9517922649BE /* SHExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SHExtension.release.xcconfig; sourceTree = "<group>"; };
+		75E63F619F75C6D43E894D028220B750 /* UIImageView+SHExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+SHExtension.m"; path = "SHExtension/UIImageView+SHExtension.m"; sourceTree = "<group>"; };
+		7601E8DD558B5B549A921F00A415F9A0 /* SHEmotionTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHEmotionTool.h; path = SHEmotionKeyboard/SHEmotionTool.h; sourceTree = "<group>"; };
+		7AD92AA2EE8925D8145A3A0E1449728B /* SHEmotionKeyboard.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SHEmotionKeyboard.bundle; path = SHEmotionKeyboard/SHEmotionKeyboard.bundle; sourceTree = "<group>"; };
+		7C5EB7F93BE5C88B5590F4BCBAE00F5E /* UIView+SHExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+SHExtension.h"; path = "SHExtension/UIView+SHExtension.h"; sourceTree = "<group>"; };
 		7D67043CCFF7BA86A37D08D1CA526818 /* Pods-SHChatUI-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SHChatUI-resources.sh"; sourceTree = "<group>"; };
-		7D6FFF857EC00742F6E24CA838EBD5C5 /* VoiceConvert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VoiceConvert.release.xcconfig; sourceTree = "<group>"; };
-		81A3599D7D4164A34CC2BCFB19A278FC /* VoiceConverter.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = VoiceConverter.mm; path = VoiceConvert/VoiceConvert/VoiceConverter.mm; sourceTree = "<group>"; };
-		82EAFFDD5E534ED504270EB40CBF1EE1 /* interf_dec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = interf_dec.h; path = "VoiceConvert/VoiceConvert/opencore-amrnb/interf_dec.h"; sourceTree = "<group>"; };
-		8B8429344F25AB6EC8506D4BF7EFCCF0 /* SHEmotionKeyboard.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SHEmotionKeyboard.bundle; path = SHEmotionKeyboard/SHEmotionKeyboard.bundle; sourceTree = "<group>"; };
-		8F16547345659DA6165FD45A503CE77F /* UIView+SHExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+SHExtension.m"; path = "SHExtension/UIView+SHExtension.m"; sourceTree = "<group>"; };
-		943C6EB34F35359EF1581BB9AC2EAA39 /* UIColor+SHExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+SHExtension.h"; path = "SHExtension/UIColor+SHExtension.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		815C5312C7EA6E3268BB03FAAD9FA1AE /* SHEmotionAttachment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHEmotionAttachment.m; path = SHEmotionKeyboard/SHEmotionAttachment.m; sourceTree = "<group>"; };
+		84E0D339623063599CB0FBC6979B2E86 /* SHShortVideoViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHShortVideoViewController.m; path = SHShortVideo/SHShortVideoViewController.m; sourceTree = "<group>"; };
+		8CD752DA0937DE97D4B479F07BFF90A3 /* wav.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = wav.h; path = VoiceConvert/VoiceConvert/amrwapper/wav.h; sourceTree = "<group>"; };
+		91D01386B59F9CCDB7BA1B05B6381DD8 /* UIView+SHExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+SHExtension-dummy.m"; sourceTree = "<group>"; };
+		934DB6C9764CFDDF7D2A31C39FF97844 /* SHShortVideoViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHShortVideoViewController.h; path = SHShortVideo/SHShortVideoViewController.h; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E20F25DA543F930F89684DE6C0BB73A /* SHTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHTool.h; path = SHExtension/SHTool.h; sourceTree = "<group>"; };
+		9F89057F5A8F5E903A2068DFBB3D33D4 /* if_rom.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = if_rom.h; path = "VoiceConvert/VoiceConvert/opencore-amrwb/if_rom.h"; sourceTree = "<group>"; };
 		A0E72DC93720BFAA49907B4492295AC8 /* Pods-SHChatUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SHChatUI.release.xcconfig"; sourceTree = "<group>"; };
-		A230DE2E88698702C40CD834E1837D5C /* SHEmotionTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHEmotionTool.m; path = SHEmotionKeyboard/SHEmotionTool.m; sourceTree = "<group>"; };
-		A583A8DD805F0B18DB86337E078EA1CF /* UIView+SHExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+SHExtension-dummy.m"; sourceTree = "<group>"; };
-		AA3C613909BF5B8003B90D7148B382B9 /* VoiceConvert-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VoiceConvert-prefix.pch"; sourceTree = "<group>"; };
-		AB7A6D22E94D222E4D88F7E02A1D3CA9 /* SHEmotionKeyboard-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SHEmotionKeyboard-prefix.pch"; sourceTree = "<group>"; };
+		A57CAE2026E14176CD10C4DC21B8055D /* VoiceConvert-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "VoiceConvert-dummy.m"; sourceTree = "<group>"; };
+		A7DCD7868A85DA6D86A42831A3CD562A /* amrFileCodec.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = amrFileCodec.mm; path = VoiceConvert/VoiceConvert/amrwapper/amrFileCodec.mm; sourceTree = "<group>"; };
+		AA58E6F2C552BC2DE5E245603302CD96 /* SHShortVideo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SHShortVideo.debug.xcconfig; sourceTree = "<group>"; };
+		AB8CB68637A1A3E3A3F9F6FF016C414B /* SHShortVideo-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SHShortVideo-prefix.pch"; sourceTree = "<group>"; };
+		AC6AA601B86B366A6597113E5724997A /* UIView+SHExtension.podspec */ = {isa = PBXFileReference; includeInIndex = 1; path = "UIView+SHExtension.podspec"; sourceTree = "<group>"; };
+		AD6AEAC2FD97E979109137D4CA924F23 /* interf_dec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = interf_dec.h; path = "VoiceConvert/VoiceConvert/opencore-amrnb/interf_dec.h"; sourceTree = "<group>"; };
+		AFF399A54B90AF59CF46D9E98BAF4937 /* UIView+SHExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+SHExtension.m"; path = "SHExtension/UIView+SHExtension.m"; sourceTree = "<group>"; };
+		B18CD1E74BCB706223C5FEDED2540C29 /* UIView+SHExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+SHExtension-prefix.pch"; sourceTree = "<group>"; };
 		B1EFBBB5DDF4575F45C6F6FADA076671 /* Pods-SHChatUI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SHChatUI-dummy.m"; sourceTree = "<group>"; };
-		B4F376CBF4BA4461BA058A2D840B8714 /* amrFileCodec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = amrFileCodec.h; path = VoiceConvert/VoiceConvert/amrwapper/amrFileCodec.h; sourceTree = "<group>"; };
-		B515EC3CD08C03A5B9C38A51CFB0E66C /* SHShortVideoViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHShortVideoViewController.h; path = SHShortVideo/SHShortVideoViewController.h; sourceTree = "<group>"; };
-		BC7AB135A31B547D8BF143525E9D3EAE /* SHEmotionKeyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SHEmotionKeyboard.debug.xcconfig; sourceTree = "<group>"; };
-		C1F745609D8D1F16B73A11CA580F2E9E /* SHEmotionKeyboard-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SHEmotionKeyboard-dummy.m"; sourceTree = "<group>"; };
-		CD0A6B796A933C98F03AEE33EEE93248 /* SHShortVideo.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SHShortVideo.bundle; path = SHShortVideo/SHShortVideo.bundle; sourceTree = "<group>"; };
-		D39D21FD54FD7B49CA9EF7E1A1F41885 /* libVoiceConvert.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVoiceConvert.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4C2DAAE075B40E35A36FBFC14B3EA44 /* SHTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHTool.h; path = SHExtension/SHTool.h; sourceTree = "<group>"; };
-		D6CB8C11ABCA333C4E0585B706BB6A57 /* NSString+SHExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+SHExtension.h"; path = "SHExtension/NSString+SHExtension.h"; sourceTree = "<group>"; };
-		DA079DF1F915D96DA4D454D0C46E81E5 /* UIImage+SHExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+SHExtension.m"; path = "SHExtension/UIImage+SHExtension.m"; sourceTree = "<group>"; };
-		DDE4F15B81E22CAA3AE5B5D9F650F8FC /* VoiceConvert-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "VoiceConvert-dummy.m"; sourceTree = "<group>"; };
-		E03729776B34D02B673CA2CD7CA35589 /* SHTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHTool.m; path = SHExtension/SHTool.m; sourceTree = "<group>"; };
-		E1ECB682E9DA31E8181E642E86884B6A /* SHEmotionKeyboard.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHEmotionKeyboard.h; path = SHEmotionKeyboard/SHEmotionKeyboard.h; sourceTree = "<group>"; };
-		E2E33FEB8FE0CD8FD6626DCA00F77EFA /* SHExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SHExtension.release.xcconfig; sourceTree = "<group>"; };
-		EA135D4C133851C7DF2E5182EAC91509 /* VoiceConvert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VoiceConvert.debug.xcconfig; sourceTree = "<group>"; };
-		EAB5F185722481F2E3BAF807639546B4 /* SHEmotionKeyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SHEmotionKeyboard.release.xcconfig; sourceTree = "<group>"; };
-		EC4BDEF6D7A7AEBB5B881BCE23FC564B /* UIView+SHExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+SHExtension.h"; sourceTree = "<group>"; };
-		EFA7CBFB8752AAA068C45B8CDDCE5218 /* libopencore-amrwb.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libopencore-amrwb.a"; path = "VoiceConvert/VoiceConvert/lib/libopencore-amrwb.a"; sourceTree = "<group>"; };
-		FCB3DE4991D97689EE81427FA516F59B /* UIImageView+SHExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+SHExtension.m"; path = "SHExtension/UIImageView+SHExtension.m"; sourceTree = "<group>"; };
-		FD4F9BD20AEC3A89169C8C51548C0A71 /* if_rom.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = if_rom.h; path = "VoiceConvert/VoiceConvert/opencore-amrwb/if_rom.h"; sourceTree = "<group>"; };
+		B566F3184A3A48C5F15CADDE7D28BB6E /* SHShortAVPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHShortAVPlayer.h; path = SHShortVideo/SHShortAVPlayer.h; sourceTree = "<group>"; };
+		B7B369485A74F1DB3DF3020F6D7CFAC7 /* NSString+SHExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+SHExtension.m"; path = "SHExtension/NSString+SHExtension.m"; sourceTree = "<group>"; };
+		BA30D404DC3B4B63C201C1080EF8BAB8 /* UIColor+SHExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+SHExtension.h"; path = "SHExtension/UIColor+SHExtension.h"; sourceTree = "<group>"; };
+		C0CD2C5790A79F0475D95B912FEB673A /* SHShortAVPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHShortAVPlayer.m; path = SHShortVideo/SHShortAVPlayer.m; sourceTree = "<group>"; };
+		C642818F19772D26259959B136FE1C93 /* SHEmotionKeyboard-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SHEmotionKeyboard-dummy.m"; sourceTree = "<group>"; };
+		C8147DCBAA977775F48BC55BAF213566 /* SHEmotionKeyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SHEmotionKeyboard.debug.xcconfig; sourceTree = "<group>"; };
+		C995C3799DFC3203A137F059E6C89DDD /* UIView+SHExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UIView+SHExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		CE5956F897BF38B6C2E881AACAB580F5 /* SHShortVideo.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SHShortVideo.bundle; path = SHShortVideo/SHShortVideo.bundle; sourceTree = "<group>"; };
+		CFD3EE439D69C18EF6ADB74074076009 /* SHEmotionModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHEmotionModel.m; path = SHEmotionKeyboard/SHEmotionModel.m; sourceTree = "<group>"; };
+		D296F3D775BF0743FB118E2D4B207006 /* SHTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHTool.m; path = SHExtension/SHTool.m; sourceTree = "<group>"; };
+		D39D21FD54FD7B49CA9EF7E1A1F41885 /* libVoiceConvert.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libVoiceConvert.a; path = libVoiceConvert.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D439CD837019FA1920493D0899AD4CB3 /* UIColor+SHExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+SHExtension.m"; path = "SHExtension/UIColor+SHExtension.m"; sourceTree = "<group>"; };
+		D4ABF748070B602477022807F3689CAA /* UIView+SHExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UIView+SHExtension.release.xcconfig"; sourceTree = "<group>"; };
+		DA7FF174E601941EA5A14FD2B1E9E4A9 /* libopencore-amrnb.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libopencore-amrnb.a"; path = "VoiceConvert/VoiceConvert/lib/libopencore-amrnb.a"; sourceTree = "<group>"; };
+		DB5ED3661B22D611B49DAEA7A52CEFA3 /* SHExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SHExtension.debug.xcconfig; sourceTree = "<group>"; };
+		DE61696721D06E25803E83B9A134CD64 /* SHEmotionKeyboard.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHEmotionKeyboard.h; path = SHEmotionKeyboard/SHEmotionKeyboard.h; sourceTree = "<group>"; };
+		E593FD57E914014B0957878461254218 /* SHShortVideo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SHShortVideo-dummy.m"; sourceTree = "<group>"; };
+		E6C5B420CE7C2673225FAECB97A1818E /* UIImage+SHExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+SHExtension.h"; path = "SHExtension/UIImage+SHExtension.h"; sourceTree = "<group>"; };
+		E9E49CA90505C00C8BE2DE9702B5F7E9 /* VoiceConvert-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VoiceConvert-prefix.pch"; sourceTree = "<group>"; };
+		EB29AA9544D5572866CCD2DFA9BAB520 /* UIImageView+SHExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+SHExtension.h"; path = "SHExtension/UIImageView+SHExtension.h"; sourceTree = "<group>"; };
+		ED557AB1AB0B9E5E91977D7FCBBEE397 /* SHEmotionTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHEmotionTool.m; path = SHEmotionKeyboard/SHEmotionTool.m; sourceTree = "<group>"; };
+		F02C6FAD64BECB041C2F81CCBA661711 /* interf_enc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = interf_enc.h; path = "VoiceConvert/VoiceConvert/opencore-amrnb/interf_enc.h"; sourceTree = "<group>"; };
+		F05C6A1BB5F08B796E7532EEC02E2B61 /* SHEmotionAttachment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHEmotionAttachment.h; path = SHEmotionKeyboard/SHEmotionAttachment.h; sourceTree = "<group>"; };
+		F5E034A794D3D65FF54FA34BF3083C0E /* UIImage+SHExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+SHExtension.m"; path = "SHExtension/UIImage+SHExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		93A492DC134ABF6F29DFD6C75E683519 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97F68379B5C1940DD39D663A9D7A0927 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -196,14 +203,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A1884D875A0E48EAE84D1507358AC2B2 /* Frameworks */ = {
+		B5B7E527F6885ECA1930023CEEC55256 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B5B7E527F6885ECA1930023CEEC55256 /* Frameworks */ = {
+		D9F40CF9F8C87774455E803718901992 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -217,37 +224,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F79FDA73582DF06C00B949BD6DCEA17E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0CA827E65F717BE473F5EB7FD70316E4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4DDE4707DD37F2FDBDACFD6997DDA23D /* libopencore-amrnb.a */,
-				EFA7CBFB8752AAA068C45B8CDDCE5218 /* libopencore-amrwb.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		27E2343A2E681904FBD28101EEEB5656 /* UIImageView */ = {
+		1AE6EB02015BB77C3DE34BE48B358D74 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = UIImageView;
+			name = UIColor;
 			sourceTree = "<group>";
 		};
-		2AD7946608114B0B75EE2499852B14FD /* UIView */ = {
+		1CEA41FDD65FB69F6AD968F4434E9A69 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = UIView;
+			sourceTree = "<group>";
+		};
+		1EF0BE49D9F823D26A4894852BAB9534 /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UIImageView;
 			sourceTree = "<group>";
 		};
 		2DAEBD86F9C503AACBA086FE22361201 /* Pods-SHChatUI */ = {
@@ -264,121 +262,107 @@
 			path = "Target Support Files/Pods-SHChatUI";
 			sourceTree = "<group>";
 		};
-		2E8E374A819F12C26C00507814DDAA81 /* UIImage */ = {
+		3545914008F3740FB262C5457CEBF121 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = UIImage;
+			name = Tool;
 			sourceTree = "<group>";
 		};
-		4024FF81DF23FAB0D4E096AD82E04112 /* UIColor */ = {
+		5702E77D143BCFF48719FAF0FAFF8439 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				C642818F19772D26259959B136FE1C93 /* SHEmotionKeyboard-dummy.m */,
+				53264A167BE1C54B96F510EF80D9A0B1 /* SHEmotionKeyboard-prefix.pch */,
+				C8147DCBAA977775F48BC55BAF213566 /* SHEmotionKeyboard.debug.xcconfig */,
+				1735501411CF9939BD786B875D67C9A6 /* SHEmotionKeyboard.release.xcconfig */,
 			);
-			name = UIColor;
+			name = "Support Files";
+			path = "../Target Support Files/SHEmotionKeyboard";
 			sourceTree = "<group>";
 		};
-		4245F63E860100D70A4DC784F2136856 /* UIView+SHExtension */ = {
+		5BCD196D7B2CC325A484600BECA29281 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				EC4BDEF6D7A7AEBB5B881BCE23FC564B /* UIView+SHExtension.h */,
-				5421EE03382E963ACFECC223650ED476 /* UIView+SHExtension.m */,
-				0819D5C80341317F3F4635298802FAD7 /* UIView+SHExtension.podspec */,
-				469F5E598F21439CBEF1DF0B5A15AFD0 /* Support Files */,
+				A57CAE2026E14176CD10C4DC21B8055D /* VoiceConvert-dummy.m */,
+				E9E49CA90505C00C8BE2DE9702B5F7E9 /* VoiceConvert-prefix.pch */,
+				0A788EA10128C8E22818247CA6C8DEE8 /* VoiceConvert.debug.xcconfig */,
+				6BB2DD81BBDBCC3BB7457D2BEECB8ADC /* VoiceConvert.release.xcconfig */,
 			);
-			path = "UIView+SHExtension";
+			name = "Support Files";
+			path = "../Target Support Files/VoiceConvert";
 			sourceTree = "<group>";
 		};
-		43A7DD16F7BCF8E5C2DEA1623CC9976E /* NSString */ = {
+		6AEFBD3E8102222284921B09C89070C4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				179A825E89230B6B7EC28F547D45276B /* SHExtension-dummy.m */,
+				6270626D08E2C65CCCDC8B5242970FAC /* SHExtension-prefix.pch */,
+				DB5ED3661B22D611B49DAEA7A52CEFA3 /* SHExtension.debug.xcconfig */,
+				700D34FE92DBBC6E516D9517922649BE /* SHExtension.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SHExtension";
+			sourceTree = "<group>";
+		};
+		70095E3EB2D1A053B382BCD966D4132B /* NSString */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = NSString;
 			sourceTree = "<group>";
 		};
-		469F5E598F21439CBEF1DF0B5A15AFD0 /* Support Files */ = {
+		76F97EB2913358242CEC69A23505EF47 /* VoiceConvert */ = {
 			isa = PBXGroup;
 			children = (
-				A583A8DD805F0B18DB86337E078EA1CF /* UIView+SHExtension-dummy.m */,
-				184009802A08FD39D1B26A9FB2EC799A /* UIView+SHExtension-prefix.pch */,
-				00184A8C95B478902FAC59C171A2D079 /* UIView+SHExtension.debug.xcconfig */,
-				6F608886B268E6268F7C665C00A200A0 /* UIView+SHExtension.release.xcconfig */,
+				0C1289A8B533F01B3D5D7FC220FECA66 /* amrFileCodec.h */,
+				A7DCD7868A85DA6D86A42831A3CD562A /* amrFileCodec.mm */,
+				3B8D9940561D61794968F487EF9B9A1A /* dec_if.h */,
+				9F89057F5A8F5E903A2068DFBB3D33D4 /* if_rom.h */,
+				AD6AEAC2FD97E979109137D4CA924F23 /* interf_dec.h */,
+				F02C6FAD64BECB041C2F81CCBA661711 /* interf_enc.h */,
+				22706966848092D239D5DFFE98064ED1 /* VoiceConverter.h */,
+				5DAEA0437E3651960DC9F45454916307 /* VoiceConverter.mm */,
+				8CD752DA0937DE97D4B479F07BFF90A3 /* wav.h */,
+				3B4875542F2B517189EDE626A6459967 /* wav.mm */,
+				AE30A9342E54DC39C25B21A6FCF53D4B /* Frameworks */,
+				5BCD196D7B2CC325A484600BECA29281 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/UIView+SHExtension";
+			name = VoiceConvert;
+			path = VoiceConvert;
 			sourceTree = "<group>";
 		};
-		6045683491121350DC3CA36CF14CD6AA /* Pods */ = {
+		833F2E7BE63F3C9550A7100E3821FA55 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				7031837C8A9B04815A8A282A81F3E52E /* SHEmotionKeyboard */,
-				F7B54014E4D45F73F874C8B49BD480A5 /* SHExtension */,
-				966E4EA60FFA16FEB96AF1839ABB6F58 /* SHShortVideo */,
-				4245F63E860100D70A4DC784F2136856 /* UIView+SHExtension */,
-				B34DFE232FF85B93478738163A2EA5EA /* VoiceConvert */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		6D7FA92AA4C52244EA5D3C45E9A7AB22 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				DDE4F15B81E22CAA3AE5B5D9F650F8FC /* VoiceConvert-dummy.m */,
-				AA3C613909BF5B8003B90D7148B382B9 /* VoiceConvert-prefix.pch */,
-				EA135D4C133851C7DF2E5182EAC91509 /* VoiceConvert.debug.xcconfig */,
-				7D6FFF857EC00742F6E24CA838EBD5C5 /* VoiceConvert.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/VoiceConvert";
-			sourceTree = "<group>";
-		};
-		7031837C8A9B04815A8A282A81F3E52E /* SHEmotionKeyboard */ = {
-			isa = PBXGroup;
-			children = (
-				0AFFDEB90B6FDF9B07236678DAAF0854 /* SHEmotionAttachment.h */,
-				53EEC69190FD561858C192C7C5186DE9 /* SHEmotionAttachment.m */,
-				E1ECB682E9DA31E8181E642E86884B6A /* SHEmotionKeyboard.h */,
-				034BBCAE89319E4051A22BD4688511CC /* SHEmotionKeyboard.m */,
-				5A19CA8D1FB686E96B6C274A77E569EF /* SHEmotionModel.h */,
-				6852CA69479E33DC0417EF03CE2690F2 /* SHEmotionModel.m */,
-				1C0C834C63E3586F4E1328B8DCE920A5 /* SHEmotionTool.h */,
-				A230DE2E88698702C40CD834E1837D5C /* SHEmotionTool.m */,
-				B29BA9878DFF5AB309C30CDF60FA60C9 /* Resources */,
-				B8A1B8D47B8D61756E24470162610740 /* Support Files */,
-			);
-			path = SHEmotionKeyboard;
-			sourceTree = "<group>";
-		};
-		7E05C0579FB9EB5DC27C352712D038D8 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				0668EE6B8B77013E62946FD02C511D88 /* SHShortVideo-dummy.m */,
-				5E4CC2C9B7993BB9920F3AC2EFAEBFC2 /* SHShortVideo-prefix.pch */,
-				5AEC30F95CDF520150EABE28CAD230E8 /* SHShortVideo.debug.xcconfig */,
-				7C4AF405C05F49045A8F23624B0E4C88 /* SHShortVideo.release.xcconfig */,
+				E593FD57E914014B0957878461254218 /* SHShortVideo-dummy.m */,
+				AB8CB68637A1A3E3A3F9F6FF016C414B /* SHShortVideo-prefix.pch */,
+				AA58E6F2C552BC2DE5E245603302CD96 /* SHShortVideo.debug.xcconfig */,
+				2B96C39C4DA9C9C8C27CD9E4FD573ECC /* SHShortVideo.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SHShortVideo";
 			sourceTree = "<group>";
 		};
-		8719146934CF2F56460AB05B0A5EC19D /* Resources */ = {
+		8C7DE768CA91F6CC476758E595F7AD45 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CD0A6B796A933C98F03AEE33EEE93248 /* SHShortVideo.bundle */,
+				7AD92AA2EE8925D8145A3A0E1449728B /* SHEmotionKeyboard.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		966E4EA60FFA16FEB96AF1839ABB6F58 /* SHShortVideo */ = {
+		8F7BABAF0DA7092E94761FA85D002EBB /* SHShortVideo */ = {
 			isa = PBXGroup;
 			children = (
-				546BAE563B388349DBBC5C4A3DCCA242 /* SHShortAVPlayer.h */,
-				612E26734E9A5358B3EA0D19E021DC7D /* SHShortAVPlayer.m */,
-				B515EC3CD08C03A5B9C38A51CFB0E66C /* SHShortVideoViewController.h */,
-				2FB41E8F792B9F2DB04F2985938A9776 /* SHShortVideoViewController.m */,
-				8719146934CF2F56460AB05B0A5EC19D /* Resources */,
-				7E05C0579FB9EB5DC27C352712D038D8 /* Support Files */,
+				B566F3184A3A48C5F15CADDE7D28BB6E /* SHShortAVPlayer.h */,
+				C0CD2C5790A79F0475D95B912FEB673A /* SHShortAVPlayer.m */,
+				934DB6C9764CFDDF7D2A31C39FF97844 /* SHShortVideoViewController.h */,
+				84E0D339623063599CB0FBC6979B2E86 /* SHShortVideoViewController.m */,
+				A9304BDA0D96F56ED2FAA97B4F8757A2 /* Resources */,
+				833F2E7BE63F3C9550A7100E3821FA55 /* Support Files */,
 			);
+			name = SHShortVideo;
 			path = SHShortVideo;
 			sourceTree = "<group>";
 		};
@@ -390,50 +374,90 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		A753AFF9A203C75FFC7261CBA9B94C80 /* Tool */ = {
+		9DF00F681285FEA45763F5D772B15478 /* UIView+SHExtension */ = {
 			isa = PBXGroup;
 			children = (
+				111C665F9B0205590CA681B00C3D51DF /* UIView+SHExtension.h */,
+				490A5E0C75904735451ACAC3EF8F2CAF /* UIView+SHExtension.m */,
+				AC6AA601B86B366A6597113E5724997A /* UIView+SHExtension.podspec */,
+				BC0810343B048B0EFE5E552304AE280F /* Support Files */,
 			);
-			name = Tool;
+			name = "UIView+SHExtension";
+			path = "UIView+SHExtension";
 			sourceTree = "<group>";
 		};
-		B29BA9878DFF5AB309C30CDF60FA60C9 /* Resources */ = {
+		A9304BDA0D96F56ED2FAA97B4F8757A2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8B8429344F25AB6EC8506D4BF7EFCCF0 /* SHEmotionKeyboard.bundle */,
+				CE5956F897BF38B6C2E881AACAB580F5 /* SHShortVideo.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		B34DFE232FF85B93478738163A2EA5EA /* VoiceConvert */ = {
+		ACEF098BF0A868A816D2887625E55F1F /* SHExtension */ = {
 			isa = PBXGroup;
 			children = (
-				B4F376CBF4BA4461BA058A2D840B8714 /* amrFileCodec.h */,
-				05D5643E02E729A23275AA52BA27154F /* amrFileCodec.mm */,
-				0BFA5246110AB2F8FBE34A7902FFDD6F /* dec_if.h */,
-				FD4F9BD20AEC3A89169C8C51548C0A71 /* if_rom.h */,
-				82EAFFDD5E534ED504270EB40CBF1EE1 /* interf_dec.h */,
-				2613886BC421F13A15ACB524BBE59C58 /* interf_enc.h */,
-				21D1036B652E27015711A4AE39B0F923 /* VoiceConverter.h */,
-				81A3599D7D4164A34CC2BCFB19A278FC /* VoiceConverter.mm */,
-				596743F404609924C313C8F8C5145DA6 /* wav.h */,
-				71F7F57F2A9C3DD06E9AC4C54A089DE6 /* wav.mm */,
-				0CA827E65F717BE473F5EB7FD70316E4 /* Frameworks */,
-				6D7FA92AA4C52244EA5D3C45E9A7AB22 /* Support Files */,
+				6B97C5D54D126953AA6DD1BC71F5984F /* NSString+SHExtension.h */,
+				B7B369485A74F1DB3DF3020F6D7CFAC7 /* NSString+SHExtension.m */,
+				9E20F25DA543F930F89684DE6C0BB73A /* SHTool.h */,
+				D296F3D775BF0743FB118E2D4B207006 /* SHTool.m */,
+				BA30D404DC3B4B63C201C1080EF8BAB8 /* UIColor+SHExtension.h */,
+				D439CD837019FA1920493D0899AD4CB3 /* UIColor+SHExtension.m */,
+				E6C5B420CE7C2673225FAECB97A1818E /* UIImage+SHExtension.h */,
+				F5E034A794D3D65FF54FA34BF3083C0E /* UIImage+SHExtension.m */,
+				EB29AA9544D5572866CCD2DFA9BAB520 /* UIImageView+SHExtension.h */,
+				75E63F619F75C6D43E894D028220B750 /* UIImageView+SHExtension.m */,
+				7C5EB7F93BE5C88B5590F4BCBAE00F5E /* UIView+SHExtension.h */,
+				AFF399A54B90AF59CF46D9E98BAF4937 /* UIView+SHExtension.m */,
+				70095E3EB2D1A053B382BCD966D4132B /* NSString */,
+				6AEFBD3E8102222284921B09C89070C4 /* Support Files */,
+				3545914008F3740FB262C5457CEBF121 /* Tool */,
+				1AE6EB02015BB77C3DE34BE48B358D74 /* UIColor */,
+				E88C2C80819F9F0CA40A06F4940F1BC9 /* UIImage */,
+				1EF0BE49D9F823D26A4894852BAB9534 /* UIImageView */,
+				1CEA41FDD65FB69F6AD968F4434E9A69 /* UIView */,
 			);
-			path = VoiceConvert;
+			name = SHExtension;
+			path = SHExtension;
 			sourceTree = "<group>";
 		};
-		B8A1B8D47B8D61756E24470162610740 /* Support Files */ = {
+		AE30A9342E54DC39C25B21A6FCF53D4B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C1F745609D8D1F16B73A11CA580F2E9E /* SHEmotionKeyboard-dummy.m */,
-				AB7A6D22E94D222E4D88F7E02A1D3CA9 /* SHEmotionKeyboard-prefix.pch */,
-				BC7AB135A31B547D8BF143525E9D3EAE /* SHEmotionKeyboard.debug.xcconfig */,
-				EAB5F185722481F2E3BAF807639546B4 /* SHEmotionKeyboard.release.xcconfig */,
+				DA7FF174E601941EA5A14FD2B1E9E4A9 /* libopencore-amrnb.a */,
+				6FEB1A99E1B5BD004B8B4BADC001CB1F /* libopencore-amrwb.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC0810343B048B0EFE5E552304AE280F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				91D01386B59F9CCDB7BA1B05B6381DD8 /* UIView+SHExtension-dummy.m */,
+				B18CD1E74BCB706223C5FEDED2540C29 /* UIView+SHExtension-prefix.pch */,
+				C995C3799DFC3203A137F059E6C89DDD /* UIView+SHExtension.debug.xcconfig */,
+				D4ABF748070B602477022807F3689CAA /* UIView+SHExtension.release.xcconfig */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/SHEmotionKeyboard";
+			path = "../Target Support Files/UIView+SHExtension";
+			sourceTree = "<group>";
+		};
+		C8125FEFF826C37F66A78522F6DC6B56 /* SHEmotionKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F05C6A1BB5F08B796E7532EEC02E2B61 /* SHEmotionAttachment.h */,
+				815C5312C7EA6E3268BB03FAAD9FA1AE /* SHEmotionAttachment.m */,
+				DE61696721D06E25803E83B9A134CD64 /* SHEmotionKeyboard.h */,
+				2D17F42BEAD22A27EE8E453D3219BBDD /* SHEmotionKeyboard.m */,
+				0D60141ACD840680FF1719D473CD9E5E /* SHEmotionModel.h */,
+				CFD3EE439D69C18EF6ADB74074076009 /* SHEmotionModel.m */,
+				7601E8DD558B5B549A921F00A415F9A0 /* SHEmotionTool.h */,
+				ED557AB1AB0B9E5E91977D7FCBBEE397 /* SHEmotionTool.m */,
+				8C7DE768CA91F6CC476758E595F7AD45 /* Resources */,
+				5702E77D143BCFF48719FAF0FAFF8439 /* Support Files */,
+			);
+			name = SHEmotionKeyboard;
+			path = SHEmotionKeyboard;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -441,17 +465,22 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
-				6045683491121350DC3CA36CF14CD6AA /* Pods */,
+				D21630DD68E8C197AD5082CE2CACC721 /* Pods */,
 				E86CDCC631FED62C7B08A2D379B3C275 /* Products */,
 				9DBA6AC197D53786E7D87D02479181ED /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D80CC99EDE92628A20ADC21D23D98FB4 /* UIButton */ = {
+		D21630DD68E8C197AD5082CE2CACC721 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				C8125FEFF826C37F66A78522F6DC6B56 /* SHEmotionKeyboard */,
+				ACEF098BF0A868A816D2887625E55F1F /* SHExtension */,
+				8F7BABAF0DA7092E94761FA85D002EBB /* SHShortVideo */,
+				9DF00F681285FEA45763F5D772B15478 /* UIView+SHExtension */,
+				76F97EB2913358242CEC69A23505EF47 /* VoiceConvert */,
 			);
-			name = UIButton;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
@@ -474,43 +503,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F7B54014E4D45F73F874C8B49BD480A5 /* SHExtension */ = {
+		E88C2C80819F9F0CA40A06F4940F1BC9 /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
-				D6CB8C11ABCA333C4E0585B706BB6A57 /* NSString+SHExtension.h */,
-				254C34F8F8DBBAE29091DDC64B28EF4F /* NSString+SHExtension.m */,
-				D4C2DAAE075B40E35A36FBFC14B3EA44 /* SHTool.h */,
-				E03729776B34D02B673CA2CD7CA35589 /* SHTool.m */,
-				943C6EB34F35359EF1581BB9AC2EAA39 /* UIColor+SHExtension.h */,
-				7C5EE2A9F77D50F43659DD8D93678ECE /* UIColor+SHExtension.m */,
-				02007C6FFEA20A0A60A9B7D0B3C2111C /* UIImage+SHExtension.h */,
-				DA079DF1F915D96DA4D454D0C46E81E5 /* UIImage+SHExtension.m */,
-				550AC5D9ADD16EB701080F062A2B567E /* UIImageView+SHExtension.h */,
-				FCB3DE4991D97689EE81427FA516F59B /* UIImageView+SHExtension.m */,
-				7A4D41FB334BF1D84997E46C0C05D003 /* UIView+SHExtension.h */,
-				8F16547345659DA6165FD45A503CE77F /* UIView+SHExtension.m */,
-				43A7DD16F7BCF8E5C2DEA1623CC9976E /* NSString */,
-				FFA5A2F7EB59782612BC4661EDE0BA80 /* Support Files */,
-				A753AFF9A203C75FFC7261CBA9B94C80 /* Tool */,
-				D80CC99EDE92628A20ADC21D23D98FB4 /* UIButton */,
-				4024FF81DF23FAB0D4E096AD82E04112 /* UIColor */,
-				2E8E374A819F12C26C00507814DDAA81 /* UIImage */,
-				27E2343A2E681904FBD28101EEEB5656 /* UIImageView */,
-				2AD7946608114B0B75EE2499852B14FD /* UIView */,
 			);
-			path = SHExtension;
-			sourceTree = "<group>";
-		};
-		FFA5A2F7EB59782612BC4661EDE0BA80 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				723F9BFA69137A8A43B8CF4E1B0032E8 /* SHExtension-dummy.m */,
-				0064B19BACDA997DC02ECA77FD2E14A2 /* SHExtension-prefix.pch */,
-				641A98E4DE2A9AEAF0742009E48DE255 /* SHExtension.debug.xcconfig */,
-				E2E33FEB8FE0CD8FD6626DCA00F77EFA /* SHExtension.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SHExtension";
+			name = UIImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -541,6 +538,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5014298F2BDC76F9F083C487652DB6B7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				345931B9DB0C45FBCC39825D2D08BC4F /* UIView+SHExtension.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5D7390BA6AFE015D9A26D3F999AD15AB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -548,24 +553,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		601985E472D46B7B57A2E8DC17899B40 /* Headers */ = {
+		90281B02DAB77C5EDC4D8CF356820001 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9929BF57DF0E13EF69475F97D78E1CD7 /* NSString+SHExtension.h in Headers */,
-				37FF2D1CAC061B2F35EDEFB02CC12ACA /* SHTool.h in Headers */,
-				B0620A5BB30FB3668C4CA08FEBF296AE /* UIColor+SHExtension.h in Headers */,
-				5E30590D2C7C490BD0DC023121EB6DCF /* UIImage+SHExtension.h in Headers */,
-				EA503FCFBE4ACBE10EE0CC791C4431BF /* UIImageView+SHExtension.h in Headers */,
-				14365CF6F3D3D5AF1E7624FC7DFECF48 /* UIView+SHExtension.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		81C83D8B9EC1A9B3FF13023DFC5BC1DB /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A32E78FD9C96179752512A8A502808E0 /* UIView+SHExtension.h in Headers */,
+				B50BEE7BB3BE3A847239B8F9B6AF9E28 /* NSString+SHExtension.h in Headers */,
+				DE4B520E80A382432A0A6DD38160353E /* SHTool.h in Headers */,
+				C7205683D4A2BE28C88E3EB0A91307B1 /* UIColor+SHExtension.h in Headers */,
+				BDC8C4E4E403B755C7589F57662E9FD6 /* UIImage+SHExtension.h in Headers */,
+				826307C4EBEF192EA1268E600610587C /* UIImageView+SHExtension.h in Headers */,
+				963D9B98FF78DA94ABD718C17C73FD02 /* UIView+SHExtension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,7 +589,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				B635EE545D2BF381624F486959F1D29A /* PBXTargetDependency */,
+				E8B26264022EE9A3D94CD7C6ED36F6F9 /* PBXTargetDependency */,
 			);
 			name = SHShortVideo;
 			productName = SHShortVideo;
@@ -601,11 +598,11 @@
 		};
 		1A54DBE71FB2BFF2F48B062451CA79C8 /* UIView+SHExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E13C0122A64FEB62DA17A1CE663A1B72 /* Build configuration list for PBXNativeTarget "UIView+SHExtension" */;
+			buildConfigurationList = 4C37A8772DB0C78A2630BFBB051C911F /* Build configuration list for PBXNativeTarget "UIView+SHExtension" */;
 			buildPhases = (
-				81C83D8B9EC1A9B3FF13023DFC5BC1DB /* Headers */,
-				7ED04952FE3477E4FAA653E76817139F /* Sources */,
-				A1884D875A0E48EAE84D1507358AC2B2 /* Frameworks */,
+				5014298F2BDC76F9F083C487652DB6B7 /* Headers */,
+				89109B65437E173488DB295D29C6CC0F /* Sources */,
+				D9F40CF9F8C87774455E803718901992 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -627,11 +624,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				63E4C90E43F6CF74AAD98719628577B9 /* PBXTargetDependency */,
-				44549F4CDCCAFE549E4BA4D45BC67A95 /* PBXTargetDependency */,
-				B3D2D0763D6377914BA102533E006703 /* PBXTargetDependency */,
-				26EFF9BC457CF179219EAA5F38EDC5DE /* PBXTargetDependency */,
-				A4C55490E317052D3A8761264C49203E /* PBXTargetDependency */,
+				14BD0BCCA4F706F9D4220C68B43002AD /* PBXTargetDependency */,
+				15B8BE92B03E00E2F95D1F1F9D8D959F /* PBXTargetDependency */,
+				A49E3439F6DED155042D2D6124004B9C /* PBXTargetDependency */,
+				1A6D80D14F906A108BEC93E1BBA31E59 /* PBXTargetDependency */,
+				50C8A61C4163C9804DAA4631441814FC /* PBXTargetDependency */,
 			);
 			name = "Pods-SHChatUI";
 			productName = "Pods-SHChatUI";
@@ -649,7 +646,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				000A2B03D6476711EAD2398816E093F8 /* PBXTargetDependency */,
+				C6770F58C895C869BC2AC24D1551E551 /* PBXTargetDependency */,
 			);
 			name = SHEmotionKeyboard;
 			productName = SHEmotionKeyboard;
@@ -658,11 +655,11 @@
 		};
 		CE7219D803F4ACF35C2F645EE1177799 /* SHExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4B1783E81BB66E80D6E77D23AD1C215 /* Build configuration list for PBXNativeTarget "SHExtension" */;
+			buildConfigurationList = DFDD32746CFDAC4A776EE0A567FCF8CF /* Build configuration list for PBXNativeTarget "SHExtension" */;
 			buildPhases = (
-				601985E472D46B7B57A2E8DC17899B40 /* Headers */,
-				FC6FAD3A3960CC68D15F162E70729ECC /* Sources */,
-				F79FDA73582DF06C00B949BD6DCEA17E /* Frameworks */,
+				90281B02DAB77C5EDC4D8CF356820001 /* Headers */,
+				1899D88EC6EDB68F19C34AC0084F4EAA /* Sources */,
+				93A492DC134ABF6F29DFD6C75E683519 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -700,7 +697,7 @@
 				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -723,6 +720,20 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1899D88EC6EDB68F19C34AC0084F4EAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D80988925629B5042631ECD46E8BE3C /* NSString+SHExtension.m in Sources */,
+				F44CB40CEA66219F17509D28B9B4B3AA /* SHExtension-dummy.m in Sources */,
+				AC4DD9FDDF95D03576D3FD0FA42FDE0F /* SHTool.m in Sources */,
+				2AE02B382822E3DC64685C4C9ED73A94 /* UIColor+SHExtension.m in Sources */,
+				1441C21BA38EC24215077AB98F52CCD1 /* UIImage+SHExtension.m in Sources */,
+				29CC4CB094E177A01D12DA5113A05304 /* UIImageView+SHExtension.m in Sources */,
+				1D0808AA376841E7600B611922324A04 /* UIView+SHExtension.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F513B49B4168CFE0623E4996DAAC187 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -730,16 +741,6 @@
 				CE9E8D2129EBDFF55C727C79E7DCB8D8 /* SHShortAVPlayer.m in Sources */,
 				036F347708EE06D18B8B106FD85CCACD /* SHShortVideo-dummy.m in Sources */,
 				713871980D21E62A8E7B4F4CD865BE23 /* SHShortVideoViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7ED04952FE3477E4FAA653E76817139F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2DBCBB79F1A41671F61822A15042A819 /* UIView+SHExtension-dummy.m in Sources */,
-				3D9832A40CBBCF46639FD6C0C5EAA700 /* UIView+SHExtension.m in Sources */,
-				0B0C4998597CB9F06AB0B049934C90E7 /* UIView+SHExtension.podspec in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,6 +753,16 @@
 				2991301B5C5AF9CD0DAE425A6C61EB57 /* SHEmotionKeyboard.m in Sources */,
 				70C5A49E96211187A35A228A7B779B06 /* SHEmotionModel.m in Sources */,
 				562C8EE6E9107B7BFAAF81B49738EA98 /* SHEmotionTool.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89109B65437E173488DB295D29C6CC0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D7B0955CCEF55D0999FBE03CA03CA23 /* UIView+SHExtension-dummy.m in Sources */,
+				7A9E840DAA3BDA20B934DEC4A1551C93 /* UIView+SHExtension.m in Sources */,
+				1E91A1EFEBB37844E287827EA0FED7D7 /* UIView+SHExtension.podspec in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,120 +785,59 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FC6FAD3A3960CC68D15F162E70729ECC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A7A959E6EF09F197A0C9724F9E5CA76C /* NSString+SHExtension.m in Sources */,
-				DDAE1D7B6D1B42CA06152C7325CB76FA /* SHExtension-dummy.m in Sources */,
-				C30FA7F318B15EFDBCBEDBDE67B43259 /* SHTool.m in Sources */,
-				1406AF574BFD66628F30C971342BFA49 /* UIColor+SHExtension.m in Sources */,
-				F642A79310D07AEF23ACD64D4B98BEB1 /* UIImage+SHExtension.m in Sources */,
-				AC40BED028016761D28196E696FB95C9 /* UIImageView+SHExtension.m in Sources */,
-				C720714808090A104C89C0BBBE8BA48D /* UIView+SHExtension.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		000A2B03D6476711EAD2398816E093F8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "UIView+SHExtension";
-			target = 1A54DBE71FB2BFF2F48B062451CA79C8 /* UIView+SHExtension */;
-			targetProxy = 2E0C6E64600E7D72764831D7A6766ECF /* PBXContainerItemProxy */;
-		};
-		26EFF9BC457CF179219EAA5F38EDC5DE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "UIView+SHExtension";
-			target = 1A54DBE71FB2BFF2F48B062451CA79C8 /* UIView+SHExtension */;
-			targetProxy = A4E087EDB77341D30C31A5A31ADCE9D0 /* PBXContainerItemProxy */;
-		};
-		44549F4CDCCAFE549E4BA4D45BC67A95 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SHExtension;
-			target = CE7219D803F4ACF35C2F645EE1177799 /* SHExtension */;
-			targetProxy = 531FF52FB0AB1480E5862B3B02BBCA8E /* PBXContainerItemProxy */;
-		};
-		63E4C90E43F6CF74AAD98719628577B9 /* PBXTargetDependency */ = {
+		14BD0BCCA4F706F9D4220C68B43002AD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SHEmotionKeyboard;
 			target = 93C31BE24E13379780AA0A401F28599E /* SHEmotionKeyboard */;
-			targetProxy = 67F3F8BF1DD70DCA14A06158550DB374 /* PBXContainerItemProxy */;
+			targetProxy = A9A51F6B9ADC23ADD49E12BEA398F587 /* PBXContainerItemProxy */;
 		};
-		A4C55490E317052D3A8761264C49203E /* PBXTargetDependency */ = {
+		15B8BE92B03E00E2F95D1F1F9D8D959F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = VoiceConvert;
-			target = EA501B60434B4556EA53FAE11928914E /* VoiceConvert */;
-			targetProxy = 7C1BCFF3661E38BB9153209CF326E854 /* PBXContainerItemProxy */;
+			name = SHExtension;
+			target = CE7219D803F4ACF35C2F645EE1177799 /* SHExtension */;
+			targetProxy = 97E0D6A2B0A959EC51CE3793055AF6FC /* PBXContainerItemProxy */;
 		};
-		B3D2D0763D6377914BA102533E006703 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SHShortVideo;
-			target = 1160A3E55D5FEA5C56601BFA236AEC8F /* SHShortVideo */;
-			targetProxy = 425574EBEAC4CC98860D33DE3EED96DB /* PBXContainerItemProxy */;
-		};
-		B635EE545D2BF381624F486959F1D29A /* PBXTargetDependency */ = {
+		1A6D80D14F906A108BEC93E1BBA31E59 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "UIView+SHExtension";
 			target = 1A54DBE71FB2BFF2F48B062451CA79C8 /* UIView+SHExtension */;
-			targetProxy = BF7B3145EB07DEC274E15641775ED471 /* PBXContainerItemProxy */;
+			targetProxy = 8AA58AC9860B75EC7AAD57294D5049EE /* PBXContainerItemProxy */;
+		};
+		50C8A61C4163C9804DAA4631441814FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VoiceConvert;
+			target = EA501B60434B4556EA53FAE11928914E /* VoiceConvert */;
+			targetProxy = B74A94CD9DC2A9B7DEF25C0FE0497829 /* PBXContainerItemProxy */;
+		};
+		A49E3439F6DED155042D2D6124004B9C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SHShortVideo;
+			target = 1160A3E55D5FEA5C56601BFA236AEC8F /* SHShortVideo */;
+			targetProxy = 6D8DEB2C49F5AF82211901846EB966E1 /* PBXContainerItemProxy */;
+		};
+		C6770F58C895C869BC2AC24D1551E551 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "UIView+SHExtension";
+			target = 1A54DBE71FB2BFF2F48B062451CA79C8 /* UIView+SHExtension */;
+			targetProxy = 24D4B8EEFF068FED3E6E4CE69BEF0DA9 /* PBXContainerItemProxy */;
+		};
+		E8B26264022EE9A3D94CD7C6ED36F6F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "UIView+SHExtension";
+			target = 1A54DBE71FB2BFF2F48B062451CA79C8 /* UIView+SHExtension */;
+			targetProxy = BFDA2E1351EE17B01F6961E44BD0CB2F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		05D20C50BF4F5C2C7375CB87CED8F063 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC7AB135A31B547D8BF143525E9D3EAE /* SHEmotionKeyboard.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/SHEmotionKeyboard/SHEmotionKeyboard-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = SHEmotionKeyboard;
-				PRODUCT_NAME = SHEmotionKeyboard;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		220E00D85DEE1683B0A4AAFD6251388D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA135D4C133851C7DF2E5182EAC91509 /* VoiceConvert.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/VoiceConvert/VoiceConvert-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = VoiceConvert;
-				PRODUCT_NAME = VoiceConvert;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		25D1DB9B619ECA33EE6029FCFFE025D3 /* Debug */ = {
+		519EFC227D832A2988495F1D2DAFEB45 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 41A5AD94D27CC9732A2FB09644EE1092 /* Pods-SHChatUI.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -903,11 +853,10 @@
 			};
 			name = Debug;
 		};
-		286F2878B5AB34E3B4E5F1853DB597EA /* Release */ = {
+		672D4CF0E864F69B0383EA0962CFFDFD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D6FFF857EC00742F6E24CA838EBD5C5 /* VoiceConvert.release.xcconfig */;
+			baseConfigurationReference = 6BB2DD81BBDBCC3BB7457D2BEECB8ADC /* VoiceConvert.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -927,34 +876,10 @@
 			};
 			name = Release;
 		};
-		3C96DA03B1AEB0369BD447C3696EB45F /* Debug */ = {
+		697308CF123A1C87CCEA56E28F24C0B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00184A8C95B478902FAC59C171A2D079 /* UIView+SHExtension.debug.xcconfig */;
+			baseConfigurationReference = DB5ED3661B22D611B49DAEA7A52CEFA3 /* SHExtension.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/UIView+SHExtension/UIView+SHExtension-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = UIView_SHExtension;
-				PRODUCT_NAME = "UIView+SHExtension";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		643F7D2FBF6B4B3B776CEE4A95DF5AD1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 641A98E4DE2A9AEAF0742009E48DE255 /* SHExtension.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -973,55 +898,7 @@
 			};
 			name = Debug;
 		};
-		74413691308EEC726E2616DABE347C68 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6F608886B268E6268F7C665C00A200A0 /* UIView+SHExtension.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/UIView+SHExtension/UIView+SHExtension-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = UIView_SHExtension;
-				PRODUCT_NAME = "UIView+SHExtension";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		7635C97ECC5FA2916712DD7480588D44 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C4AF405C05F49045A8F23624B0E4C88 /* SHShortVideo.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/SHShortVideo/SHShortVideo-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = SHShortVideo;
-				PRODUCT_NAME = SHShortVideo;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		8DF792B5675818867C95F03EE9A5D3C6 /* Debug */ = {
+		6D42DC62C4F2E194221DF89C48496C98 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1048,6 +925,224 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		704F37D245626E89D0E31F7EDBC5A342 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C995C3799DFC3203A137F059E6C89DDD /* UIView+SHExtension.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/UIView+SHExtension/UIView+SHExtension-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = UIView_SHExtension;
+				PRODUCT_NAME = "UIView+SHExtension";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		78B3952E7D79D8D8AF84A4AA309DBA28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8147DCBAA977775F48BC55BAF213566 /* SHEmotionKeyboard.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/SHEmotionKeyboard/SHEmotionKeyboard-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = SHEmotionKeyboard;
+				PRODUCT_NAME = SHEmotionKeyboard;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		97DE797C91B2AFD91633DBD5DB5A4F43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4ABF748070B602477022807F3689CAA /* UIView+SHExtension.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/UIView+SHExtension/UIView+SHExtension-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = UIView_SHExtension;
+				PRODUCT_NAME = "UIView+SHExtension";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A17B15D6374CE29C600723B74C52DC87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0E72DC93720BFAA49907B4492295AC8 /* Pods-SHChatUI.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BB5048F5EB5D17B3047352382AB2598E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 700D34FE92DBBC6E516D9517922649BE /* SHExtension.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/SHExtension/SHExtension-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = SHExtension;
+				PRODUCT_NAME = SHExtension;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CABEA3412FA06105D971D7B88E5A6A7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A788EA10128C8E22818247CA6C8DEE8 /* VoiceConvert.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/VoiceConvert/VoiceConvert-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = VoiceConvert;
+				PRODUCT_NAME = VoiceConvert;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D00A3D82A5C0B1ED6A1EAC7E85C583F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA58E6F2C552BC2DE5E245603302CD96 /* SHShortVideo.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/SHShortVideo/SHShortVideo-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = SHShortVideo;
+				PRODUCT_NAME = SHShortVideo;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E4D0D44B090D4284607EBBC4E71A96C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1086,34 +1181,10 @@
 			};
 			name = Debug;
 		};
-		9BC7380AAF462EFE5CC6CC2BAD505150 /* Debug */ = {
+		EE4DD84C7AA08688ED015C4EDBA27B95 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AEC30F95CDF520150EABE28CAD230E8 /* SHShortVideo.debug.xcconfig */;
+			baseConfigurationReference = 1735501411CF9939BD786B875D67C9A6 /* SHEmotionKeyboard.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/SHShortVideo/SHShortVideo-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = SHShortVideo;
-				PRODUCT_NAME = SHShortVideo;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		B0E7E9807BBE24C3E1632C2FB6404080 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAB5F185722481F2E3BAF807639546B4 /* SHEmotionKeyboard.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1133,108 +1204,24 @@
 			};
 			name = Release;
 		};
-		CE55861AB8BDFB3786DDE452F83A4836 /* Release */ = {
+		FC00CCF26FD2D5527BF287046C64DD70 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B96C39C4DA9C9C8C27CD9E4FD573ECC /* SHShortVideo.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		E5DCAC70CA694969D3AA073AD06B06E6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E2E33FEB8FE0CD8FD6626DCA00F77EFA /* SHExtension.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/SHExtension/SHExtension-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				GCC_PREFIX_HEADER = "Target Support Files/SHShortVideo/SHShortVideo-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = SHExtension;
-				PRODUCT_NAME = SHExtension;
+				PRODUCT_MODULE_NAME = SHShortVideo;
+				PRODUCT_NAME = SHShortVideo;
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		E5E2AAE6F3AB33C512C41AC843FFF76A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A0E72DC93720BFAA49907B4492295AC8 /* Pods-SHChatUI.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1246,8 +1233,17 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8DF792B5675818867C95F03EE9A5D3C6 /* Debug */,
-				CE55861AB8BDFB3786DDE452F83A4836 /* Release */,
+				E4D0D44B090D4284607EBBC4E71A96C1 /* Debug */,
+				6D42DC62C4F2E194221DF89C48496C98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C37A8772DB0C78A2630BFBB051C911F /* Build configuration list for PBXNativeTarget "UIView+SHExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				704F37D245626E89D0E31F7EDBC5A342 /* Debug */,
+				97DE797C91B2AFD91633DBD5DB5A4F43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1255,8 +1251,8 @@
 		6163C4AE7406509964049B152765E15C /* Build configuration list for PBXNativeTarget "SHShortVideo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9BC7380AAF462EFE5CC6CC2BAD505150 /* Debug */,
-				7635C97ECC5FA2916712DD7480588D44 /* Release */,
+				D00A3D82A5C0B1ED6A1EAC7E85C583F5 /* Debug */,
+				FC00CCF26FD2D5527BF287046C64DD70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1264,8 +1260,8 @@
 		838D1F06C26E5F406334ED2A16FDE1F7 /* Build configuration list for PBXNativeTarget "VoiceConvert" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				220E00D85DEE1683B0A4AAFD6251388D /* Debug */,
-				286F2878B5AB34E3B4E5F1853DB597EA /* Release */,
+				CABEA3412FA06105D971D7B88E5A6A7E /* Debug */,
+				672D4CF0E864F69B0383EA0962CFFDFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1273,26 +1269,17 @@
 		D2BA5BB9CC306A77EA976095C6556D81 /* Build configuration list for PBXNativeTarget "SHEmotionKeyboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				05D20C50BF4F5C2C7375CB87CED8F063 /* Debug */,
-				B0E7E9807BBE24C3E1632C2FB6404080 /* Release */,
+				78B3952E7D79D8D8AF84A4AA309DBA28 /* Debug */,
+				EE4DD84C7AA08688ED015C4EDBA27B95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4B1783E81BB66E80D6E77D23AD1C215 /* Build configuration list for PBXNativeTarget "SHExtension" */ = {
+		DFDD32746CFDAC4A776EE0A567FCF8CF /* Build configuration list for PBXNativeTarget "SHExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				643F7D2FBF6B4B3B776CEE4A95DF5AD1 /* Debug */,
-				E5DCAC70CA694969D3AA073AD06B06E6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E13C0122A64FEB62DA17A1CE663A1B72 /* Build configuration list for PBXNativeTarget "UIView+SHExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3C96DA03B1AEB0369BD447C3696EB45F /* Debug */,
-				74413691308EEC726E2616DABE347C68 /* Release */,
+				697308CF123A1C87CCEA56E28F24C0B8 /* Debug */,
+				BB5048F5EB5D17B3047352382AB2598E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1300,8 +1287,8 @@
 		ED7CEB21EBA9EB0967595BF34F42D23C /* Build configuration list for PBXNativeTarget "Pods-SHChatUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				25D1DB9B619ECA33EE6029FCFFE025D3 /* Debug */,
-				E5E2AAE6F3AB33C512C41AC843FFF76A /* Release */,
+				519EFC227D832A2988495F1D2DAFEB45 /* Debug */,
+				A17B15D6374CE29C600723B74C52DC87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

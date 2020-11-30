@@ -12,10 +12,8 @@
 
 //Document目录
 #define DocumentPatch [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
-
 //最近表情的路径
 #define kRecent_save_path [DocumentPatch stringByAppendingPathComponent:@"recentemotions.archive"]
-
 //收藏图片的路径
 #define kCollect_save_path [DocumentPatch stringByAppendingPathComponent:@"collectemotions.archive"]
 
@@ -52,13 +50,13 @@
 + (NSArray *)gifEmotions;
 
 #pragma mark - 字符串处理
-//字符串处理 model -> att
+//获取显示内容  model -> att
 + (NSAttributedString *)getAttWithEmotion:(SHEmotionModel *)emotion font:(UIFont *)font;
-//字符串处理 str -> model
+//获取model str -> model
 + (SHEmotionModel *)getEmotionWithCode:(NSString *)code;
-//字符串处理 str -> att
+//获取显示内容 str -> att
 + (NSAttributedString *)getAttWithStr:(NSString *)str font:(UIFont *)font;
-//字符串处理 att -> str
+//获取实际内容 att -> str
 + (NSString *)getRealStrWithAtt:(NSAttributedString *)att;
 
 @end
