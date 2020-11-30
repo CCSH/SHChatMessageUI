@@ -29,9 +29,9 @@ UITableViewDataSource
 }
 
 //聊天界面
-@property (nonatomic,strong) UITableView *chatTableView;
+@property (nonatomic, strong) UITableView *chatTableView;
 //下方工具栏
-@property (nonatomic,strong) SHMessageInputView *chatInputView;
+@property (nonatomic, strong) SHMessageInputView *chatInputView;
 //背景图
 @property (nonatomic, strong) UIImageView *bgImageView;
 //未读
