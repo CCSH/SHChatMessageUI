@@ -692,24 +692,17 @@ UITableViewDataSource
             //本地路径
             NSString *videoPath = [SHFileHelper getFilePathWithName:message.fileName type:SHMessageFileType_video];
             
+            AVPlayer *player;
             if ([[NSFileManager defaultManager] fileExistsAtPath:videoPath]) {//如果本地路径存在
-                
-                AVPlayer *player = [AVPlayer playerWithURL:[NSURL fileURLWithPath:videoPath]];
-                AVPlayerViewController *playerViewController = [AVPlayerViewController new];
-                playerViewController.player = player;
-                [self.navigationController pushViewController:playerViewController animated:YES];
-                [playerViewController.player play];
-                
+                player = [AVPlayer playerWithURL:[NSURL fileURLWithPath:videoPath]];
             }else{//使用URL
-                
-                if (message.fileUrl.length) {
-                    AVPlayer *player = [AVPlayer playerWithURL:[NSURL fileURLWithPath:message.fileUrl]];
-                    AVPlayerViewController *playerViewController = [AVPlayerViewController new];
-                    playerViewController.player = player;
-                    [self.navigationController pushViewController:playerViewController animated:YES];
-                    [playerViewController.player play];
-                }
+                player = [AVPlayer playerWithURL:[NSURL URLWithString:message.fileUrl]];
             }
+            
+            AVPlayerViewController *playerViewController = [AVPlayerViewController new];
+            playerViewController.player = player;
+            [self.navigationController pushViewController:playerViewController animated:YES];
+            [playerViewController.player play];
         }
             break;
         case SHMessageBodyType_card://名片

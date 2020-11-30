@@ -23,8 +23,6 @@
 		5C401762212E9BAE004B19B3 /* SHAudioRecordHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C401713212E9BAE004B19B3 /* SHAudioRecordHelper.m */; };
 		5C401763212E9BAE004B19B3 /* SHMessageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C401716212E9BAE004B19B3 /* SHMessageHelper.m */; };
 		5C401764212E9BAE004B19B3 /* SHFileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C40171A212E9BAE004B19B3 /* SHFileHelper.m */; };
-		5C401765212E9BAE004B19B3 /* SHChatMessageLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C40171E212E9BAE004B19B3 /* SHChatMessageLocationViewController.m */; };
-		5C401766212E9BAE004B19B3 /* SHLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C401721212E9BAE004B19B3 /* SHLocation.m */; };
 		5C6945F320C6221E006D88A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6945F220C6221E006D88A3 /* AppDelegate.m */; };
 		5C6945F620C6221E006D88A3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6945F520C6221E006D88A3 /* ViewController.m */; };
 		5C6945F920C6221E006D88A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C6945F720C6221E006D88A3 /* Main.storyboard */; };
@@ -43,6 +41,8 @@
 		5C9452FD21AE843A009BAEB9 /* SHRedPaperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9452FC21AE843A009BAEB9 /* SHRedPaperTableViewCell.m */; };
 		5C94530021AE85C9009BAEB9 /* SHVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9452FF21AE85C9009BAEB9 /* SHVideoTableViewCell.m */; };
 		5CB76AA5219D6698005218A3 /* SHChatUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5CB76AA4219D6698005218A3 /* SHChatUI.bundle */; };
+		8307592B2574D29400DD294D /* SHChatMessageLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 830759272574D29400DD294D /* SHChatMessageLocationViewController.m */; };
+		8307592C2574D29400DD294D /* SHLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8307592A2574D29400DD294D /* SHLocation.m */; };
 		8367654E2551599A0088C02F /* SHFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8367654D2551599A0088C02F /* SHFileTableViewCell.m */; };
 		B60A0FEA2C296247E81759E5 /* libPods-SHChatUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA24F4CD281D21D1E8D3DC9 /* libPods-SHChatUI.a */; };
 /* End PBXBuildFile section */
@@ -100,10 +100,6 @@
 		5C401717212E9BAE004B19B3 /* SHMessageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMessageHelper.h; sourceTree = "<group>"; };
 		5C401719212E9BAE004B19B3 /* SHFileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHFileHelper.h; sourceTree = "<group>"; };
 		5C40171A212E9BAE004B19B3 /* SHFileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHFileHelper.m; sourceTree = "<group>"; };
-		5C40171D212E9BAE004B19B3 /* SHChatMessageLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHChatMessageLocationViewController.h; sourceTree = "<group>"; };
-		5C40171E212E9BAE004B19B3 /* SHChatMessageLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHChatMessageLocationViewController.m; sourceTree = "<group>"; };
-		5C401720212E9BAE004B19B3 /* SHLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLocation.h; sourceTree = "<group>"; };
-		5C401721212E9BAE004B19B3 /* SHLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLocation.m; sourceTree = "<group>"; };
 		5C6945EE20C6221D006D88A3 /* SHChatUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SHChatUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6945F120C6221D006D88A3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5C6945F220C6221E006D88A3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -139,6 +135,10 @@
 		5C9452FE21AE85C9009BAEB9 /* SHVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHVideoTableViewCell.h; sourceTree = "<group>"; };
 		5C9452FF21AE85C9009BAEB9 /* SHVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHVideoTableViewCell.m; sourceTree = "<group>"; };
 		5CB76AA4219D6698005218A3 /* SHChatUI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SHChatUI.bundle; sourceTree = "<group>"; };
+		830759262574D29400DD294D /* SHChatMessageLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHChatMessageLocationViewController.h; sourceTree = "<group>"; };
+		830759272574D29400DD294D /* SHChatMessageLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHChatMessageLocationViewController.m; sourceTree = "<group>"; };
+		830759292574D29400DD294D /* SHLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLocation.h; sourceTree = "<group>"; };
+		8307592A2574D29400DD294D /* SHLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLocation.m; sourceTree = "<group>"; };
 		8367654C2551599A0088C02F /* SHFileTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHFileTableViewCell.h; sourceTree = "<group>"; };
 		8367654D2551599A0088C02F /* SHFileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHFileTableViewCell.m; sourceTree = "<group>"; };
 		B8DD6D491E65A756784D9135 /* Pods-SHChatUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHChatUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHChatUI/Pods-SHChatUI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5C4016A4212E9BAE004B19B3 /* SHChatUI(微信) */ = {
+		5C4016A4212E9BAE004B19B3 /* SHChatUI */ = {
 			isa = PBXGroup;
 			children = (
 				5CB76AA4219D6698005218A3 /* SHChatUI.bundle */,
@@ -181,7 +181,7 @@
 				5C4016E3212E9BAE004B19B3 /* Views */,
 				5C4016FA212E9BAE004B19B3 /* Helper */,
 			);
-			path = "SHChatUI(微信)";
+			path = SHChatUI;
 			sourceTree = "<group>";
 		};
 		5C4016D5212E9BAE004B19B3 /* Models */ = {
@@ -229,6 +229,7 @@
 		5C4016E0212E9BAE004B19B3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				830759252574D29400DD294D /* LocationVC(定位制器) */,
 				5C4016E2212E9BAE004B19B3 /* SHChatMessageViewController.h */,
 				5C4016E1212E9BAE004B19B3 /* SHChatMessageViewController.m */,
 			);
@@ -286,7 +287,6 @@
 				5C4016FB212E9BAE004B19B3 /* AudioHelper(语音帮助类) */,
 				5C401715212E9BAE004B19B3 /* MessageHelper(消息帮助类) */,
 				5C401718212E9BAE004B19B3 /* FileHelper(文件帮助类) */,
-				5C40171B212E9BAE004B19B3 /* MenuViewController(菜单控制器) */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -320,33 +320,6 @@
 			path = "FileHelper(文件帮助类)";
 			sourceTree = "<group>";
 		};
-		5C40171B212E9BAE004B19B3 /* MenuViewController(菜单控制器) */ = {
-			isa = PBXGroup;
-			children = (
-				5C40171C212E9BAE004B19B3 /* LocationVC(定位制器) */,
-			);
-			path = "MenuViewController(菜单控制器)";
-			sourceTree = "<group>";
-		};
-		5C40171C212E9BAE004B19B3 /* LocationVC(定位制器) */ = {
-			isa = PBXGroup;
-			children = (
-				5C40171D212E9BAE004B19B3 /* SHChatMessageLocationViewController.h */,
-				5C40171E212E9BAE004B19B3 /* SHChatMessageLocationViewController.m */,
-				5C40171F212E9BAE004B19B3 /* Model */,
-			);
-			path = "LocationVC(定位制器)";
-			sourceTree = "<group>";
-		};
-		5C40171F212E9BAE004B19B3 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				5C401720212E9BAE004B19B3 /* SHLocation.h */,
-				5C401721212E9BAE004B19B3 /* SHLocation.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		5C6945E520C6221D006D88A3 = {
 			isa = PBXGroup;
 			children = (
@@ -372,7 +345,7 @@
 		5C6945F020C6221D006D88A3 /* SHChatUI */ = {
 			isa = PBXGroup;
 			children = (
-				5C4016A4212E9BAE004B19B3 /* SHChatUI(微信) */,
+				5C4016A4212E9BAE004B19B3 /* SHChatUI */,
 				5C6945F120C6221D006D88A3 /* AppDelegate.h */,
 				5C6945F220C6221E006D88A3 /* AppDelegate.m */,
 				5C6945F420C6221E006D88A3 /* ViewController.h */,
@@ -402,6 +375,25 @@
 				5C69461720C6221F006D88A3 /* Info.plist */,
 			);
 			path = SHChatUIUITests;
+			sourceTree = "<group>";
+		};
+		830759252574D29400DD294D /* LocationVC(定位制器) */ = {
+			isa = PBXGroup;
+			children = (
+				830759282574D29400DD294D /* Model */,
+				830759262574D29400DD294D /* SHChatMessageLocationViewController.h */,
+				830759272574D29400DD294D /* SHChatMessageLocationViewController.m */,
+			);
+			path = "LocationVC(定位制器)";
+			sourceTree = "<group>";
+		};
+		830759282574D29400DD294D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				830759292574D29400DD294D /* SHLocation.h */,
+				8307592A2574D29400DD294D /* SHLocation.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C0A9645E3011CC171CB628F4 /* Frameworks */ = {
@@ -594,7 +586,6 @@
 			files = (
 				5C9452EB21AE71E9009BAEB9 /* SHAudioTableViewCell.m in Sources */,
 				5C401757212E9BAE004B19B3 /* SHMessageInputView.m in Sources */,
-				5C401765212E9BAE004B19B3 /* SHChatMessageLocationViewController.m in Sources */,
 				5C40174F212E9BAE004B19B3 /* SHMessageType.m in Sources */,
 				5C9452E821AE6DC8009BAEB9 /* SHTextTableViewCell.m in Sources */,
 				5C9452FA21AE82A2009BAEB9 /* SHGifTableViewCell.m in Sources */,
@@ -609,9 +600,10 @@
 				5C401762212E9BAE004B19B3 /* SHAudioRecordHelper.m in Sources */,
 				5C401761212E9BAE004B19B3 /* SHAudioPlayerHelper.m in Sources */,
 				5C69460120C6221F006D88A3 /* main.m in Sources */,
+				8307592C2574D29400DD294D /* SHLocation.m in Sources */,
+				8307592B2574D29400DD294D /* SHChatMessageLocationViewController.m in Sources */,
 				5C9452EE21AE777E009BAEB9 /* SHLocationTableViewCell.m in Sources */,
 				5C401755212E9BAE004B19B3 /* SHActivityIndicatorView.m in Sources */,
-				5C401766212E9BAE004B19B3 /* SHLocation.m in Sources */,
 				5C6945F320C6221E006D88A3 /* AppDelegate.m in Sources */,
 				5C401759212E9BAE004B19B3 /* SHShareMenuItem.m in Sources */,
 				5C401758212E9BAE004B19B3 /* SHShareMenuView.m in Sources */,

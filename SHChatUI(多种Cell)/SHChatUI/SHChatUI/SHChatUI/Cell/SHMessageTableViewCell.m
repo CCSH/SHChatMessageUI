@@ -130,7 +130,6 @@
         image = [SHFileHelper imageNamed:@"chat_message_receive"];
     }
     
-   
     [self setBubbleImage:image];
     
     // 设置发送状态样式
