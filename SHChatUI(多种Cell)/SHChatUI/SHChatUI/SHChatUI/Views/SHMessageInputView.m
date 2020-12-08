@@ -206,9 +206,9 @@ static CGFloat start_maxY;
     {
         _emojiView = [[SHEmotionKeyboard alloc] init];
         _emojiView.toolBarArr = @[ @(SHEmoticonType_custom),
-                                   @(SHEmoticonType_system),
-                                   @(SHEmoticonType_gif),
-                                   @(SHEmoticonType_recent) ];
+                                    @(SHEmoticonType_system),
+                                    @(SHEmoticonType_gif),
+                                    @(SHEmoticonType_recent) ];
         
         __weak typeof(self) weakSelf = self;
         //点击了发送
@@ -298,6 +298,10 @@ static CGFloat start_maxY;
 #pragma mark 发送文字
 - (void)sendMessageWithText:(NSString *)text
 {
+    if (!text.length) {
+        //没有内容
+        return;
+    }
     if ([_delegate respondsToSelector:@selector(chatMessageWithSendText:)])
     {
         [_delegate chatMessageWithSendText:text];
@@ -566,7 +570,7 @@ static CGFloat start_maxY;
         //输入文本
         self.inputType = SHInputViewType_text;
     }
-
+    
     [self textViewDidChange:self.textView];
 }
 
@@ -584,7 +588,7 @@ static CGFloat start_maxY;
     {
         self.y += self.height - textH;
         self.height = textH;
-     
+        
     }
 }
 
@@ -995,9 +999,6 @@ static CGFloat start_maxY;
 #pragma mark 刷新界面
 - (void)reloadView
 {
-
-
-    
     start_maxY = self.maxY;
     
     self.viewY = (self.height - kSHInPutIcon_size.height) / 2;

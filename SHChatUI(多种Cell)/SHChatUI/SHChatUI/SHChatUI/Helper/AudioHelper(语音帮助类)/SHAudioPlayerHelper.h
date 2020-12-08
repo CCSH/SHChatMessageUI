@@ -30,7 +30,7 @@
 @interface SHAudioPlayerHelper : NSObject
 
 //播放代理
-@property (nonatomic, strong) id <SHAudioPlayerHelperDelegate> delegate;
+@property (nonatomic, weak) id <SHAudioPlayerHelperDelegate> delegate;
 //当前播放的标示
 @property (nonatomic, copy) NSString *playMark;
 

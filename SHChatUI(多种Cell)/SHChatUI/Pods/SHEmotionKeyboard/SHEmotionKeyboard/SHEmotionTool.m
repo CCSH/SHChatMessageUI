@@ -78,7 +78,13 @@ static NSMutableArray *_collectImages;
     [_recentEmotions removeObject:emotion];
     [_recentEmotions insertObject:emotion atIndex:0];
     
-    //3.保存
+    //最近表情保留前20
+    if (_recentEmotions.count > 20) {
+        NSArray *temp = [_recentEmotions subarrayWithRange:NSMakeRange(0, 20)];
+        _recentEmotions = [NSMutableArray arrayWithArray:temp];
+    }
+  
+    //保存
     [NSKeyedArchiver archiveRootObject:[_recentEmotions copy] toFile:kRecent_save_path];
 }
 
@@ -123,6 +129,9 @@ static NSMutableArray *_collectImages;
         [_collectImages insertObject:model atIndex:0];
         
         [NSKeyedArchiver archiveRootObject:[_collectImages copy] toFile:kCollect_save_path];
+        
+        //发送通知
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateCollectViewNoti" object:nil];
     });
 }
 #pragma mark 删除收藏图片
@@ -130,7 +139,7 @@ static NSMutableArray *_collectImages;
     [_collectImages removeObject:model];
     [NSKeyedArchiver archiveRootObject:[_collectImages copy] toFile:kCollect_save_path];
     //发送通知
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"delectCollectImage" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateCollectViewNoti" object:nil];
 }
 
 #pragma mark - 获取资源图片
@@ -212,7 +221,7 @@ static NSMutableArray *_collectImages;
     return arrayM;
 }
 
-#pragma mark gif表情x
+#pragma mark gif表情
 + (NSArray *)gifEmotions{
     //读取大表情
     NSArray *array = [self loadResourceWithType:SHEmoticonType_gif];
@@ -242,7 +251,7 @@ static NSMutableArray *_collectImages;
             textAttachment.emotion = emotion;
             //调整位置
             CGFloat height = font.lineHeight;
-            textAttachment.bounds = CGRectMake(0, -4, height, height);
+            textAttachment.bounds = CGRectMake(0, -3, height, height);
             
             return [NSAttributedString attributedStringWithAttachment:textAttachment];
         }
