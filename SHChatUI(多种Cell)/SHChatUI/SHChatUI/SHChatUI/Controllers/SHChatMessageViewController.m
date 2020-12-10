@@ -1033,6 +1033,7 @@ UITableViewDataSource
         _chatTableView.backgroundColor = [UIColor clearColor];
         _chatTableView.delegate = self;
         _chatTableView.dataSource = self;
+        _chatTableView.estimatedRowHeight = 0;
         
         _chatTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     }
