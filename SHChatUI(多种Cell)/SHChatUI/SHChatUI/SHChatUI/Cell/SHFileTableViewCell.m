@@ -11,11 +11,11 @@
 @interface SHFileTableViewCell ()
 
 //文件图标
-@property (nonatomic, retain) UIImageView *iconImg;
+@property (nonatomic, strong) UIImageView *iconImg;
 //文件名称
-@property (nonatomic, retain) UILabel *fileName;
+@property (nonatomic, strong) UILabel *fileName;
 //文件大小
-@property (nonatomic, retain) UILabel *fileSize;
+@property (nonatomic, strong) UILabel *fileSize;
 
 @end
 
@@ -41,13 +41,12 @@
     self.fileName.text = message.displayName;
     self.fileSize.text = message.fileSize;
     
-    UIImage *image = [self.btnContent.currentBackgroundImage imageWithColor:[UIColor whiteColor]];
-    [self setBubbleImage:image];
+    [self.bubbleBtn setBubbleColor:[UIColor whiteColor]];
     
     //设置frame
-    CGFloat margin = (message.bubbleMessageType == SHBubbleMessageType_Send) ? 0 : kChat_angle_w;
+    CGFloat margin = messageFrame.startX;
     
-    self.iconImg.x = self.btnContent.width - kChat_margin - self.iconImg.width;
+    self.iconImg.x = self.bubbleBtn.width - kChat_margin - self.iconImg.width + margin;
     
     self.fileSize.width = self.iconImg.x -  self.fileName.x - kChat_margin;
     
@@ -66,7 +65,7 @@
         _iconImg.size = CGSizeMake(40, 45);
         _iconImg.y = kChat_margin;
         _iconImg.image = [SHFileHelper imageNamed:@"chat_file"];
-        [self.btnContent addSubview:_iconImg];
+        [self.bubbleBtn addSubview:_iconImg];
     }
     return _iconImg;
 }
@@ -81,7 +80,7 @@
         _fileName.textColor = [UIColor blackColor];
         _fileName.lineBreakMode = NSLineBreakByTruncatingMiddle;
         _fileName.numberOfLines = 2;
-        [self.btnContent addSubview:_fileName];
+        [self.bubbleBtn addSubview:_fileName];
     }
     return _fileName;
 }
@@ -94,7 +93,7 @@
         _fileSize.font = [UIFont systemFontOfSize:10];
         _fileSize.height = _fileSize.font.lineHeight;
         _fileSize.textColor = [UIColor grayColor];
-        [self.btnContent addSubview:_fileSize];
+        [self.bubbleBtn addSubview:_fileSize];
     }
     return _fileSize;
 }

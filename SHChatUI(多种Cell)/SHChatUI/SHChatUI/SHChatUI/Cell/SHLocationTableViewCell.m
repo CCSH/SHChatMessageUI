@@ -12,9 +12,9 @@
 @interface SHLocationTableViewCell ()
 
 // location
-@property (nonatomic, retain) MKMapView *locView;
+@property (nonatomic, strong) MKMapView *locView;
 // location 名称
-@property (nonatomic, retain) UILabel *locName;
+@property (nonatomic, strong) UILabel *locName;
 
 @end
 
@@ -36,7 +36,10 @@
     
     SHMessage *message = messageFrame.message;
     
+    
     //设置内容
+    [self.bubbleBtn setBubbleColor:[UIColor whiteColor]];
+    
     SHLocation *location = [[SHLocation alloc]init];
     CLLocationCoordinate2D coordinate;
     coordinate.longitude = message.lon;
@@ -54,24 +57,24 @@
     [self.locView setRegion:viewRegion animated:YES];
     self.locName.text = message.locationName;
     
-    UIImage *image = [self.btnContent.currentBackgroundImage imageWithColor:[UIColor whiteColor]];
-    [self setBubbleImage:image];
-    
     //设置frame
-    CGFloat margin = (message.bubbleMessageType == SHBubbleMessageType_Send) ? 0 : kChat_angle_w;
+    CGFloat margin = messageFrame.startX;
+
+    self.locName.frame = CGRectMake(margin + kChat_margin, 0, self.bubbleBtn.width - kChat_angle_w - 2*kChat_margin, 30);
+    self.locView.frame = CGRectMake(margin, self.locName.maxY, self.bubbleBtn.width - kChat_angle_w, self.bubbleBtn.height - self.locName.height);
     
-    self.locName.frame = CGRectMake(margin + kChat_margin, 0, self.btnContent.width - kChat_angle_w - 2*kChat_margin, 30);
-    self.locView.frame = CGRectMake(margin, self.locName.maxY, self.btnContent.width - kChat_angle_w, self.btnContent.height - self.locName.height);
+    //剪切
+    [self.bubbleBtn makeMaskView];
 }
 
 #pragma mark 位置消息视图
 - (MKMapView *)locView{
-    //位置背景
+    //位置信息
     if (!_locView) {
         _locView = [[MKMapView alloc]init];
         _locView.mapType = MKMapTypeStandard;
         _locView.userInteractionEnabled = NO;
-        [self.btnContent addSubview:_locView];
+        [self.bubbleBtn addSubview:_locView];
     }
     return _locView;
 }
@@ -84,7 +87,7 @@
         _locName.font = [UIFont systemFontOfSize:14];
         _locName.numberOfLines = 1;
         _locName.textAlignment = NSTextAlignmentCenter;
-        [self.btnContent addSubview:_locName];
+        [self.bubbleBtn addSubview:_locName];
     }
     return _locName;
 }

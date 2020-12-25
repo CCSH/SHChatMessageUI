@@ -11,7 +11,7 @@
 @interface SHGifTableViewCell ()
 
 // Gif
-@property (nonatomic, retain) WKWebView *gifView;
+@property (nonatomic, strong) WKWebView *gifView;
 
 @end
 
@@ -50,9 +50,9 @@
     }
     
     //设置frame
-    self.gifView.size = CGSizeMake(self.btnContent.width, self.btnContent.height);
+    self.gifView.size = self.bubbleBtn.size;
     
-    [self.btnContent setBackgroundImage:nil forState:0];
+    [self.bubbleBtn setBackgroundImage:nil forState:0];
 }
 
 #pragma mark Gif消息视图
@@ -64,7 +64,7 @@
         _gifView.userInteractionEnabled = NO;
         _gifView.scrollView.scrollEnabled = NO;
         _gifView.opaque = NO;
-        [self.btnContent addSubview:_gifView];
+        [self.bubbleBtn addSubview:_gifView];
     }
     return _gifView;
 }

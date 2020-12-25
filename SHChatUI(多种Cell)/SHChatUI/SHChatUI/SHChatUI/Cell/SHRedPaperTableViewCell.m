@@ -11,13 +11,13 @@
 @interface SHRedPaperTableViewCell ()
 
 //红包图片
-@property(nonatomic, retain) UIImageView *redPaperImage;
+@property(nonatomic, strong) UIImageView *redPaperImage;
 //红包内容
-@property(nonatomic, retain) UILabel *redPaperContent;
+@property(nonatomic, strong) UILabel *redPaperContent;
 //红包备注
-@property(nonatomic, retain) UILabel *redPaperRemark;
+@property(nonatomic, strong) UILabel *redPaperRemark;
 //红包来源
-@property(nonatomic, retain) UILabel *redPaperSource;
+@property(nonatomic, strong) UILabel *redPaperSource;
 
 @end
 
@@ -39,6 +39,7 @@
     
     SHMessage *message = messageFrame.message;
     
+    //设置内容
     self.redPaperContent.text = message.redPackage;
     self.redPaperRemark.text = @"打开红包";
     self.redPaperSource.text = @"    红包";
@@ -54,27 +55,21 @@
         self.redPaperImage.image = [SHFileHelper imageNamed:@"chat_red_receive"];
     }
     
-    UIImage *image = [self.btnContent.currentBackgroundImage imageWithColor:color];
-    [self setBubbleImage:image];
+    [self.bubbleBtn setBubbleColor:color];
 
-    CGFloat margin = (message.bubbleMessageType == SHBubbleMessageType_Send) ? 0 : kChat_angle_w;
+    CGFloat margin = messageFrame.startX;
     //设置frame
     //图标
     self.redPaperImage.frame = CGRectMake(kChat_margin + margin, kChat_margin, 30, 40);
     //内容
-    self.redPaperContent.frame = CGRectMake(self.redPaperImage.maxX + kChat_margin, self.redPaperImage.y,self.btnContent.width - self.redPaperImage.maxX - 2*kChat_margin - kChat_angle_w,20);
+    self.redPaperContent.frame = CGRectMake(self.redPaperImage.maxX + kChat_margin, self.redPaperImage.y,self.bubbleBtn.width - self.redPaperImage.maxX - 2*kChat_margin - kChat_angle_w,20);
     //提示
     self.redPaperRemark.frame = CGRectMake(self.redPaperContent.x, self.redPaperContent.maxY, self.redPaperContent.width, 20);
     //来源
-    self.redPaperSource.frame = CGRectMake(margin?margin - 1:0, self.redPaperImage.maxY + kChat_margin, self.btnContent.width - kChat_angle_w + 1, 20);
+    self.redPaperSource.frame = CGRectMake(margin?margin - 1:0, self.redPaperImage.maxY + kChat_margin, self.bubbleBtn.width - kChat_angle_w + 1, 20);
 
-    //圆角
-    CGRect rect = self.redPaperSource.bounds;
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:rect byRoundingCorners:UIRectCornerBottomLeft|UIRectCornerBottomRight cornerRadii:CGSizeMake(5, 5)];
-    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-    maskLayer.frame = rect;
-    maskLayer.path = maskPath.CGPath;
-    self.redPaperSource.layer.mask = maskLayer;
+    //剪切
+    [self.bubbleBtn makeMaskView];
 }
 
 #pragma mark 红包消息视图
@@ -83,7 +78,7 @@
     if (!_redPaperImage) {
         _redPaperImage = [[UIImageView alloc]init];
         _redPaperImage.contentMode = UIViewContentModeScaleAspectFit;
-        [self.btnContent addSubview:_redPaperImage];
+        [self.bubbleBtn addSubview:_redPaperImage];
     }
     return _redPaperImage;
 }
@@ -94,7 +89,7 @@
         _redPaperContent = [[UILabel alloc]init];
         _redPaperContent.textColor = [UIColor whiteColor];
         _redPaperContent.font = [UIFont systemFontOfSize:14];
-        [self.btnContent addSubview:_redPaperContent];
+        [self.bubbleBtn addSubview:_redPaperContent];
     }
     return _redPaperContent;
 }
@@ -105,7 +100,7 @@
         _redPaperRemark = [[UILabel alloc]init];
         _redPaperRemark.textColor = [UIColor whiteColor];
         _redPaperRemark.font = [UIFont systemFontOfSize:12];
-        [self.btnContent addSubview:_redPaperRemark];
+        [self.bubbleBtn addSubview:_redPaperRemark];
     }
     return _redPaperRemark;
 }
@@ -119,7 +114,7 @@
         _redPaperSource.font = [UIFont systemFontOfSize:10];
         _redPaperSource.textAlignment = NSTextAlignmentLeft;
         
-        [self.btnContent addSubview:_redPaperSource];
+        [self.bubbleBtn addSubview:_redPaperSource];
     }
     return _redPaperSource;
 }

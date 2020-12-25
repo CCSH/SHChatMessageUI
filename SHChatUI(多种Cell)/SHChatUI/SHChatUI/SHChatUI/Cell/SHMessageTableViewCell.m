@@ -72,13 +72,13 @@
 }
 
 #pragma mark 创建内容
-- (UIButton *)btnContent{
-    if (!_btnContent) {
-        _btnContent = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_btnContent addTarget:self action:@selector(didSelectMessage) forControlEvents:UIControlEventTouchUpInside];
-        [self.contentView addSubview:_btnContent];
+- (SHBubbleButton *)bubbleBtn{
+    if (!_bubbleBtn) {
+        _bubbleBtn = [SHBubbleButton buttonWithType:UIButtonTypeCustom];
+        [_bubbleBtn addTarget:self action:@selector(didSelectMessage) forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:_bubbleBtn];
     }
-    return _btnContent;
+    return _bubbleBtn;
 }
 
 #pragma mark 消息发送状态视图
@@ -121,7 +121,7 @@
     }
     
     // 设置内容
-    self.btnContent.frame = messageFrame.contentF;
+    self.bubbleBtn.frame = messageFrame.contentF;
     UIImage *image = nil;
     // 设置聊天气泡背景
     if (isSend) {
@@ -130,31 +130,24 @@
         image = [SHFileHelper imageNamed:@"chat_message_receive"];
     }
     
-    [self setBubbleImage:image];
+    [self.bubbleBtn setBubbleImage:image];
     
     // 设置发送状态样式
     self.activityView.messageState = message.messageState;
     
     // 发送状态
     if (isSend && message.messageState != SHSendMessageType_Successed) {
-        self.activityView.frame = CGRectMake(self.btnContent.x - (5 + 20), self.btnContent.y + (self.btnContent.height - 20)/2, 20, 20);
+        self.activityView.frame = CGRectMake(self.bubbleBtn.x - (5 + 20), self.bubbleBtn.y + (self.bubbleBtn.height - 20)/2, 20, 20);
     }
     
-    // 12、添加长按内容
-    if (message.messageType != SHMessageBodyType_note && message.messageType != SHMessageBodyType_redPaper) {
+    // 添加长按内容
+    if (message.messageType != SHMessageBodyType_note &&
+        message.messageType != SHMessageBodyType_redPaper) {
         //长按内容
         UILongPressGestureRecognizer *longContent = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(didLongMessage:)];
         longContent.minimumPressDuration = 0.4;
-        [self.btnContent addGestureRecognizer:longContent];
+        [self.bubbleBtn addGestureRecognizer:longContent];
     }
-}
-
-//设置气泡背景
-- (void)setBubbleImage:(UIImage *)image{
-    
-    image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(35, 25, 10, 25)];
-    [self.btnContent setBackgroundImage:image forState:UIControlStateNormal];
-    [self.btnContent setBackgroundImage:image forState:UIControlStateHighlighted];
 }
 
 #pragma mark - 点击事件
@@ -203,11 +196,6 @@
         }
     }
 }
-
-#pragma mark 添加第一响应
-//- (BOOL)canBecomeFirstResponder {
-//    return YES;
-//}
 
 - (void)awakeFromNib {
     

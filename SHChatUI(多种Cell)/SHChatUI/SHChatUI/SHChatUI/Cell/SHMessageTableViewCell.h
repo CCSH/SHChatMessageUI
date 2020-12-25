@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SHMessageHeader.h"
 #import "SHActivityIndicatorView.h"
+#import "SHBubbleButton.h"
 
 @class SHMessageContentView;
 @class SHMessageFrame;
@@ -30,19 +31,16 @@
 //代理
 @property (nonatomic, weak) id <SHChatMessageCellDelegate>delegate;
 //坐标
-@property (nonatomic, retain) SHMessageFrame *messageFrame;
+@property (nonatomic, strong) SHMessageFrame *messageFrame;
 //内容
-@property (nonatomic, retain) UIButton *btnContent;
+@property (nonatomic, strong) SHBubbleButton *bubbleBtn;
 //时间
-@property (nonatomic, retain) UILabel *labelTime;
+@property (nonatomic, strong) UILabel *labelTime;
 //ID
-@property (nonatomic, retain) UILabel *labelNum;
+@property (nonatomic, strong) UILabel *labelNum;
 //头像
-@property (nonatomic, retain) UIButton *btnHeadImage;
+@property (nonatomic, strong) UIButton *btnHeadImage;
 //消息状态
-@property (nonatomic, retain) SHActivityIndicatorView *activityView;
-
-//设置气泡背景
-- (void)setBubbleImage:(UIImage *)image;
+@property (nonatomic, strong) SHActivityIndicatorView *activityView;
 
 @end
