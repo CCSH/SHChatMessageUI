@@ -54,6 +54,8 @@
     if (!_textView) {
         _textView = [[SHTextView alloc]init];
         _textView.editable = NO;
+        _textView.scrollEnabled = NO;
+        _textView.showsVerticalScrollIndicator = NO;
         [self.bubbleBtn addSubview:_textView];
     }
     return _textView;
