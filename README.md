@@ -35,3 +35,12 @@
 
 # 效果
 ![image](https://github.com/CCSH/SHChatMessageUI/blob/master/QQ20180702-183212-HD.gif)
+
+# 版本更新
+## 2.1.0
+- 新增客服模式（头像显示控制）
+- 微调消息布局 更美观
+
+## 2.0.0
+- 新增文件消息
+- 交互动画细节优化
