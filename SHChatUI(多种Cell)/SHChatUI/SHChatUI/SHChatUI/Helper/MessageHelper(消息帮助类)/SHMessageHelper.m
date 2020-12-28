@@ -87,24 +87,25 @@
 
 + (SHMessage *)addPublicParametersWithMessage:(SHMessage *)message{
     
-    message.messageId = [self getTimeWithZone];
-    message.isRead = YES;
-    message.messageRead = YES;
-    message.messageState = SHSendMessageType_Sending;
-    message.sendTime = [self getTimeWithZone];
-    message.bubbleMessageType = arc4random()%2;
+    SHMessage *model = message;
+    model.messageId = [self getTimeWithZone];
+    model.isRead = YES;
+    model.messageRead = YES;
+    model.messageState = SHSendMessageType_Sending;
+    model.sendTime = [self getTimeWithZone];
+    model.bubbleMessageType = arc4random()%2;
     
-    if (message.bubbleMessageType == SHBubbleMessageType_Receiving) {
-        message.messageState = SHSendMessageType_Successed;
-        message.isRead = NO;
-        message.messageRead = NO;
+    if (model.bubbleMessageType == SHBubbleMessageType_Receiving) {
+        model.messageState = SHSendMessageType_Successed;
+        model.isRead = NO;
+        model.messageRead = NO;
     }
     
-    message.userId = @"123";
-    message.userName = @"小明";
-    message.avator = @"headImage";
+    model.userId = @"123";
+    model.userName = @"小明";
+    model.avator = @"headImage";
     
-    return message;
+    return model;
 }
 
 #pragma mark - 是否显示时间

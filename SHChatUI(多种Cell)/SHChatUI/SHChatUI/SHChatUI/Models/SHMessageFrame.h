@@ -46,7 +46,7 @@ static NSInteger const kChat_min_h = kChat_icon;
 #define kChat_location_size CGSizeMake(200, 120)
 //名片
 //名片的size
-#define kChat_card_size CGSizeMake(200, 80)
+#define kChat_card_size CGSizeMake(200, 80.5)
 //视频
 //视频最大zise
 #define kChat_video_size CGSizeMake(160, 160)
@@ -75,6 +75,17 @@ static NSInteger const kChat_min_h = kChat_icon;
  */
 @interface SHMessageFrame : NSObject
 
+//聊天模型
+@property (nonatomic, strong) SHMessage *message;
+//是否显示时间
+@property (nonatomic, assign) BOOL showTime;
+//是否显示姓名
+@property (nonatomic, assign) BOOL showName;
+//是否显示头像
+@property (nonatomic, assign) BOOL showAvatar;
+
+
+//内部计算
 //时间CGRect
 @property (nonatomic, assign, readonly) CGRect timeF;
 //名字CGRect
@@ -86,11 +97,7 @@ static NSInteger const kChat_min_h = kChat_icon;
 //整体cell高度
 @property (nonatomic, assign, readonly) CGFloat cell_h;
 
-//聊天模型
-@property (nonatomic, strong) SHMessage *message;
-//是否显示时间
-@property (nonatomic, assign) BOOL showTime;
-//是否显示姓名
-@property (nonatomic, assign) BOOL showName;
+//X初始位置
+@property (nonatomic, assign, readonly) CGFloat startX;
 
 @end

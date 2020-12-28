@@ -11,9 +11,9 @@
 @interface SHVideoTableViewCell ()
 
 //视频图标
-@property (nonatomic, retain) UIImageView *iconView;
+@property (nonatomic, strong) UIImageView *iconView;
 //视频时间
-@property (nonatomic, retain) UILabel *timeLab;
+@property (nonatomic, strong) UILabel *timeLab;
 
 @end
 
@@ -35,10 +35,10 @@
     
     SHMessage *message = messageFrame.message;
     
-    self.btnContent.layer.cornerRadius = 5;
-    self.btnContent.layer.masksToBounds = YES;
-    self.btnContent.backgroundColor = [UIColor blackColor];
-    [self setBubbleImage:nil];
+    self.bubbleBtn.layer.cornerRadius = 5;
+    self.bubbleBtn.layer.masksToBounds = YES;
+    self.bubbleBtn.backgroundColor = [UIColor blackColor];
+    [self.bubbleBtn setBubbleImage:nil];
     
     self.timeLab.text = message.videoDuration;
     
@@ -51,17 +51,16 @@
     UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
     if (image) {//本地
         
-        [self.btnContent setBackgroundImage:image forState:0];
+        [self.bubbleBtn setBackgroundImage:image forState:0];
     }else{//网络
-        
-//        [self.btnContent sd_setBackgroundImageWithURL:[NSURL URLWithString:message.fileUrl] forState:0];
+        [self.bubbleBtn setImage:[SHFileHelper imageNamed:@"chat_picture"] forState:0];
+//        [self.bubbleBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:message.fileUrl] forState:0];
     }
     
     //设置frame
-    self.iconView.center = CGPointMake(self.btnContent.width/2, self.btnContent.height/2);
-    self.timeLab.width = self.btnContent.width - 2*self.timeLab.x;
-    self.timeLab.y = self.btnContent.height - self.timeLab.height;
-
+    self.iconView.center = CGPointMake(self.bubbleBtn.width/2, self.bubbleBtn.height/2);
+    self.timeLab.width = self.bubbleBtn.width - 2*self.timeLab.x;
+    self.timeLab.y = self.bubbleBtn.height - self.timeLab.height;
 }
 
 #pragma mark 视频消息视图
@@ -72,7 +71,7 @@
         _iconView = [[UIImageView alloc]init];
         _iconView.size = CGSizeMake(30, 30);
         _iconView.image = [SHFileHelper imageNamed:@"chat_video"];
-        [self.btnContent addSubview:_iconView];
+        [self.bubbleBtn addSubview:_iconView];
     }
     return _iconView;
 }
@@ -88,7 +87,7 @@
         _timeLab.font = [UIFont systemFontOfSize:10];
         _timeLab.textColor = [UIColor whiteColor];
         _timeLab.textAlignment = NSTextAlignmentRight;
-        [self.btnContent addSubview:_timeLab];
+        [self.bubbleBtn addSubview:_timeLab];
     }
     return _timeLab;
 }

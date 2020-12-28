@@ -11,11 +11,11 @@
 @interface SHAudioTableViewCell ()
 
 // audio
-@property (nonatomic, retain) UIImageView *voiceView;
+@property (nonatomic, strong) UIImageView *voiceView;
 // audio 时长
-@property (nonatomic, retain) UILabel *voiceNum;
+@property (nonatomic, strong) UILabel *voiceNum;
 // 未读标记
-@property (nonatomic, retain) UIImageView *readMarker;
+@property (nonatomic, strong) UIImageView *readMarker;
 
 @end
 
@@ -49,7 +49,7 @@
     {
         self.readMarker.hidden = message.messageRead;
         //未读标记
-        self.readMarker.x = self.btnContent.width + set_space;
+        self.readMarker.x = self.bubbleBtn.width + set_space;
     }
     
     self.voiceNum.hidden = (message.messageState != SHSendMessageType_Successed);
@@ -61,8 +61,8 @@
     }
     
     //设置frame
-    self.voiceView.centerY = self.btnContent.height / 2;
-    self.voiceNum.centerY = self.btnContent.height / 2;
+    self.voiceView.centerY = self.bubbleBtn.height / 2;
+    self.voiceNum.centerY = self.bubbleBtn.height / 2;
     
     //语音图片
     self.voiceView.x = kChat_angle_w + kChat_margin + 5;
@@ -76,13 +76,13 @@
         [SHFileHelper imageNamed:@"chat_receive_voice4"]
     ];
     //时长
-    self.voiceNum.x = self.btnContent.width + set_space;
+    self.voiceNum.x = self.bubbleBtn.width + set_space;
     self.voiceNum.textAlignment = NSTextAlignmentLeft;
     
     if (message.bubbleMessageType == SHBubbleMessageType_Send)
     {
         //语音图片
-        self.voiceView.x = self.btnContent.width - kChat_angle_w - kChat_margin - self.voiceView.width - 5;
+        self.voiceView.x = self.bubbleBtn.width - kChat_angle_w - kChat_margin - self.voiceView.width - 5;
         //动画
         self.voiceView.animationImages = @[
             [SHFileHelper imageNamed:@"chat_send_voice1"],
@@ -123,7 +123,7 @@
     {
         _voiceView = [[UIImageView alloc] init];
         _voiceView.size = CGSizeMake(15, 15);
-        [self.btnContent addSubview:_voiceView];
+        [self.bubbleBtn addSubview:_voiceView];
         //动画
         _voiceView.animationDuration = 1;
         _voiceView.animationRepeatCount = 0;
@@ -140,7 +140,7 @@
         _voiceNum.size = CGSizeMake(25, 20);
         _voiceNum.textColor = [UIColor lightGrayColor];
         _voiceNum.font = [UIFont systemFontOfSize:14];
-        [self.btnContent addSubview:_voiceNum];
+        [self.bubbleBtn addSubview:_voiceNum];
     }
     return _voiceNum;
 }
@@ -153,7 +153,7 @@
         _readMarker = [[UIImageView alloc] init];
         _readMarker.frame = CGRectMake(0, 1, 9, 9);
         _readMarker.image = [SHFileHelper imageNamed:@"unread.png"];
-        [self.btnContent addSubview:_readMarker];
+        [self.bubbleBtn addSubview:_readMarker];
     }
     return _readMarker;
 }

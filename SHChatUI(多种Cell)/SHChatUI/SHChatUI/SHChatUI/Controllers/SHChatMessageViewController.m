@@ -173,11 +173,12 @@ UITableViewDataSource
         
         message.messageState = SHSendMessageType_Successed;
         
-        SHMessageFrame *messageFrame = [self dealDataWithMessage:message dateSoure:temp setTime:isLoad?loadTimeArr.lastObject:self.timeArr.lastObject];
+        //处理数据
+        SHMessageFrame *messageF = [self dealDataWithMessage:message dateSoure:temp time:isLoad?loadTimeArr.lastObject:self.timeArr.lastObject];
         
-        if (messageFrame) {//做添加
+        if (messageF) {//做添加
             
-            if (messageFrame.showTime) {
+            if (messageF.showTime) {
                 
                 if (isLoad) {
                     [loadTimeArr addObject:message.sendTime];
@@ -186,7 +187,7 @@ UITableViewDataSource
                 }
             }
             
-            [temp addObject:messageFrame];
+            [temp addObject:messageF];
         }
     }
     
@@ -823,18 +824,16 @@ UITableViewDataSource
         });
     }
     
-    //判断是否重复
-    SHMessageFrame *messageFrame = [self dealDataWithMessage:message dateSoure:self.dataSource setTime:self.timeArr.lastObject];
+    //处理数据
+    SHMessageFrame *messageF = [self dealDataWithMessage:message dateSoure:self.dataSource time:self.timeArr.lastObject];
     
-    if (messageFrame) {//做添加
-        
-        if (messageFrame.showTime) {
+    if (messageF) {
+        if (messageF.showTime) {
             [self.timeArr addObject:message.sendTime];
         }
-        
-        [self.dataSource addObject:messageFrame];
+        [self.dataSource addObject:messageF];
     }
-    
+    //刷新界面
     [self.chatTableView reloadData];
     
     if (isBottom) {
@@ -853,9 +852,9 @@ UITableViewDataSource
 }
 
 #pragma mark 处理数据属性
-- (SHMessageFrame *)dealDataWithMessage:(SHMessage *)message dateSoure:(NSMutableArray *)dataSoure setTime:(NSString *)setTime{
+- (SHMessageFrame *)dealDataWithMessage:(SHMessage *)message dateSoure:(NSMutableArray *)dataSoure time:(NSString *)time{
     
-    SHMessageFrame *messageFrame = [[SHMessageFrame alloc]init];
+    __block SHMessageFrame *messageFrame = [[SHMessageFrame alloc]init];
     
     //是否需要添加
     __block BOOL isAdd = YES;
@@ -864,36 +863,38 @@ UITableViewDataSource
     [dataSoure enumerateObjectsUsingBlock:^(SHMessageFrame *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         if ([message.messageId isEqualToString:obj.message.messageId]) {//同一条消息
-             *stop = YES;
+            *stop = YES;
             
-            if ([message.sendTime isEqualToString:obj.message.sendTime]) {//时间相同做刷新
-                
+            //发送时间判断
+            if ([message.sendTime isEqualToString:obj.message.sendTime]){
+                //相同 - 更新消息(如：发送状态)
                 isAdd = NO;
-                
-                messageFrame.showTime = obj.showTime;
-                messageFrame.showName = obj.showName;
-                
-                [messageFrame setMessage:message];
+                obj.message = message;
+                messageFrame = obj;
+               
                 [dataSoure replaceObjectAtIndex:idx withObject:messageFrame];
                 
-            }else{//时间不同做添加
-                
-                [dataSoure removeObject:obj];
+            }else{
+                //消息重复了 进行删除(保护)
+                [dataSoure removeObjectAtIndex:idx];
             }
         }
     }];
     
-    //已经更新则不用进行处理
+    //需要添加
     if (isAdd) {
-        
         //是否显示时间
-        messageFrame.showTime = [SHMessageHelper isShowTimeWithTime:message.sendTime setTime:setTime];
-        
+        messageFrame.showTime = [SHMessageHelper isShowTimeWithTime:message.sendTime setTime:time];
+        //显示头像
+        messageFrame.showAvatar = YES;
+        //显示名字
+//        messageFrame.showName = YES;
+        //设置数据
         [messageFrame setMessage:message];
+        
         return messageFrame;
     }
-    
-    return nil;
+    return  nil;
 }
 
 #pragma mark 删除聊天消息消息
@@ -987,12 +988,6 @@ UITableViewDataSource
         }
     }
 }
-#pragma mark 滚动最上方
-- (void)tableViewScrollToTop{
-    
-    //界面滚动到指定位置
-    [self tableViewScrollToIndex:0];
-}
 
 #pragma mark 滚动最下方
 - (void)tableViewScrollToBottom{
@@ -1005,9 +1000,7 @@ UITableViewDataSource
 - (void)tableViewScrollToIndex:(NSInteger)index{
 
     @synchronized (self.dataSource) {
-        
         if (self.dataSource.count > index) {
-            
             [self.chatTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
         }
     }
@@ -1033,6 +1026,7 @@ UITableViewDataSource
         _chatTableView.backgroundColor = [UIColor clearColor];
         _chatTableView.delegate = self;
         _chatTableView.dataSource = self;
+        _chatTableView.estimatedRowHeight = 0;
         
         _chatTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     }

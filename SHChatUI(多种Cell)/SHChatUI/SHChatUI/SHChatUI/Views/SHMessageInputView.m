@@ -476,7 +476,7 @@ static CGFloat start_maxY;
 #pragma mark 打开名片
 - (void)openCard
 {
-    [self sendMessageWithCard:@"个人名片"];
+    [self sendMessageWithCard:@"CCSH"];
 }
 
 #pragma mark 打开红包

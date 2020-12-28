@@ -11,7 +11,7 @@
 @interface SHNoteTableViewCell ()
 
 // note
-@property (nonatomic, retain) UILabel *noteLab;
+@property (nonatomic, strong) UILabel *noteLab;
 
 @end
 
@@ -34,16 +34,17 @@
     SHMessage *message = messageFrame.message;
     
     //设置内容
-    self.btnContent.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
-    self.btnContent.layer.cornerRadius = 5;
-    self.btnContent.layer.masksToBounds = YES;
+    self.bubbleBtn.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
+    self.bubbleBtn.layer.cornerRadius = 5;
+    self.bubbleBtn.layer.masksToBounds = YES;
+    
+    [self.bubbleBtn setBubbleImage:nil];
 
     self.noteLab.text = message.note;
     
     //设置frame
-    self.noteLab.frame = CGRectMake(kChat_margin, kChat_margin, self.btnContent.width - 2*kChat_margin, self.btnContent.height - 2*kChat_margin);
+    self.noteLab.frame = CGRectMake(kChat_margin, kChat_margin, self.bubbleBtn.width - 2*kChat_margin, self.bubbleBtn.height - 2*kChat_margin);
     
-    [self setBubbleImage:nil];
 }
 
 #pragma mark 通知消息视图
@@ -55,7 +56,7 @@
         _noteLab.textColor = [UIColor whiteColor];
         _noteLab.textAlignment = NSTextAlignmentLeft;
         _noteLab.numberOfLines = 0;
-        [self.btnContent addSubview:_noteLab];
+        [self.bubbleBtn addSubview:_noteLab];
     }
     return _noteLab;
 }

@@ -11,7 +11,7 @@
 @interface SHTextTableViewCell ()
 
 // text
-@property (nonatomic, retain) SHTextView *textView;
+@property (nonatomic, strong) SHTextView *textView;
 
 @end
 
@@ -44,8 +44,8 @@
         view_y = (kChat_min_h - kChatFont_content.lineHeight)/2;
     }
     
-    CGFloat margin = (message.bubbleMessageType == SHBubbleMessageType_Send) ? 0 : kChat_angle_w;
-    self.textView.frame = CGRectMake(margin + kChat_margin, view_y, self.btnContent.width - 2*kChat_margin - kChat_angle_w, self.btnContent.height - 2*view_y);
+    CGFloat margin = messageFrame.startX;
+    self.textView.frame = CGRectMake(margin + kChat_margin, view_y, self.bubbleBtn.width - 2*kChat_margin - kChat_angle_w, self.bubbleBtn.height - 2*view_y);
 }
 
 #pragma mark 文本消息视图
@@ -54,7 +54,9 @@
     if (!_textView) {
         _textView = [[SHTextView alloc]init];
         _textView.editable = NO;
-        [self.btnContent addSubview:_textView];
+        _textView.scrollEnabled = NO;
+        _textView.showsVerticalScrollIndicator = NO;
+        [self.bubbleBtn addSubview:_textView];
     }
     return _textView;
 }
