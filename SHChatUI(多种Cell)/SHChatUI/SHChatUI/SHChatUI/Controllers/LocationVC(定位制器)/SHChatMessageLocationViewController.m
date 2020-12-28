@@ -191,7 +191,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    // Dispose of any resources that can be recreated
 }
 
 #pragma mark - 地图控件代理方法
@@ -219,7 +219,7 @@
         annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"PIN_ANNOTATION"];
     }
     // 设置大头针颜色
-    annotationView.pinColor = MKPinAnnotationColorRed;
+    annotationView.pinTintColor = MKPinAnnotationColorRed;
     // 标注地图时 是否以动画的效果形式显示在地图上
     annotationView.animatesDrop = YES;
     // 用于标注点上的一些附加信息

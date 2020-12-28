@@ -59,14 +59,15 @@ static CGFloat start_maxY;
         UIView *view = [[UIView alloc] init];
         view.frame = CGRectMake(0, 0, kSHWidth, 1000);
         view.backgroundColor = kInPutViewColor;
+        view.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self addSubview:view];
         
-        self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        
         //分割线
         self.layer.cornerRadius = 1;
         self.layer.borderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.4].CGColor;
         self.layer.borderWidth = 0.4;
-        
+        self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self addKeyboardNote];
     }
     return self;

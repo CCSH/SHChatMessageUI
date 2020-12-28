@@ -12,7 +12,7 @@
 #define kScreenW [UIScreen mainScreen].bounds.size.width
 #define kScreenH [UIScreen mainScreen].bounds.size.height
 
-#define SafeBottomH (([UIApplication sharedApplication].statusBarFrame.size.height != 20) ? 34 : 0)
+#define SafeBottomH (([UIApplication sharedApplication].statusBarFrame.size.height > 20) ? 34 : 0)
 //键盘高度
 #define kKeyboardH 216
 //下方工具栏按钮宽度
