@@ -1133,7 +1133,7 @@ UITableViewDataSource
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    self.title = @"晶晶";
+    self.title = @"CCSH";
 }
 
 - (void)viewDidDisappear:(BOOL)animated{

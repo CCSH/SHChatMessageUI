@@ -26,6 +26,8 @@ typedef enum {
     SHMessageBodyType_gif,            //动图类型
     SHMessageBodyType_note,           //通知类型
     SHMessageBodyType_file,           //文件类型
+    SHMessageBodyType_cmd,            //系统类型(界面不做展示)
+    SHMessageBodyType_custom,         //自定义类型
 }SHMessageBodyType;
 
 /**
