@@ -1096,7 +1096,6 @@ UITableViewDataSource
     if (!_unreadBtn) {
         _unreadBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _unreadBtn.frame = CGRectMake(kSHWidth - 135, 20 + 44 + kSHTopSafe, 135, 35);
-        
         _unreadBtn.titleLabel.font = [UIFont systemFontOfSize:16];
         [_unreadBtn setTitleColor:[UIColor redColor] forState:0];
         [_unreadBtn setBackgroundImage:[SHFileHelper imageNamed:@"unread_bg.png"] forState:0];
@@ -1134,7 +1133,7 @@ UITableViewDataSource
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    self.title = @"晶晶";
+    self.title = @"CCSH";
 }
 
 - (void)viewDidDisappear:(BOOL)animated{

@@ -85,5 +85,7 @@
 //文件
 @property (nonatomic, copy) NSString *displayName;
 
+//拓展(json)
+@property (nonatomic, copy) NSString *ext;
 
 @end
