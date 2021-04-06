@@ -37,6 +37,9 @@
 ![image](https://github.com/CCSH/SHChatMessageUI/blob/master/QQ20180702-183212-HD.gif)
 
 ## 版本更新
+#### 2.1.1
+- fixbug 处理语音消息动画问题
+
 #### 2.1.0
 - 新增客服模式（头像显示控制）
 - 微调消息布局 更美观
