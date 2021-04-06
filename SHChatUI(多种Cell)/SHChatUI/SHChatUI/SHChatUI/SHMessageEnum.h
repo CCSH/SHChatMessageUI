@@ -1,16 +1,13 @@
 //
-//  SHMessageType.h
+//  SHMessageEnum.h
 //  SHChatUI
 //
-//  Created by CSH on 2018/6/5.
-//  Copyright © 2018年 CSH. All rights reserved.
+//  Created by CCSH on 2021/4/6.
+//  Copyright © 2021 CSH. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-/**
- 聊天Type定义
- */
+#ifndef SHMessageEnum_h
+#define SHMessageEnum_h
 
 /**
  *  消息类型
@@ -99,8 +96,4 @@ typedef enum{
 }SHSendMessageStatus;
 
 
-@interface SHMessageType : NSObject
-
-
-
-@end
+#endif /* SHMessageEnum_h */

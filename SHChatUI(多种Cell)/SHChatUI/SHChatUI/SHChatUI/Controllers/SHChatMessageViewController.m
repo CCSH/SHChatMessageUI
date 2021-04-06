@@ -171,6 +171,7 @@ UITableViewDataSource
                 break;
         }
         
+        //假设取出来的消息都是成功的 实际情况不是
         message.messageState = SHSendMessageType_Successed;
         
         //处理数据
@@ -244,6 +245,7 @@ UITableViewDataSource
     message.messageType = SHMessageBodyType_voice;
     message.fileName = [NSString stringWithFormat:@"%u",arc4random()%1000000];
     message.audioDuration = @"2";
+    message.isPlaying = NO;
     
     return message;
 }
@@ -660,20 +662,16 @@ UITableViewDataSource
             NSLog(@"点击了 --- 语音消息");
             SHAudioPlayerHelper *audio = [SHAudioPlayerHelper shareInstance];
             audio.delegate = self;
-            SHAudioTableViewCell *cell = (SHAudioTableViewCell *)self.selectCell;
             
             //如果此条正在播放则停止
-            if (cell.isPlaying) {
-                //正在播放
-                cell.isPlaying = NO;
-                [audio stopAudio];//停止
+            if (message.isPlaying) {
+                message.isPlaying = NO;
+                //正在播放、停止
+                [audio stopAudio];
             }else{
-                //未播放
-                cell.isPlaying = YES;
+                message.isPlaying = YES;
+                //未播放、播放
                 [audio managerAudioWithFileArr:@[message] isClear:YES];
-            }
-            if (message.messageRead) {
-                isRefresh = YES;
             }
         }
             break;
@@ -787,12 +785,17 @@ UITableViewDataSource
     
     for (SHAudioTableViewCell *cell in self.chatTableView.visibleCells) {
         if ([cell isKindOfClass:[SHAudioTableViewCell class]]) {
+            //获取数据源
+            NSIndexPath *indexPath = [self.chatTableView indexPathForCell:cell];
+            SHMessageFrame *frame = self.dataSource[indexPath.row];
+            
             if ([cell.messageFrame.message.messageId isEqualToString:playMark]) {
+                frame.message.isPlaying = YES;
                 [cell playVoiceAnimation];
             }else{
+                frame.message.isPlaying = NO;
                 [cell stopVoiceAnimation];
             }
-            break;
         }
     }
 }
@@ -804,10 +807,14 @@ UITableViewDataSource
     }
     for (SHAudioTableViewCell *cell in self.chatTableView.visibleCells) {
         if ([cell isKindOfClass:[SHAudioTableViewCell class]]) {
+            //获取数据源
+            NSIndexPath *indexPath = [self.chatTableView indexPathForCell:cell];
+            SHMessageFrame *frame = self.dataSource[indexPath.row];
+            
             if ([cell.messageFrame.message.messageId isEqualToString:playMark]) {
+                frame.message.isPlaying = NO;
                 [cell stopVoiceAnimation];
             }
-            break;
         }
     }
 }
@@ -886,7 +893,7 @@ UITableViewDataSource
         //是否显示时间
         messageFrame.showTime = [SHMessageHelper isShowTimeWithTime:message.sendTime setTime:time];
         //显示头像
-        messageFrame.showAvatar = YES;
+//        messageFrame.showAvatar = YES;
         //显示名字
 //        messageFrame.showName = YES;
         //设置数据

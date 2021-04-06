@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5C40174D212E9BAE004B19B3 /* SHMessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4016D6212E9BAE004B19B3 /* SHMessageFrame.m */; };
 		5C40174E212E9BAE004B19B3 /* SHMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4016D8212E9BAE004B19B3 /* SHMessage.m */; };
-		5C40174F212E9BAE004B19B3 /* SHMessageType.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4016DA212E9BAE004B19B3 /* SHMessageType.m */; };
 		5C401750212E9BAE004B19B3 /* SHMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4016DF212E9BAE004B19B3 /* SHMessageTableViewCell.m */; };
 		5C401751212E9BAE004B19B3 /* SHChatMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4016E1212E9BAE004B19B3 /* SHChatMessageViewController.m */; };
 		5C401752212E9BAE004B19B3 /* SHMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4016E6212E9BAE004B19B3 /* SHMenuController.m */; };
@@ -69,10 +68,8 @@
 		09364128E552D45E4CA47290 /* Pods-SHChatUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHChatUI.release.xcconfig"; path = "Pods/Target Support Files/Pods-SHChatUI/Pods-SHChatUI.release.xcconfig"; sourceTree = "<group>"; };
 		1DA24F4CD281D21D1E8D3DC9 /* libPods-SHChatUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SHChatUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C4016D6212E9BAE004B19B3 /* SHMessageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMessageFrame.m; sourceTree = "<group>"; };
-		5C4016D7212E9BAE004B19B3 /* SHMessageType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMessageType.h; sourceTree = "<group>"; };
 		5C4016D8212E9BAE004B19B3 /* SHMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMessage.m; sourceTree = "<group>"; };
 		5C4016D9212E9BAE004B19B3 /* SHMessageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMessageFrame.h; sourceTree = "<group>"; };
-		5C4016DA212E9BAE004B19B3 /* SHMessageType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMessageType.m; sourceTree = "<group>"; };
 		5C4016DB212E9BAE004B19B3 /* SHMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMessage.h; sourceTree = "<group>"; };
 		5C4016DC212E9BAE004B19B3 /* SHMessageHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMessageHeader.h; sourceTree = "<group>"; };
 		5C4016DE212E9BAE004B19B3 /* SHMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMessageTableViewCell.h; sourceTree = "<group>"; };
@@ -142,6 +139,7 @@
 		8307592A2574D29400DD294D /* SHLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLocation.m; sourceTree = "<group>"; };
 		833C30B82594915E00351006 /* SHBubbleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHBubbleButton.h; sourceTree = "<group>"; };
 		833C30B92594915E00351006 /* SHBubbleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHBubbleButton.m; sourceTree = "<group>"; };
+		83551009261BF1B1000D5C4D /* SHMessageEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHMessageEnum.h; sourceTree = "<group>"; };
 		8367654C2551599A0088C02F /* SHFileTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHFileTableViewCell.h; sourceTree = "<group>"; };
 		8367654D2551599A0088C02F /* SHFileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHFileTableViewCell.m; sourceTree = "<group>"; };
 		B8DD6D491E65A756784D9135 /* Pods-SHChatUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHChatUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHChatUI/Pods-SHChatUI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -178,6 +176,7 @@
 			children = (
 				5CB76AA4219D6698005218A3 /* SHChatUI.bundle */,
 				5C4016DC212E9BAE004B19B3 /* SHMessageHeader.h */,
+				83551009261BF1B1000D5C4D /* SHMessageEnum.h */,
 				5C4016D5212E9BAE004B19B3 /* Models */,
 				5C4016DD212E9BAE004B19B3 /* Cell */,
 				5C4016E0212E9BAE004B19B3 /* Controllers */,
@@ -192,8 +191,6 @@
 			children = (
 				5C4016D9212E9BAE004B19B3 /* SHMessageFrame.h */,
 				5C4016D6212E9BAE004B19B3 /* SHMessageFrame.m */,
-				5C4016D7212E9BAE004B19B3 /* SHMessageType.h */,
-				5C4016DA212E9BAE004B19B3 /* SHMessageType.m */,
 				5C4016DB212E9BAE004B19B3 /* SHMessage.h */,
 				5C4016D8212E9BAE004B19B3 /* SHMessage.m */,
 			);
@@ -482,7 +479,7 @@
 		5C6945E620C6221D006D88A3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = CSH;
 				TargetAttributes = {
 					5C6945ED20C6221D006D88A3 = {
@@ -591,7 +588,6 @@
 			files = (
 				5C9452EB21AE71E9009BAEB9 /* SHAudioTableViewCell.m in Sources */,
 				5C401757212E9BAE004B19B3 /* SHMessageInputView.m in Sources */,
-				5C40174F212E9BAE004B19B3 /* SHMessageType.m in Sources */,
 				5C9452E821AE6DC8009BAEB9 /* SHTextTableViewCell.m in Sources */,
 				5C9452FA21AE82A2009BAEB9 /* SHGifTableViewCell.m in Sources */,
 				5C94530021AE85C9009BAEB9 /* SHVideoTableViewCell.m in Sources */,
@@ -701,6 +697,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -726,7 +723,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -759,6 +756,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -778,7 +776,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -795,7 +793,7 @@
 				DEVELOPMENT_TEAM = G94X5Y9CST;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SHChatUI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -806,7 +804,7 @@
 					"$(PROJECT_DIR)/SHChatUI/SHChatUI(聊天界面)/Helper/VoiceHelper(语音帮助类)/VoiceConvert/VoiceConvert/VoiceConvert/lib",
 					"$(PROJECT_DIR)/SHChatUI/SHChatUI(微信)/Helper/VoiceHelper(语音帮助类)/VoiceConvert/VoiceConvert/VoiceConvert/lib",
 				);
-				MARKETING_VERSION = 2.1.0;
+				MARKETING_VERSION = 2.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chatui.ccsh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -824,7 +822,7 @@
 				DEVELOPMENT_TEAM = G94X5Y9CST;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SHChatUI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -835,7 +833,7 @@
 					"$(PROJECT_DIR)/SHChatUI/SHChatUI(聊天界面)/Helper/VoiceHelper(语音帮助类)/VoiceConvert/VoiceConvert/VoiceConvert/lib",
 					"$(PROJECT_DIR)/SHChatUI/SHChatUI(微信)/Helper/VoiceHelper(语音帮助类)/VoiceConvert/VoiceConvert/VoiceConvert/lib",
 				);
-				MARKETING_VERSION = 2.1.0;
+				MARKETING_VERSION = 2.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chatui.ccsh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

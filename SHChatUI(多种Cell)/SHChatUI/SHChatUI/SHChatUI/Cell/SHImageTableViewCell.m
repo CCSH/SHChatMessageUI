@@ -37,8 +37,7 @@
     if (image) {//本地
         [self.bubbleBtn setImage:image forState:0];
     }else{//网络
-        [self.bubbleBtn setImage:[SHFileHelper imageNamed:@"chat_picture"] forState:0];
-//        [self.bubbleBtn sd_setImageWithURL:[NSURL URLWithString:message.fileUrl] forState:0 placeholderImage:[SHFileHelper imageNamed:@"chat_picture"]];
+        [self.bubbleBtn sd_setImageWithURL:[NSURL URLWithString:message.fileUrl] forState:0 placeholderImage:[SHFileHelper imageNamed:@"chat_picture"]];
     }
 }
 

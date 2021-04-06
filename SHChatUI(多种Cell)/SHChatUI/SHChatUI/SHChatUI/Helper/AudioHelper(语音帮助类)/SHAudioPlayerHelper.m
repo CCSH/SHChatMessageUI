@@ -66,7 +66,7 @@
         { //如果有播放那就停止
             [self stopAudio];
         }
-        _playingIndex = 1;
+        _playingIndex = 0;
         _player = nil;
         self.audioArr = [NSArray arrayWithArray:fileArr];
         [self preparePlayAudio];
@@ -184,10 +184,10 @@
     }
     else
     {
-        if (_playingIndex > _audioArr.count)
+        if (_playingIndex >= _audioArr.count)
         {
             NSLog(@"队列中没有播放文件了");
-            _playingIndex = 0;
+            _playingIndex = -1;
         }
         [self stopAudio];
     }
@@ -196,7 +196,7 @@
 #pragma mark 开始播放语音
 - (void)startPlayAudioWithWavFile:(NSString *)wavFile
 {
-    SHMessage *message = self.audioArr[_playingIndex - 1];
+    SHMessage *message = self.audioArr[_playingIndex];
     self.playMark = message.messageId;
     
     //开启距离感应
@@ -289,9 +289,9 @@
 #pragma mark - 获取播放路径
 - (NSString *)getAudioFileName
 {
-    if (self.audioArr.count >= _playingIndex && _playingIndex != 0)
+    if (self.audioArr.count > _playingIndex && _playingIndex != -1)
     {
-        SHMessage *message = self.audioArr[_playingIndex - 1];
+        SHMessage *message = self.audioArr[_playingIndex];
         
         if (message.fileName.length)
         {
@@ -302,6 +302,7 @@
             return message.fileUrl;
         }
     }
+    _playingIndex = -1;
     return @"";
 }
 

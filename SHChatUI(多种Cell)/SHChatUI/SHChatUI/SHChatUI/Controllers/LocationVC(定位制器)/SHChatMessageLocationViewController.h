@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SHMessageType.h"
 #import "SHMessageHeader.h"
 
 /**

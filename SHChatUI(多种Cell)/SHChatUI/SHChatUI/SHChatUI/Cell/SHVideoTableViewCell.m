@@ -7,6 +7,7 @@
 //
 
 #import "SHVideoTableViewCell.h"
+#import "SHMessageHeader.h"
 
 @interface SHVideoTableViewCell ()
 
@@ -53,8 +54,8 @@
         
         [self.bubbleBtn setBackgroundImage:image forState:0];
     }else{//网络
-        [self.bubbleBtn setImage:[SHFileHelper imageNamed:@"chat_picture"] forState:0];
-//        [self.bubbleBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:message.fileUrl] forState:0];
+//        [self.bubbleBtn setImage:[SHFileHelper imageNamed:@"chat_picture"] forState:0];
+        [self.bubbleBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:message.fileUrl] forState:0];
     }
     
     //设置frame

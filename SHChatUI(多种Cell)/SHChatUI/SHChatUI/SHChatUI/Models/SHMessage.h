@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SHMessageHeader.h"
-#import "SHMessageType.h"
+#import <UIKit/UIKit.h>
+#import "SHMessageEnum.h"
 
 /**
  聊天界面模型
@@ -32,10 +32,11 @@
 @property (nonatomic, copy) NSString *sendTime;
 //服务器时间(用于消息撤回)
 @property (nonatomic, copy) NSString *severTime;
-//消息的是否已读
-@property (nonatomic, assign) BOOL isRead;
-//消息的内容是否已读
+
+//消息的内容是否已读(用于语音消息 或者 阅后即焚消息 点击消息才算已读)
 @property (nonatomic, assign) BOOL messageRead;
+//消息的是否已读(用于已读回执 看到消息则为已读)
+@property (nonatomic, assign) BOOL isRead;
 
 //消息类型
 @property (nonatomic, assign) SHMessageBodyType messageType;
@@ -87,5 +88,9 @@
 
 //拓展(json)
 @property (nonatomic, copy) NSString *ext;
+
+#pragma mark 界面属性(不用存到数据库里面)
+//动画播放中
+@property (nonatomic, assign) BOOL isPlaying;
 
 @end

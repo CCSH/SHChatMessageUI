@@ -1,4 +1,7 @@
 PODS:
+  - SDWebImage (5.9.5):
+    - SDWebImage/Core (= 5.9.5)
+  - SDWebImage/Core (5.9.5)
   - SHEmotionKeyboard (1.0.3):
     - "UIView+SHExtension (= 0.0.1)"
   - SHExtension (1.1.0):
@@ -22,6 +25,7 @@ PODS:
   - VoiceConvert (0.0.3)
 
 DEPENDENCIES:
+  - SDWebImage
   - SHEmotionKeyboard
   - SHExtension
   - SHShortVideo
@@ -33,6 +37,7 @@ SPEC REPOS:
     - SHShortVideo
     - "UIView+SHExtension"
   trunk:
+    - SDWebImage
     - SHExtension
 
 EXTERNAL SOURCES:
@@ -45,12 +50,13 @@ CHECKOUT OPTIONS:
     :git: https://github.com/DamianSheldon/VoiceConvert.git
 
 SPEC CHECKSUMS:
+  SDWebImage: 0b2ba0d56479bf6a45ecddbfd5558bea93150d25
   SHEmotionKeyboard: 63b77ca24d318b2998fe29f44f9c3bf5eff8af80
   SHExtension: 4954f7c07cf43efbc430004a2c253c0e20d1a81d
   SHShortVideo: a1f1732ad7d39c9b5707e30856d7345b2d84f7ab
   "UIView+SHExtension": 7d2c58e60da7de044b17407900a211a54eb855de
   VoiceConvert: 35530d58cfb1a5f5ba1e6243f21d0c7921f311e0
 
-PODFILE CHECKSUM: 7550f2a85fed9ee3fa843acde11bd0908eca388c
+PODFILE CHECKSUM: 13a123ca726c55339be1b9e700469745282ca53c
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

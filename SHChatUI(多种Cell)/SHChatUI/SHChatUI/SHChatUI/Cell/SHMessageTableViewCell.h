@@ -8,12 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SHMessageHeader.h"
-#import "SHActivityIndicatorView.h"
 #import "SHBubbleButton.h"
 
-@class SHMessageContentView;
-@class SHMessageFrame;
-@class SHMessageTableViewCell;
+@class SHMessageTableViewCell,SHMessageFrame,SHActivityIndicatorView;
 
 @protocol SHChatMessageCellDelegate <NSObject>
 
