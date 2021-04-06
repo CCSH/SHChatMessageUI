@@ -522,16 +522,17 @@ UITableViewDataSource
     message.note = note;
     
     //添加到聊天界面
-    [self addChatMessageWithMessage:message isBottom:YES];
+    [self addChatMessageWithMessage:message isBottom:NO];
 }
 
 #pragma mark 发送红包
-- (void)chatMessageWithSendRedPackage:(NSString *)redPackage{
+- (void)chatMessageWithSendRedPackage:(NSString *)redPackage packageId:(NSString *)packageId{
     
     SHMessage *message = [SHMessageHelper addPublicParameters];
     
     message.messageType = SHMessageBodyType_redPaper;
     message.redPackage = redPackage;
+    message.packageId = packageId;
     
     //添加到聊天界面
     [self addChatMessageWithMessage:message isBottom:YES];
@@ -655,6 +656,8 @@ UITableViewDataSource
         case SHMessageBodyType_image://图片
         {
             NSLog(@"点击了 --- 图片消息");
+            //图片浏览器
+            
         }
             break;
         case SHMessageBodyType_voice://语音
@@ -713,10 +716,13 @@ UITableViewDataSource
         {
             NSLog(@"点击了 --- 红包消息");
     
+            //查询红包信息 展示、领取
             if (!message.isReceive) {
                 message.isReceive = YES;
                 isRefresh = YES;
             }
+            
+            [self chatMessageWithSendNote:@"你领取了 红包"];
         }
             break;
         case SHMessageBodyType_gif://Gif
@@ -728,7 +734,7 @@ UITableViewDataSource
             break;
     }
     
-    //修改消息状态
+    //修改消息内容状态
     message.messageRead = YES;
     
     //刷新
@@ -893,7 +899,7 @@ UITableViewDataSource
         //是否显示时间
         messageFrame.showTime = [SHMessageHelper isShowTimeWithTime:message.sendTime setTime:time];
         //显示头像
-//        messageFrame.showAvatar = YES;
+        messageFrame.showAvatar = YES;
         //显示名字
 //        messageFrame.showName = YES;
         //设置数据

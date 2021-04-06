@@ -82,9 +82,12 @@
 //下方输入控件高度
 #define kChatMessageInput_H 205
 
-//录音最大时长与最小
-#define kSHMaxRecordTime 60
+//录音最大时长
+#define kSHMaxRecordTime 15
+//录音最小时长
 #define kSHMinRecordTime 1
+//录音提示时长
+#define kSHTipRecordTime 5
 
 #define kIsFull (kSHTopSafe > 20)
 

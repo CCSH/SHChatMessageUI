@@ -58,7 +58,6 @@
 @property (nonatomic, assign) CGFloat imageWidth;
 @property (nonatomic, assign) CGFloat imageHeight;
 @property (nonatomic, copy) NSString *thumbnailUrl;
-@property (nonatomic, copy) NSString *originUrl;
 //视频
 @property (nonatomic, assign) CGFloat videoWidth;
 @property (nonatomic, assign) CGFloat videoHeight;
@@ -74,6 +73,7 @@
 //名片
 @property (nonatomic, copy) NSString *card;
 //红包
+@property (nonatomic, copy) NSString *packageId;
 @property (nonatomic, copy) NSString *redPackage;
 @property (nonatomic, assign) BOOL isReceive;//是否可以领取
 //通话

@@ -17,34 +17,34 @@
 
 @optional
 
-// text
+// 文本
 - (void)chatMessageWithSendText:(NSString *)text;
 
-// image
+// 图片
 - (void)chatMessageWithSendImage:(NSString *)imageName size:(CGSize)size;
 
-// video
+// 视频
 - (void)chatMessageWithSendVideo:(NSString *)videoName fileSize:(NSString *)fileSize duration:(NSString *)duration size:(CGSize)size;
 
-// audio
+// 语音
 - (void)chatMessageWithSendAudio:(NSString *)audioName duration:(NSInteger)duration;
 
-// location
+// 位置
 - (void)chatMessageWithSendLocation:(NSString *)locationName lon:(CGFloat)lon lat:(CGFloat)lat;
 
-// card
+// 名片
 - (void)chatMessageWithSendCard:(NSString *)card;
 
-// note
+// 通知
 - (void)chatMessageWithSendNote:(NSString *)note;
 
-// red
-- (void)chatMessageWithSendRedPackage:(NSString *)redPackage;
+// 红包
+- (void)chatMessageWithSendRedPackage:(NSString *)redPackage packageId:(NSString *)packageId;
 
-// gif
+// 动图
 - (void)chatMessageWithSendGif:(NSString *)gifName size:(CGSize)size;
 
-// file
+// 文件
 - (void)chatMessageWithSendFile:(NSString *)fileName displayName:(NSString *)displayName fileSize:(NSString *)fileSize;
 
 //工具栏高度改变

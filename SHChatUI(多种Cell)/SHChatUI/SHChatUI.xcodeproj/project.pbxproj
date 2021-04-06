@@ -804,7 +804,7 @@
 					"$(PROJECT_DIR)/SHChatUI/SHChatUI(聊天界面)/Helper/VoiceHelper(语音帮助类)/VoiceConvert/VoiceConvert/VoiceConvert/lib",
 					"$(PROJECT_DIR)/SHChatUI/SHChatUI(微信)/Helper/VoiceHelper(语音帮助类)/VoiceConvert/VoiceConvert/VoiceConvert/lib",
 				);
-				MARKETING_VERSION = 2.1.1;
+				MARKETING_VERSION = 2.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chatui.ccsh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -833,7 +833,7 @@
 					"$(PROJECT_DIR)/SHChatUI/SHChatUI(聊天界面)/Helper/VoiceHelper(语音帮助类)/VoiceConvert/VoiceConvert/VoiceConvert/lib",
 					"$(PROJECT_DIR)/SHChatUI/SHChatUI(微信)/Helper/VoiceHelper(语音帮助类)/VoiceConvert/VoiceConvert/VoiceConvert/lib",
 				);
-				MARKETING_VERSION = 2.1.1;
+				MARKETING_VERSION = 2.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chatui.ccsh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

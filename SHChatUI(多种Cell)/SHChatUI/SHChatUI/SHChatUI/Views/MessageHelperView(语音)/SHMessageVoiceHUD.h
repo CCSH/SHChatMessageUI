@@ -17,11 +17,11 @@ typedef enum : NSUInteger {
     SHVoiceHudType_recording,//录音中
     SHVoiceHudType_cancel,//将要取消
     SHVoiceHudType_warning,//警告，时间太短
-    SHVoiceHudType_countdown//倒计时
 } SHVoiceHudType;
+
 @interface SHMessageVoiceHUD : UIView
 
-//(0:移除 1:文字 2:取消发送 3:警告 4:倒计时)
+//界面类型
 @property (nonatomic, assign) SHVoiceHudType hudType;
 
 //实例化

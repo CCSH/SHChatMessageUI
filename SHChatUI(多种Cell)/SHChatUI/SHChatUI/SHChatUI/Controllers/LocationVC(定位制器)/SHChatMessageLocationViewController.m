@@ -77,7 +77,6 @@
         case SHMessageLocationType_Location://定位
         {
             self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleDone target:self action:@selector(rightClick)];
-            self.navigationItem.rightBarButtonItem.tintColor = [UIColor lightGrayColor];
             self.navigationItem.rightBarButtonItem.enabled = NO;
             
             self.message = [[SHMessage alloc]init];
@@ -278,15 +277,10 @@
         //        NSArray *areasOfInterest = placemark.areasOfInterest; //关联的或利益相关的地标
         
         self.message.locationName = placemark.name;
-        
-        self.navigationItem.rightBarButtonItem = nil;
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleDone target:self action:@selector(rightClick)];
         //存在地址
         if (self.message.locationName.length) {
-            
             self.navigationItem.rightBarButtonItem.enabled = YES;
         }else{
-            self.navigationItem.rightBarButtonItem.tintColor = [UIColor lightGrayColor];
             self.navigationItem.rightBarButtonItem.enabled = NO;
         }
     }];

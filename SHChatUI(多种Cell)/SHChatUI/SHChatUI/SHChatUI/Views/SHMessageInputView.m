@@ -6,10 +6,10 @@
 //  Copyright © 2018年 CSH. All rights reserved.
 //
 
-#import "SHMessageInputView.h"
-#import <AVFoundation/AVFoundation.h>
 #import "SHChatMessageLocationViewController.h"
+#import "SHMessageInputView.h"
 #import "SHShortVideoViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface SHMessageInputView () <
 UITextViewDelegate,
@@ -17,7 +17,7 @@ UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
 SHShareMenuViewDelegate,     //菜单代理
 SHAudioRecordHelperDelegate, //录音代理
-UIDocumentPickerDelegate >
+UIDocumentPickerDelegate>
 
 //改变输入状态按钮（语音、文字）
 @property (nonatomic, strong) UIButton *changeBtn;
@@ -51,17 +51,14 @@ UIDocumentPickerDelegate >
 
 static CGFloat start_maxY;
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    if (self)
-    {
+    if (self) {
         UIView *view = [[UIView alloc] init];
         view.frame = CGRectMake(0, 0, kSHWidth, 1000);
         view.backgroundColor = kInPutViewColor;
         view.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self addSubview:view];
-        
         
         //分割线
         self.layer.cornerRadius = 1;
@@ -75,10 +72,8 @@ static CGFloat start_maxY;
 
 #pragma mark - 懒加载
 #pragma mark 改变输入状态按钮（语音、文字）
-- (UIButton *)changeBtn
-{
-    if (!_changeBtn)
-    {
+- (UIButton *)changeBtn {
+    if (!_changeBtn) {
         ////改变输入状态按钮（语音、文字）
         _changeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _changeBtn.size = kSHInPutIcon_size;
@@ -96,10 +91,8 @@ static CGFloat start_maxY;
 }
 
 #pragma mark 输入背景
-- (UIView *)inputBg
-{
-    if (!_inputBg)
-    {
+- (UIView *)inputBg {
+    if (!_inputBg) {
         _inputBg = [[UIView alloc] init];
         _inputBg.origin = CGPointMake(self.changeBtn.maxX + kSHInPutSpace, 5);
         _inputBg.backgroundColor = [UIColor whiteColor];
@@ -115,10 +108,8 @@ static CGFloat start_maxY;
 }
 
 #pragma mark 文本输入框
-- (SHTextView *)textView
-{
-    if (!_textView)
-    {
+- (SHTextView *)textView {
+    if (!_textView) {
         _textView = [[SHTextView alloc] init];
         _textView.delegate = self;
         _textView.textContainerInset = UIEdgeInsetsMake(6, 0, 0, 0);
@@ -130,19 +121,17 @@ static CGFloat start_maxY;
         _textView.enablesReturnKeyAutomatically = YES;
         //frame
         _textView.height = ceil(_textView.font.lineHeight) + 3;
-        _textView.y = (int)(self.inputBg.height - _textView.height)/2;
-        _textView.x =  _textView.y;
-        _textView.width = self.inputBg.width - 2*_textView.x;
+        _textView.y = (int)(self.inputBg.height - _textView.height) / 2;
+        _textView.x = _textView.y;
+        _textView.width = self.inputBg.width - 2 * _textView.x;
         [self.inputBg addSubview:_textView];
     }
     return _textView;
 }
 
 #pragma mark 语音输入按钮
-- (UIButton *)voiceBtn
-{
-    if (!_voiceBtn)
-    {
+- (UIButton *)voiceBtn {
+    if (!_voiceBtn) {
         _voiceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _voiceBtn.hidden = YES;
         
@@ -154,11 +143,11 @@ static CGFloat start_maxY;
         [_voiceBtn setTitle:@"按住说话" forState:UIControlStateNormal];
         [_voiceBtn setTitle:@"松开发送" forState:UIControlStateHighlighted];
         //点击方式
-        [_voiceBtn addTarget:self action:@selector(beginRecordVoice:) forControlEvents:UIControlEventTouchDown];
-        [_voiceBtn addTarget:self action:@selector(endRecordVoice:) forControlEvents:UIControlEventTouchUpInside];
-        [_voiceBtn addTarget:self action:@selector(cancelRecordVoice:) forControlEvents:UIControlEventTouchUpOutside | UIControlEventTouchCancel];
-        [_voiceBtn addTarget:self action:@selector(RemindDragExit:) forControlEvents:UIControlEventTouchDragExit];
-        [_voiceBtn addTarget:self action:@selector(RemindDragEnter:) forControlEvents:UIControlEventTouchDragEnter];
+        [_voiceBtn addTarget:self action:@selector(beginRecordVoice) forControlEvents:UIControlEventTouchDown];
+        [_voiceBtn addTarget:self action:@selector(endRecordVoice) forControlEvents:UIControlEventTouchUpInside];
+        [_voiceBtn addTarget:self action:@selector(cancelRecordVoice) forControlEvents:UIControlEventTouchUpOutside | UIControlEventTouchCancel];
+        [_voiceBtn addTarget:self action:@selector(remindDragExit) forControlEvents:UIControlEventTouchDragExit];
+        [_voiceBtn addTarget:self action:@selector(remindDragEnter) forControlEvents:UIControlEventTouchDragEnter];
         
         _voiceBtn.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
@@ -168,10 +157,8 @@ static CGFloat start_maxY;
 }
 
 #pragma mark 菜单按钮
-- (UIButton *)menuBtn
-{
-    if (!_menuBtn)
-    {
+- (UIButton *)menuBtn {
+    if (!_menuBtn) {
         _menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _menuBtn.size = kSHInPutIcon_size;
         [_menuBtn setBackgroundImage:[SHFileHelper imageNamed:@"chat_menu"] forState:UIControlStateNormal];
@@ -183,10 +170,8 @@ static CGFloat start_maxY;
 }
 
 #pragma mark 表情按钮
-- (UIButton *)emojiBtn
-{
-    if (!_emojiBtn)
-    {
+- (UIButton *)emojiBtn {
+    if (!_emojiBtn) {
         _emojiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _emojiBtn.size = kSHInPutIcon_size;
         [_emojiBtn setBackgroundImage:[SHFileHelper imageNamed:@"chat_face"] forState:UIControlStateNormal];
@@ -201,15 +186,13 @@ static CGFloat start_maxY;
 
 #pragma mark - 自定义输入视图加载
 #pragma mark 自定义表情菜单
-- (SHEmotionKeyboard *)emojiView
-{
-    if (!_emojiView)
-    {
+- (SHEmotionKeyboard *)emojiView {
+    if (!_emojiView) {
         _emojiView = [[SHEmotionKeyboard alloc] init];
         _emojiView.toolBarArr = @[ @(SHEmoticonType_custom),
-                                    @(SHEmoticonType_system),
-                                    @(SHEmoticonType_gif),
-                                    @(SHEmoticonType_recent) ];
+                                   @(SHEmoticonType_system),
+                                   @(SHEmoticonType_gif),
+                                   @(SHEmoticonType_recent) ];
         
         __weak typeof(self) weakSelf = self;
         //点击了发送
@@ -225,15 +208,12 @@ static CGFloat start_maxY;
         
         //表请点击
         _emojiView.clickEmotionBlock = ^(SHEmotionModel *model) {
-            switch (model.type)
-            {
+            switch (model.type) {
                 case SHEmoticonType_gif: //Gif(默认路径为静态的)
                 {
                     [weakSelf sendMessageWithGif:model.gif size:CGSizeMake(100, 100)];
-                }
-                    break;
-                default:
-                {
+                } break;
+                default: {
                     //添加到输入框
                     NSInteger selectIndex = weakSelf.textView.selectedRange.location;
                     
@@ -250,8 +230,7 @@ static CGFloat start_maxY;
                     weakSelf.textView.selectedRange = NSMakeRange(selectIndex + att.length, 0);
                     
                     [weakSelf textViewDidChange:weakSelf.textView];
-                }
-                    break;
+                } break;
             }
         };
         
@@ -262,22 +241,15 @@ static CGFloat start_maxY;
 }
 
 #pragma mark 自定义多媒体菜单
-- (SHShareMenuView *)menuView
-{
-    if (!_menuView)
-    {
+- (SHShareMenuView *)menuView {
+    if (!_menuView) {
         CGFloat shareMenuView_H;
         //计算多媒体菜单高度
-        if (self.shareMenuItems.count <= kSHShareMenuPerRowItemCount)
-        {
+        if (self.shareMenuItems.count <= kSHShareMenuPerRowItemCount) {
             shareMenuView_H = 2 * KSHShareMenuItemTop + KSHShareMenuItemHeight;
-        }
-        else if (self.shareMenuItems.count <= kSHShareMenuPerRowItemCount * kSHShareMenuPerColum)
-        {
+        } else if (self.shareMenuItems.count <= kSHShareMenuPerRowItemCount * kSHShareMenuPerColum) {
             shareMenuView_H = (KSHShareMenuItemTop + KSHShareMenuItemHeight) * kSHShareMenuPerColum + KSHShareMenuItemTop;
-        }
-        else
-        {
+        } else {
             shareMenuView_H = (KSHShareMenuItemTop + KSHShareMenuItemHeight) * kSHShareMenuPerColum + kSHShareMenuPageControlHeight;
         }
         
@@ -297,14 +269,12 @@ static CGFloat start_maxY;
 
 #pragma mark - 发送消息
 #pragma mark 发送文字
-- (void)sendMessageWithText:(NSString *)text
-{
+- (void)sendMessageWithText:(NSString *)text {
     if (!text.length) {
         //没有内容
         return;
     }
-    if ([_delegate respondsToSelector:@selector(chatMessageWithSendText:)])
-    {
+    if ([_delegate respondsToSelector:@selector(chatMessageWithSendText:)]) {
         [_delegate chatMessageWithSendText:text];
     }
     
@@ -313,33 +283,28 @@ static CGFloat start_maxY;
 }
 
 #pragma mark 发送音频
-- (void)sendMessageWithAudio:(NSString *)path duration:(NSInteger)duration
-{
+- (void)sendMessageWithAudio:(NSString *)path duration:(NSInteger)duration {
     //保存文件 生成 消息服务器用的amr
     [SHFileHelper saveFileWithContent:path type:SHMessageFileType_wav];
     NSString *name = [SHFileHelper getFileNameWithPath:path];
     
-    if ([_delegate respondsToSelector:@selector(chatMessageWithSendAudio:duration:)])
-    {
+    if ([_delegate respondsToSelector:@selector(chatMessageWithSendAudio:duration:)]) {
         [_delegate chatMessageWithSendAudio:name duration:duration];
     }
 }
 
 #pragma mark 发送图片
-- (void)sendMessageWithImage:(UIImage *)image
-{
+- (void)sendMessageWithImage:(UIImage *)image {
     //获取文件路径
     NSString *path = [SHFileHelper saveFileWithContent:image type:SHMessageFileType_image];
     NSString *name = [SHFileHelper getFileNameWithPath:path];
-    if ([_delegate respondsToSelector:@selector(chatMessageWithSendImage:size:)])
-    {
+    if ([_delegate respondsToSelector:@selector(chatMessageWithSendImage:size:)]) {
         [_delegate chatMessageWithSendImage:name size:image.size];
     }
 }
 
 #pragma mark 发送视频
-- (void)sendMessageWithVideo:(NSString *)path
-{
+- (void)sendMessageWithVideo:(NSString *)path {
     path = [SHFileHelper saveFileWithContent:path type:SHMessageFileType_video];
     NSString *name = [SHFileHelper getFileNameWithPath:path];
     
@@ -347,10 +312,8 @@ static CGFloat start_maxY;
     NSArray *array = asset.tracks;
     CGSize size = CGSizeZero;
     
-    for (AVAssetTrack *track in array)
-    {
-        if ([track.mediaType isEqualToString:AVMediaTypeVideo])
-        {
+    for (AVAssetTrack *track in array) {
+        if ([track.mediaType isEqualToString:AVMediaTypeVideo]) {
             //视频方向不对
             size = CGSizeMake(track.naturalSize.height, track.naturalSize.width);
             break;
@@ -365,68 +328,55 @@ static CGFloat start_maxY;
     //保存第一帧
     [SHFileHelper saveFileWithContent:path type:SHMessageFileType_video_image];
     
-    if ([_delegate respondsToSelector:@selector(chatMessageWithSendVideo:fileSize:duration:size:)])
-    {
+    if ([_delegate respondsToSelector:@selector(chatMessageWithSendVideo:fileSize:duration:size:)]) {
         [_delegate chatMessageWithSendVideo:name fileSize:fileSize duration:[self dealTime:duration] size:size];
     }
 }
 
 #pragma mark 发送位置
-- (void)sendMessageWithLocation:(NSString *)locationName lon:(CGFloat)lon lat:(CGFloat)lat
-{
-    if ([_delegate respondsToSelector:@selector(chatMessageWithSendLocation:lon:lat:)])
-    {
+- (void)sendMessageWithLocation:(NSString *)locationName lon:(CGFloat)lon lat:(CGFloat)lat {
+    if ([_delegate respondsToSelector:@selector(chatMessageWithSendLocation:lon:lat:)]) {
         [_delegate chatMessageWithSendLocation:locationName lon:lon lat:lat];
     }
 }
 
 #pragma mark 发送名片
-- (void)sendMessageWithCard:(NSString *)card
-{
-    if ([_delegate respondsToSelector:@selector(chatMessageWithSendCard:)])
-    {
+- (void)sendMessageWithCard:(NSString *)card {
+    if ([_delegate respondsToSelector:@selector(chatMessageWithSendCard:)]) {
         [_delegate chatMessageWithSendCard:card];
     }
 }
 
 #pragma mark 发送红包
-- (void)sendMessageWithRedPackage:(NSString *)message
-{
-    if ([_delegate respondsToSelector:@selector(chatMessageWithSendRedPackage:)])
-    {
-        [_delegate chatMessageWithSendRedPackage:message];
+- (void)sendMessageWithRedPackage:(NSString *)message {
+    if ([_delegate respondsToSelector:@selector(chatMessageWithSendRedPackage:packageId:)]) {
+        [_delegate chatMessageWithSendRedPackage:message packageId:@"1"];
     }
 }
 
 #pragma mark 发送Gif
-- (void)sendMessageWithGif:(NSString *)gifName size:(CGSize)size
-{
-    if ([_delegate respondsToSelector:@selector(chatMessageWithSendGif:size:)])
-    {
+- (void)sendMessageWithGif:(NSString *)gifName size:(CGSize)size {
+    if ([_delegate respondsToSelector:@selector(chatMessageWithSendGif:size:)]) {
         [_delegate chatMessageWithSendGif:gifName size:size];
     }
 }
 
 #pragma mark 发送文件
-- (void)sendMessageWithFile:(NSString *)path
-{
+- (void)sendMessageWithFile:(NSString *)path {
     NSString *displayName = path.lastPathComponent;
     path = [SHFileHelper saveFileWithContent:path type:SHMessageFileType_file];
     NSString *fileSize = [SHFileHelper getFileSize:path];
     //文件有很多，带着格式
     NSString *name = path.lastPathComponent;
-    if ([_delegate respondsToSelector:@selector(chatMessageWithSendFile:displayName:fileSize:)])
-    {
+    if ([_delegate respondsToSelector:@selector(chatMessageWithSendFile:displayName:fileSize:)]) {
         [_delegate chatMessageWithSendFile:name displayName:displayName fileSize:fileSize];
     }
 }
 
 #pragma mark - 菜单内容
 #pragma mark 打开照片
-- (void)openPhoto
-{
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
-    {
+- (void)openPhoto {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.view.backgroundColor = [UIColor whiteColor];
         picker.delegate = self;
@@ -437,21 +387,17 @@ static CGFloat start_maxY;
 }
 
 #pragma mark 打开相机
-- (void)openCarema
-{
+- (void)openCarema {
     SHShortVideoViewController *vc = [[SHShortVideoViewController alloc] init];
     vc.modalPresentationStyle = UIModalPresentationFullScreen;
     @kSHWeak(self);
     vc.finishBlock = ^(id content) {
         @kSHStrong(self);
-        if ([content isKindOfClass:[NSString class]])
-        {
+        if ([content isKindOfClass:[NSString class]]) {
             NSLog(@"视频路径：%@", content);
             //发送视频
             [self sendMessageWithVideo:content];
-        }
-        else if ([content isKindOfClass:[UIImage class]])
-        {
+        } else if ([content isKindOfClass:[UIImage class]]) {
             NSLog(@"图片内容：%@", content);
             //发送图片与照片
             [self sendMessageWithImage:content];
@@ -461,8 +407,7 @@ static CGFloat start_maxY;
 }
 
 #pragma mark 打开定位
-- (void)openLocation
-{
+- (void)openLocation {
     SHChatMessageLocationViewController *view = [[SHChatMessageLocationViewController alloc] init];
     view.locType = SHMessageLocationType_Location;
     @kSHWeak(self);
@@ -475,20 +420,17 @@ static CGFloat start_maxY;
 }
 
 #pragma mark 打开名片
-- (void)openCard
-{
+- (void)openCard {
     [self sendMessageWithCard:@"CCSH"];
 }
 
 #pragma mark 打开红包
-- (void)openRedPaper
-{
+- (void)openRedPaper {
     [self sendMessageWithRedPackage:@"恭喜发财，大吉大利"];
 }
 
 #pragma mark 打开文件
-- (void)openFile
-{
+- (void)openFile {
     NSArray *documentTypes = @[ @"public.content",
                                 @"public.text",
                                 @"public.source-code",
@@ -509,12 +451,10 @@ static CGFloat start_maxY;
 }
 
 #pragma mark - UIImagePickerControllerDelegate
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary< NSString *, id > *)info
-{
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *, id> *)info {
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
     
-    if ([mediaType isEqualToString:@"public.movie"])
-    { //如果是视频
+    if ([mediaType isEqualToString:@"public.movie"]) { //如果是视频
         
         //视频路径
         NSURL *url = [info objectForKey:UIImagePickerControllerMediaURL];
@@ -524,17 +464,12 @@ static CGFloat start_maxY;
         
         //发送视频
         [self.supVC dismissViewControllerAnimated:YES completion:nil];
-    }
-    else if ([mediaType isEqualToString:@"public.image"])
-    {
+    } else if ([mediaType isEqualToString:@"public.image"]) {
         UIImage *image = nil;
         //如果允许编辑则获得编辑后的照片，否则获取原始照片
-        if (picker.allowsEditing)
-        {
+        if (picker.allowsEditing) {
             image = [info objectForKey:UIImagePickerControllerEditedImage]; //获取编辑后的照片
-        }
-        else
-        {
+        } else {
             image = [info objectForKey:UIImagePickerControllerOriginalImage]; //获取原始照片
         }
         //发送图片与照片
@@ -546,10 +481,8 @@ static CGFloat start_maxY;
 
 #pragma mark - UITextViewDelegate
 #pragma mark 键盘上功能点击
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-{
-    if ([text isEqualToString:@"\n"])
-    { //点击了发送
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if ([text isEqualToString:@"\n"]) { //点击了发送
         //发送文字
         [self sendMessageWithText:[SHEmotionTool getRealStrWithAtt:textView.attributedText]];
         return NO;
@@ -558,16 +491,13 @@ static CGFloat start_maxY;
 }
 
 #pragma mark 开始编辑
-- (void)textViewDidBeginEditing:(UITextView *)textView
-{
-    if (self.inputType == SHInputViewType_menu)
-    {
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    if (self.inputType == SHInputViewType_menu) {
         [textView resignFirstResponder];
         [self menuClick:self.menuBtn];
         return;
     }
-    if (self.inputType != SHInputViewType_emotion)
-    {
+    if (self.inputType != SHInputViewType_emotion) {
         //输入文本
         self.inputType = SHInputViewType_text;
     }
@@ -576,8 +506,7 @@ static CGFloat start_maxY;
 }
 
 #pragma mark 文字改变
-- (void)textViewDidChange:(UITextView *)textView
-{
+- (void)textViewDidChange:(UITextView *)textView {
     CGFloat maxH = ceil(textView.font.lineHeight * kSHInPutNum);
     
     CGSize size = [SHTool getSizeWithAtt:textView.attributedText maxSize:CGSizeMake(self.textView.width, CGFLOAT_MAX)];
@@ -585,33 +514,25 @@ static CGFloat start_maxY;
     size.height = MIN(maxH, size.height) + 2 * self.textView.y + 2 * self.inputBg.y;
     CGFloat textH = ceil(MAX(size.height, kSHInPutHeight));
     
-    if (self.height != textH)
-    {
+    if (self.height != textH) {
         self.y += self.height - textH;
         self.height = textH;
-        
     }
 }
 
 #pragma mark - SHShareMenuViewDelegate
-- (void)didSelecteShareMenuItem:(SHShareMenuItem *)menuItem index:(NSInteger)index
-{
-    if ([_delegate respondsToSelector:@selector(didSelecteMenuItem:index:)])
-    {
+- (void)didSelecteShareMenuItem:(SHShareMenuItem *)menuItem index:(NSInteger)index {
+    if ([_delegate respondsToSelector:@selector(didSelecteMenuItem:index:)]) {
         [_delegate didSelecteMenuItem:menuItem index:index];
     }
 }
 
 #pragma mark - SHAudioRecordHelperDelegate
-- (void)audioFinishWithPath:(NSString *)path duration:(NSInteger)duration
-{
-    if (duration)
-    {
+- (void)audioFinishWithPath:(NSString *)path duration:(NSInteger)duration {
+    if (duration) {
         //发送音频
         [self sendMessageWithAudio:path duration:duration];
-    }
-    else
-    {
+    } else {
         //时间太短
         //提示框
         [SHMessageVoiceHUD shareInstance].hudType = SHVoiceHudType_warning;
@@ -622,11 +543,9 @@ static CGFloat start_maxY;
 }
 
 #pragma mark - UIDocumentPickerDelegate
-- (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url
-{
+- (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
     BOOL fileUrlAuthozied = [url startAccessingSecurityScopedResource];
-    if (fileUrlAuthozied)
-    {
+    if (fileUrlAuthozied) {
         NSFileCoordinator *fileCoordinator = [[NSFileCoordinator alloc] init];
         NSError *error;
         
@@ -637,9 +556,7 @@ static CGFloat start_maxY;
             [self sendMessageWithFile:newURL.path];
         }];
         [url stopAccessingSecurityScopedResource];
-    }
-    else
-    {
+    } else {
         //Error handling
         NSLog(@"选择文件错误！！");
     }
@@ -647,49 +564,66 @@ static CGFloat start_maxY;
 
 #pragma mark - 录音事件
 #pragma mark 开始录音
-- (void)beginRecordVoice:(UIButton *)button
-{
+- (void)beginRecordVoice {
     //录音的时候停止播放
     [[SHAudioPlayerHelper shareInstance] stopAudio];
     
-    //检查权限
-    [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
-        if (granted)
-        { //获取权限
-            [SHMessageVoiceHUD shareInstance].hudType = SHVoiceHudType_remove;
-            
-            [SHMessageVoiceHUD shareInstance].hudType = SHVoiceHudType_recording;
-            
-            //开始录音
-            [self.audioHelper startRecord];
-            
-            if (self.playTimer)
+    //麦克风权限
+    AVAuthorizationStatus microPhoneStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
+        switch (microPhoneStatus) {
+            case AVAuthorizationStatusDenied:
+            case AVAuthorizationStatusRestricted:
             {
-                [self.playTimer invalidate];
-                self.playTimer = nil;
-            }
-            
-            self.playTime = 0;
-            self.playTimer = [NSTimer scheduledTimerWithTimeInterval:0.25 target:self selector:@selector(countVoiceTest) userInfo:nil repeats:YES];
-        }
-        else
-        {
-            dispatch_async(dispatch_get_main_queue(), ^{
                 UIAlertView *ale = [[UIAlertView alloc] initWithTitle:@"提示" message:@"开启权限" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
                 [ale show];
-            });
+            }
+                break;
+            case AVAuthorizationStatusNotDetermined:
+            {
+                //请求权限
+                [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
+                    
+                }];
+            }
+                break;
+            case AVAuthorizationStatusAuthorized:
+            {
+                [self prepareRecordVoice];
+            }
+                break;
+
+            default:
+                break;
         }
-    }];
+    
+}
+
+#pragma mark 准备录音
+- (void)prepareRecordVoice{
+    
+    [SHMessageVoiceHUD shareInstance].hudType = SHVoiceHudType_remove;
+    [SHMessageVoiceHUD shareInstance].hudType = SHVoiceHudType_recording;
+    
+    //开始录音
+    [self.audioHelper startRecord];
+    
+    
+    if (self.playTimer) {
+        [self.playTimer invalidate];
+        self.playTimer = nil;
+    }
+    
+    self.playTime = 0;
+    //过一段时间检测声波
+    self.playTimer = [NSTimer scheduledTimerWithTimeInterval:0.25 target:self selector:@selector(countVoiceTest) userInfo:nil repeats:YES];
 }
 
 #pragma mark 停止录音
-- (void)endRecordVoice:(UIButton *)button
-{
+- (void)endRecordVoice{
     //隐藏提示框
     [SHMessageVoiceHUD shareInstance].hudType = SHVoiceHudType_remove;
     
-    if (self.playTimer)
-    {
+    if (self.playTimer) {
         [self.audioHelper stopRecord];
         
         [self.playTimer invalidate];
@@ -698,13 +632,11 @@ static CGFloat start_maxY;
 }
 
 #pragma mark 取消录音
-- (void)cancelRecordVoice:(UIButton *)button
-{
+- (void)cancelRecordVoice {
     //隐藏提示框
     [SHMessageVoiceHUD shareInstance].hudType = SHVoiceHudType_remove;
     
-    if (self.playTimer)
-    {
+    if (self.playTimer) {
         [self.audioHelper cancelRecord];
         
         [self.playTimer invalidate];
@@ -713,20 +645,17 @@ static CGFloat start_maxY;
 }
 
 #pragma mark 离开提示
-- (void)RemindDragExit:(UIButton *)button
-{
+- (void)remindDragExit {
     [SHMessageVoiceHUD shareInstance].hudType = SHVoiceHudType_cancel;
 }
 
 #pragma mark 按住提示
-- (void)RemindDragEnter:(UIButton *)button
-{
+- (void)remindDragEnter {
     [SHMessageVoiceHUD shareInstance].hudType = SHVoiceHudType_recording;
 }
 
 #pragma mark 声音检测
-- (void)countVoiceTest
-{
+- (void)countVoiceTest {
     self.playTime += 0.25;
     
     int meters = [self.audioHelper peekRecorderVoiceMetersWithMax:7];
@@ -734,44 +663,37 @@ static CGFloat start_maxY;
     [[SHMessageVoiceHUD shareInstance] showVoiceMeters:meters];
     
     CGFloat time = self.playTime;
-    if (time == kSHMaxRecordTime - 10)
-    {
-        NSLog(@"1");
-        //最后10秒
-        [SHMessageVoiceHUD shareInstance].hudType = SHVoiceHudType_countdown;
+    //最后10秒
+    if (time >= kSHTipRecordTime) {
+        if (time == (int)time) {
+            [[SHMessageVoiceHUD shareInstance] showCountDownWithTime:kSHMaxRecordTime - time];
+        }
     }
     
-    if (self.playTime >= kSHMaxRecordTime)
-    { //超过最大时间停止
+    if (self.playTime >= kSHMaxRecordTime) { //超过最大时间停止
         //停止录音
-        [self endRecordVoice:self.voiceBtn];
+        [self endRecordVoice];
     }
 }
 
 #pragma mark - 监听实现
 #pragma mark 监听输入框的位置
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if ([keyPath isEqualToString:@"frame"])
-    {
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"frame"]) {
         //回调
-        if ([self.delegate respondsToSelector:@selector(toolbarHeightChange)])
-        {
+        if ([self.delegate respondsToSelector:@selector(toolbarHeightChange)]) {
             [self.delegate toolbarHeightChange];
         }
     }
 }
 
 #pragma mark 监听输入框类型
-- (void)setInputType:(SHInputViewType)inputType
-{
-    if (_inputType == inputType)
-    {
+- (void)setInputType:(SHInputViewType)inputType {
+    if (_inputType == inputType) {
         return;
     }
     
-    if (_inputType == SHInputViewType_voice && inputType == SHInputViewType_default)
-    {
+    if (_inputType == SHInputViewType_voice && inputType == SHInputViewType_default) {
         _inputType = inputType;
         return;
     }
@@ -789,20 +711,17 @@ static CGFloat start_maxY;
     _inputType = inputType;
     
     self.textView.inputView = nil;
-    if (inputType != SHInputViewType_text && inputType != SHInputViewType_emotion)
-    {
+    if (inputType != SHInputViewType_text && inputType != SHInputViewType_emotion) {
         [self.textView resignFirstResponder];
     }
     
-    switch (inputType)
-    {
+    switch (inputType) {
         case SHInputViewType_default: //默认
         {
             self.textView.hidden = NO;
             
             [self updateViewY:start_maxY - self.height];
-        }
-            break;
+        } break;
         case SHInputViewType_text: //文本
         {
             self.textView.hidden = NO;
@@ -811,8 +730,7 @@ static CGFloat start_maxY;
             
             //弹出键盘
             [self.textView becomeFirstResponder];
-        }
-            break;
+        } break;
         case SHInputViewType_voice: //语音
         {
             self.changeBtn.selected = YES;
@@ -820,8 +738,7 @@ static CGFloat start_maxY;
             self.voiceBtn.hidden = NO;
             self.height = kSHInPutHeight;
             [self updateViewY:start_maxY - self.height];
-        }
-            break;
+        } break;
         case SHInputViewType_emotion: //表情
         {
             self.emojiBtn.selected = YES;
@@ -834,8 +751,7 @@ static CGFloat start_maxY;
             
             //弹出键盘
             [self.textView becomeFirstResponder];
-        }
-            break;
+        } break;
         case SHInputViewType_menu: //菜单
         {
             self.menuBtn.selected = YES;
@@ -848,8 +764,7 @@ static CGFloat start_maxY;
             self.menuView.y = self.superview.height;
             //多媒体菜单
             [self updateViewY:start_maxY - self.height - self.menuView.height];
-        }
-            break;
+        } break;
         default:
             break;
     }
@@ -857,8 +772,7 @@ static CGFloat start_maxY;
 
 #pragma mark - 键盘通知
 #pragma mark 添加键盘通知
-- (void)addKeyboardNote
-{
+- (void)addKeyboardNote {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     
     // 1.显示键盘
@@ -872,10 +786,8 @@ static CGFloat start_maxY;
 }
 
 #pragma mark 键盘通知执行
-- (void)keyboardChange:(NSNotification *)notification
-{
-    if (self.inputType == SHInputViewType_menu)
-    {
+- (void)keyboardChange:(NSNotification *)notification {
+    if (self.inputType == SHInputViewType_menu) {
         return;
     }
     NSDictionary *userInfo = [notification userInfo];
@@ -884,8 +796,7 @@ static CGFloat start_maxY;
     [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
     
     CGFloat viewY = keyboardEndFrame.origin.y - self.height;
-    if ([notification.name isEqualToString:UIKeyboardWillHideNotification])
-    {
+    if ([notification.name isEqualToString:UIKeyboardWillHideNotification]) {
         viewY -= kSHBottomSafe;
     }
     
@@ -894,10 +805,8 @@ static CGFloat start_maxY;
 
 #pragma mark - 私有方法
 #pragma mark 更新Y
-- (void)updateViewY:(CGFloat)viewY
-{
-    if (self.y != viewY)
-    {
+- (void)updateViewY:(CGFloat)viewY {
+    if (self.y != viewY) {
         [UIView animateWithDuration:0.25
                          animations:^{
             self.y = viewY;
@@ -907,17 +816,14 @@ static CGFloat start_maxY;
 }
 
 #pragma mark 清除
-- (void)clear
-{
+- (void)clear {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self removeObserver:self forKeyPath:@"frame"];
 }
 
 #pragma mark 处理时间
-- (NSString *)dealTime:(NSInteger)time
-{
-    if (isnan(time))
-    {
+- (NSString *)dealTime:(NSInteger)time {
+    if (isnan(time)) {
         return @"00:00";
     }
     
@@ -925,18 +831,14 @@ static CGFloat start_maxY;
     formatter.unitsStyle = NSDateComponentsFormatterUnitsStylePositional;
     formatter.zeroFormattingBehavior = NSDateComponentsFormatterZeroFormattingBehaviorPad;
     
-    if (time / 3600 >= 1)
-    {
+    if (time / 3600 >= 1) {
         formatter.allowedUnits = kCFCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
-    }
-    else
-    {
+    } else {
         formatter.allowedUnits = NSCalendarUnitMinute | NSCalendarUnitSecond;
     }
     NSString *dealTime = [formatter stringFromTimeInterval:time];
     
-    if (dealTime.length == 7 || dealTime.length == 4)
-    {
+    if (dealTime.length == 7 || dealTime.length == 4) {
         dealTime = [NSString stringWithFormat:@"0%@", dealTime];
     }
     
@@ -945,52 +847,40 @@ static CGFloat start_maxY;
 
 #pragma mark - 按钮点击
 #pragma mark 状态点击
-- (void)changeClick:(UIButton *)btn
-{
+- (void)changeClick:(UIButton *)btn {
     NSLog(@"改变输入与录音状态");
     
-    if (self.changeBtn.selected)
-    {
+    if (self.changeBtn.selected) {
         [self textViewDidChange:self.textView];
         //文本输入
         self.inputType = SHInputViewType_text;
-    }
-    else
-    {
+    } else {
         //语音输入
         self.inputType = SHInputViewType_voice;
     }
 }
 
 #pragma mark 菜单点击
-- (void)menuClick:(UIButton *)btn
-{
+- (void)menuClick:(UIButton *)btn {
     NSLog(@"点击菜单");
     
-    if (self.menuBtn.selected)
-    {
+    if (self.menuBtn.selected) {
         //文本输入
         self.inputType = SHInputViewType_text;
-    }
-    else
-    {
+    } else {
         //菜单输入
         self.inputType = SHInputViewType_menu;
     }
 }
 
 #pragma mark 表情点击
-- (void)emojiClick:(UIButton *)btn
-{
+- (void)emojiClick:(UIButton *)btn {
     NSLog(@"点击表情");
     
-    if (self.emojiBtn.selected)
-    {
+    if (self.emojiBtn.selected) {
         //文本输入
         self.inputType = SHInputViewType_text;
-    }
-    else
-    {
+    } else {
         //表情输入
         self.inputType = SHInputViewType_emotion;
     }
@@ -998,8 +888,7 @@ static CGFloat start_maxY;
 
 #pragma mark - 公共方法
 #pragma mark 刷新界面
-- (void)reloadView
-{
+- (void)reloadView {
     start_maxY = self.maxY;
     
     self.viewY = (self.height - kSHInPutIcon_size.height) / 2;
