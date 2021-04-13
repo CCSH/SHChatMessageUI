@@ -10,31 +10,42 @@
 #define SHMessageHeader_h
 
 
-#endif /* SHMessageHeader_h */
+#define kSHWeak(VAR) \
+    try {            \
+    } @finally {     \
+    }                \
+    __weak __typeof__(VAR) VAR##_myWeak_ = (VAR)
 
+#define kSHStrong(VAR)                            \
+    try {                                         \
+    } @finally {                                  \
+    }                                             \
+    __strong __typeof__(VAR) VAR = VAR##_myWeak_; \
+    if (VAR == nil)                               \
+    return
 
 //Caches目录
 #define CachesPatch NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0]
 
 #pragma mark - 聊天资源路径
 //语音WAV路径
-#define kSHPath_audio_wav [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/Audio/WAV",CachesPatch]]
+#define kSHPath_audio_wav [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/Audio/WAV", CachesPatch]]
 //语音AMR路径
-#define kSHPath_audio_amr [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/Audio/AMR",CachesPatch]]
+#define kSHPath_audio_amr [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/Audio/AMR", CachesPatch]]
 //图片路径
-#define kSHPath_image [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/Image",CachesPatch]]
+#define kSHPath_image [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/Image", CachesPatch]]
 //Gif路径
-#define kSHPath_gif [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/Gif",CachesPatch]]
+#define kSHPath_gif [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/Gif", CachesPatch]]
 //视频路径
-#define kSHPath_video [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/Video",CachesPatch]]
+#define kSHPath_video [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/Video", CachesPatch]]
 //视频第一帧图片路径
-#define kSHPath_video_image [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/VideoImage",CachesPatch]]
+#define kSHPath_video_image [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/VideoImage", CachesPatch]]
 //文件路径
-#define kSHPath_file [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/File",CachesPatch]]
+#define kSHPath_file [SHFileHelper getCreateFilePath:[NSString stringWithFormat:@"%@/APPData/Chat/File", CachesPatch]]
 
 #pragma mark - 颜色定义
 //三原色
-#define kRGB(R,G,B,A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
+#define kRGB(R, G, B, A) [UIColor colorWithRed:R / 255.0 green:G / 255.0 blue:B / 255.0 alpha:A]
 //输入框及菜单背景颜色
 #define kInPutViewColor kRGB(243, 243, 247, 1)
 //按钮背景颜色
@@ -47,7 +58,7 @@
 //输入框控件间隔
 #define kSHInPutSpace 7
 //输入框控件宽高
-#define kSHInPutIcon_size CGSizeMake(35,35)
+#define kSHInPutIcon_size CGSizeMake(35, 35)
 //输入框最多几行
 #define kSHInPutNum 5
 
@@ -71,23 +82,77 @@
 //下方输入控件高度
 #define kChatMessageInput_H 205
 
-//录音最大时长与最小
+//录音最大时长
 #define kSHMaxRecordTime 15
+//录音最小时长
 #define kSHMinRecordTime 1
+//录音提示时长
+#define kSHTipRecordTime 5
 
 #define kIsFull (kSHTopSafe > 20)
 
-#define kSHBottomSafe (kIsFull?39:0)
+#define kSHBottomSafe (kIsFull ? 39 : 0)
 #define kSHTopSafe ([[UIApplication sharedApplication] statusBarFrame].size.height)
 
-#define kSHWeak(VAR) \
-try {} @finally {} \
-__weak __typeof__(VAR) VAR##_myWeak_ = (VAR)
+//内容最大宽度（截取到气泡）
+#define kChat_content_maxW (kSHWidth - 4*kChat_margin - 2*kChat_icon - kChat_angle_w - 40)
 
-#define kSHStrong(VAR) \
-try {} @finally {} \
-__strong __typeof__(VAR) VAR = VAR##_myWeak_;\
-if(VAR == nil) return
+//消息中控件与内容间隔
+static NSInteger const kChat_margin = 10;
+
+//time
+//时间间隙
+static NSInteger const kChat_margin_time = 7;
+
+//icon
+//头像宽高
+static NSInteger const kChat_icon = 45;
+
+//name
+//名字高度
+static NSInteger const kChat_name_h = 15;
+
+//聊天气泡角的宽度
+static NSInteger const kChat_angle_w = 6;
+
+//单行气泡高度
+static NSInteger const kChat_min_h = kChat_icon;
+
+//内容设置
+//图片
+//图片最大宽高
+#define kChat_pic_size CGSizeMake(160, 160)
+//语音
+//语音最大size
+#define kChat_voice_size CGSizeMake(160, kChat_min_h)
+//位置
+//位置size
+#define kChat_location_size CGSizeMake(200, 120)
+//名片
+//名片的size
+#define kChat_card_size CGSizeMake(200, 80.5)
+//视频
+//视频最大zise
+#define kChat_video_size CGSizeMake(160, 160)
+//动图
+//Gif最大size
+#define kChat_gif_size CGSizeMake(100, 100)
+//红包
+//红包size
+#define kChat_red_size CGSizeMake(200, 80)
+//文件
+//文字size
+#define kChat_file_size CGSizeMake(200, 76)
+
+//字体
+//时间字体
+#define kChatFont_time [UIFont systemFontOfSize:11]
+//ID字体
+#define kChatFont_name [UIFont systemFontOfSize:11]
+//内容字体
+#define kChatFont_content [UIFont systemFontOfSize:16]
+//提示内容字体
+#define kChatFont_note [UIFont systemFontOfSize:12]
 
 #pragma mark - 文件
 //聊天界面
@@ -96,8 +161,7 @@ if(VAR == nil) return
 #import "SHMessageHelper.h"
 //语音提示框
 #import "SHMessageVoiceHUD.h"
-//多媒体
-#import <AVFoundation/AVFoundation.h>
+
 //文件
 #import "SHFileHelper.h"
 //音频操作
@@ -109,9 +173,9 @@ if(VAR == nil) return
 //消息模型
 #import "SHMessage.h"
 //类型
-#import "SHMessageType.h"
+#import "SHMessageEnum.h"
+//cell frame计算
 #import "SHMessageFrame.h"
-#import <UIKit/UIKit.h>
 
 //表情键盘
 #import "SHEmotionKeyboard.h"
@@ -122,11 +186,22 @@ if(VAR == nil) return
 #import "SHMessageTableViewCell.h"
 //长按菜单
 #import "SHMenuController.h"
-
+//消息状态
 #import "SHActivityIndicatorView.h"
+//聊天气泡
+#import "SHBubbleButton.h"
+//文本框
 #import "SHTextView.h"
-#import <WebKit/WebKit.h>
 
-#import <UIView+SHExtension.h>
-#import <UIImage+SHExtension.h>
+//多媒体
+#import <AVFoundation/AVFoundation.h>
 #import <SHTool.h>
+#import <UIImage+SHExtension.h>
+#import <UIKit/UIKit.h>
+#import <UIView+SHExtension.h>
+#import <WebKit/WebKit.h>
+#import <UIButton+WebCache.h>
+
+#endif /* SHMessageHeader_h */
+
+

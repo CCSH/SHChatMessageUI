@@ -171,6 +171,7 @@ UITableViewDataSource
                 break;
         }
         
+        //假设取出来的消息都是成功的 实际情况不是
         message.messageState = SHSendMessageType_Successed;
         
         //处理数据
@@ -244,6 +245,7 @@ UITableViewDataSource
     message.messageType = SHMessageBodyType_voice;
     message.fileName = [NSString stringWithFormat:@"%u",arc4random()%1000000];
     message.audioDuration = @"2";
+    message.isPlaying = NO;
     
     return message;
 }
@@ -520,16 +522,17 @@ UITableViewDataSource
     message.note = note;
     
     //添加到聊天界面
-    [self addChatMessageWithMessage:message isBottom:YES];
+    [self addChatMessageWithMessage:message isBottom:NO];
 }
 
 #pragma mark 发送红包
-- (void)chatMessageWithSendRedPackage:(NSString *)redPackage{
+- (void)chatMessageWithSendRedPackage:(NSString *)redPackage packageId:(NSString *)packageId{
     
     SHMessage *message = [SHMessageHelper addPublicParameters];
     
     message.messageType = SHMessageBodyType_redPaper;
     message.redPackage = redPackage;
+    message.packageId = packageId;
     
     //添加到聊天界面
     [self addChatMessageWithMessage:message isBottom:YES];
@@ -653,6 +656,8 @@ UITableViewDataSource
         case SHMessageBodyType_image://图片
         {
             NSLog(@"点击了 --- 图片消息");
+            //图片浏览器
+            
         }
             break;
         case SHMessageBodyType_voice://语音
@@ -660,20 +665,16 @@ UITableViewDataSource
             NSLog(@"点击了 --- 语音消息");
             SHAudioPlayerHelper *audio = [SHAudioPlayerHelper shareInstance];
             audio.delegate = self;
-            SHAudioTableViewCell *cell = (SHAudioTableViewCell *)self.selectCell;
             
             //如果此条正在播放则停止
-            if (cell.isPlaying) {
-                //正在播放
-                cell.isPlaying = NO;
-                [audio stopAudio];//停止
+            if (message.isPlaying) {
+                message.isPlaying = NO;
+                //正在播放、停止
+                [audio stopAudio];
             }else{
-                //未播放
-                cell.isPlaying = YES;
+                message.isPlaying = YES;
+                //未播放、播放
                 [audio managerAudioWithFileArr:@[message] isClear:YES];
-            }
-            if (message.messageRead) {
-                isRefresh = YES;
             }
         }
             break;
@@ -715,10 +716,13 @@ UITableViewDataSource
         {
             NSLog(@"点击了 --- 红包消息");
     
+            //查询红包信息 展示、领取
             if (!message.isReceive) {
                 message.isReceive = YES;
                 isRefresh = YES;
             }
+            
+            [self chatMessageWithSendNote:@"你领取了 红包"];
         }
             break;
         case SHMessageBodyType_gif://Gif
@@ -730,7 +734,7 @@ UITableViewDataSource
             break;
     }
     
-    //修改消息状态
+    //修改消息内容状态
     message.messageRead = YES;
     
     //刷新
@@ -787,12 +791,17 @@ UITableViewDataSource
     
     for (SHAudioTableViewCell *cell in self.chatTableView.visibleCells) {
         if ([cell isKindOfClass:[SHAudioTableViewCell class]]) {
+            //获取数据源
+            NSIndexPath *indexPath = [self.chatTableView indexPathForCell:cell];
+            SHMessageFrame *frame = self.dataSource[indexPath.row];
+            
             if ([cell.messageFrame.message.messageId isEqualToString:playMark]) {
+                frame.message.isPlaying = YES;
                 [cell playVoiceAnimation];
             }else{
+                frame.message.isPlaying = NO;
                 [cell stopVoiceAnimation];
             }
-            break;
         }
     }
 }
@@ -804,10 +813,14 @@ UITableViewDataSource
     }
     for (SHAudioTableViewCell *cell in self.chatTableView.visibleCells) {
         if ([cell isKindOfClass:[SHAudioTableViewCell class]]) {
+            //获取数据源
+            NSIndexPath *indexPath = [self.chatTableView indexPathForCell:cell];
+            SHMessageFrame *frame = self.dataSource[indexPath.row];
+            
             if ([cell.messageFrame.message.messageId isEqualToString:playMark]) {
+                frame.message.isPlaying = NO;
                 [cell stopVoiceAnimation];
             }
-            break;
         }
     }
 }

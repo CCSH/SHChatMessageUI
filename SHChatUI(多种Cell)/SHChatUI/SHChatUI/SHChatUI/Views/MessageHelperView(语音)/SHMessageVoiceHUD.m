@@ -12,17 +12,17 @@
 @interface SHMessageVoiceHUD ()
 
 //录音界面图片
-@property (nonatomic, strong) UIImageView *messageVoiceImage;
+@property (nonatomic, strong) UIImageView *voiceImg;
 
 //录音界面文字
-@property (nonatomic, strong) UILabel *messageVoiceLabel;
+@property (nonatomic, strong) UILabel *messageLab;
 //录音界面背景
-@property (nonatomic, strong) UIView *messageBgView;
+@property (nonatomic, strong) UIView *bgView;
 //整体背景
-@property (nonatomic, strong) UIWindow *overlayWindow;
+@property (nonatomic, strong) UIWindow *window;
 
-//定时器
-@property (nonatomic, strong) NSTimer *timer;
+//是否正在倒计时
+@property (nonatomic, assign) BOOL isCountDown;
 
 @end
 
@@ -36,63 +36,61 @@
     dispatch_once(&onceToken, ^{
         instance = [[SHMessageVoiceHUD alloc] init];
         //跟视图
-        instance.overlayWindow = [UIApplication sharedApplication].keyWindow;
+        instance.window = [UIApplication sharedApplication].keyWindow;
     });
     return instance;
 }
 
 #pragma mark - 懒加载
-- (UIView *)messageBgView
+- (UIView *)bgView
 {
-    if (!_messageBgView)
+    if (!_bgView)
     {
         //背景
-        _messageBgView = [[UIView alloc] initWithFrame:CGRectMake((kSHWidth - 150) / 2, (kSHHeight - 170) / 2, 150, 160)];
+        _bgView = [[UIView alloc] initWithFrame:CGRectMake((kSHWidth - 150) / 2, (kSHHeight - 170) / 2, 150, 160)];
         
-        _messageBgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
-        _messageBgView.layer.cornerRadius = 5;
-        _messageBgView.layer.masksToBounds = YES;
+        _bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+        _bgView.layer.cornerRadius = 5;
+        _bgView.layer.masksToBounds = YES;
         
-        [self addSubview:_messageBgView];
+        [self addSubview:_bgView];
     }
     
-    return _messageBgView;
+    return _bgView;
 }
 
-- (UIImageView *)messageVoiceImage
+- (UIImageView *)voiceImg
 {
-    if (!_messageVoiceImage)
+    if (!_voiceImg)
     {
         //图片
-        self.messageVoiceImage = [[UIImageView alloc] initWithFrame:CGRectMake(35, 15, 80, 90)];
-        self.messageVoiceImage.image = [SHFileHelper imageNamed:@"voice_play_animation_0"];
-        
-        [self.messageBgView addSubview:self.messageVoiceImage];
+        _voiceImg= [[UIImageView alloc] initWithFrame:CGRectMake(35, 15, 80, 90)];
+        [self.bgView addSubview:_voiceImg];
     }
     
-    return _messageVoiceImage;
+    return _voiceImg;
 }
 
-- (UILabel *)messageVoiceLabel
+- (UILabel *)messageLab
 {
-    if (!_messageVoiceLabel)
+    if (!_messageLab)
     {
         //文字
-        _messageVoiceLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, self.messageBgView.frame.size.height - 35, self.messageBgView.frame.size.width - 10, 30)];
-        _messageVoiceLabel.textAlignment = NSTextAlignmentCenter;
-        _messageVoiceLabel.numberOfLines = 0;
-        _messageVoiceLabel.font = [UIFont systemFontOfSize:13];
-        _messageVoiceLabel.textColor = [UIColor whiteColor];
+        _messageLab = [[UILabel alloc] initWithFrame:CGRectMake(5, self.bgView.frame.size.height - 35, self.bgView.frame.size.width - 10, 30)];
+        _messageLab.textAlignment = NSTextAlignmentCenter;
+        _messageLab.numberOfLines = 0;
+        _messageLab.font = [UIFont systemFontOfSize:13];
+        _messageLab.textColor = [UIColor whiteColor];
         
-        _messageVoiceLabel.layer.cornerRadius = 5;
-        _messageVoiceLabel.layer.borderWidth = 1;
-        _messageVoiceLabel.layer.borderColor = [UIColor clearColor].CGColor;
-        _messageVoiceLabel.layer.masksToBounds = YES;
+        _messageLab.layer.cornerRadius = 5;
+        _messageLab.layer.borderWidth = 1;
+        _messageLab.layer.borderColor = [UIColor clearColor].CGColor;
+        _messageLab.layer.masksToBounds = YES;
         
-        [self.messageBgView addSubview:_messageVoiceLabel];
+        [self.bgView addSubview:_messageLab];
     }
     
-    return _messageVoiceLabel;
+    return _messageLab;
 }
 
 #pragma mark - 设置状态
@@ -104,60 +102,39 @@
     }
     _hudType = hudType;
     
-//    self.messageVoiceLabel.backgroundColor = [UIColor clearColor];
-    
-    if (![self.overlayWindow.subviews containsObject:self])
+    if (![self.window.subviews containsObject:self])
     {
-        [self.overlayWindow addSubview:self];
+        self.isCountDown = NO;
+        [self showVoiceMeters:1];
+        [self.window addSubview:self];
     }
 
     switch (hudType)
     {
         case SHVoiceHudType_remove:
         {
-            if (self.timer) {
-                [self.timer invalidate];
-            }
-            self.timer = nil;
             [self removeFromSuperview];
         }
             break;
         case SHVoiceHudType_recording:
         {
-            if (self.timer) {
-                return;
+            if (!self.isCountDown) {
+                self.messageLab.text = @"手指上滑，取消发送";
             }
-            self.messageVoiceLabel.text = @"手指上滑，取消发送";
         }
             break;
         case SHVoiceHudType_cancel:
         {
-//            self.messageVoiceLabel.backgroundColor = kRGB(155, 57, 57, 1);
-            
-            self.messageVoiceLabel.text = @"松开手指，取消发送";
-            self.messageVoiceImage.image = [SHFileHelper imageNamed:@"voice_change"];
+            if (!self.isCountDown) {
+                self.messageLab.text = @"松开手指，取消发送";
+            }
+            self.voiceImg.image = [SHFileHelper imageNamed:@"voice_change"];
         }
             break;
         case SHVoiceHudType_warning:
         {
-            self.messageVoiceLabel.text = @"时间太短";
-            self.messageVoiceImage.image = [SHFileHelper imageNamed:@"voice_failure"];
-        }
-            break;
-        case SHVoiceHudType_countdown:
-        {
-            if (self.timer) {
-                return;
-            }
-            __block NSInteger index = 10;
-            self.messageVoiceLabel.text = [NSString stringWithFormat:@"%ld“ 后将停止录音",(long)index];
-            self.timer = [NSTimer timerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
-                index -= 1;
-                if (hudType == SHVoiceHudType_recording || hudType == SHVoiceHudType_countdown) {
-                    self.messageVoiceLabel.text = [NSString stringWithFormat:@"%ld“ 后将停止录音",(long)index];
-                }
-            }];
-            [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
+            self.messageLab.text = @"时间太短";
+            self.voiceImg.image = [SHFileHelper imageNamed:@"voice_failure"];
         }
             break;
         default:
@@ -171,12 +148,14 @@
     if (self.hudType == SHVoiceHudType_recording)
     {
         NSString *imageName = [NSString stringWithFormat:@"voice_play_animation_%d", meter];
-        self.messageVoiceImage.image = [SHFileHelper imageNamed:imageName];
+        self.voiceImg.image = [SHFileHelper imageNamed:imageName];
     }
 }
 
 - (void)showCountDownWithTime:(NSInteger)time
 {
+    self.isCountDown = YES;
+    self.messageLab.text = [NSString stringWithFormat:@"%ld“ 后将停止录音",time];
 }
 
 @end

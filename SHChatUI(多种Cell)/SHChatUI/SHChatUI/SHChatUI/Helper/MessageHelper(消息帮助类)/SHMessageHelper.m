@@ -89,15 +89,15 @@
     
     SHMessage *model = message;
     model.messageId = [self getTimeWithZone];
-    model.isRead = YES;
     model.messageRead = YES;
     model.messageState = SHSendMessageType_Sending;
     model.sendTime = [self getTimeWithZone];
+    
+    //测试数据
     model.bubbleMessageType = arc4random()%2;
     
     if (model.bubbleMessageType == SHBubbleMessageType_Receiving) {
         model.messageState = SHSendMessageType_Successed;
-        model.isRead = NO;
         model.messageRead = NO;
     }
     

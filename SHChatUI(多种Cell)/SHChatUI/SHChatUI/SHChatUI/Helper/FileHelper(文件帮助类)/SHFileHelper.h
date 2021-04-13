@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "SHMessageType.h"
+#import "SHMessageEnum.h"
 
 /**
  文件帮助类

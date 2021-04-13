@@ -15,10 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SHAudioTableViewCell : SHMessageTableViewCell
 
-// 正在播放 0 未播放 1 播放中
-// 播放 YES 未播放 NO
-@property (nonatomic, assign) BOOL isPlaying;
-
 //播放语音动画
 - (void)playVoiceAnimation;
 //停止语音动画
