@@ -56,7 +56,7 @@
         case SHMessageBodyType_image://图片
         {
             isAngle = NO;
-            contentSize = [SHMessageHelper getSizeWithMaxSize:kChat_pic_size size:CGSizeMake(message.imageWidth, message.imageHeight)];
+            contentSize = [SHMessageHelper getSizeWithMaxSize:kChat_pic_size size:CGSizeMake(message.imageWidth, message.imageHeight) min:kChat_min_h];
         }
             break;
         case SHMessageBodyType_voice://语音
@@ -97,13 +97,13 @@
         case SHMessageBodyType_gif://Gif
         {
             isAngle = NO;
-            contentSize = [SHMessageHelper getSizeWithMaxSize:kChat_gif_size size:CGSizeMake(self.message.gifWidth, self.message.gifHeight)];
+            contentSize = [SHMessageHelper getSizeWithMaxSize:kChat_gif_size size:CGSizeMake(self.message.gifWidth, self.message.gifHeight) min:kChat_min_h];
         }
             break;
         case SHMessageBodyType_video://视频
         {
             isAngle = NO;
-            contentSize = [SHMessageHelper getSizeWithMaxSize:kChat_video_size size:CGSizeMake(message.videoWidth, message.videoHeight)];
+            contentSize = [SHMessageHelper getSizeWithMaxSize:kChat_video_size size:CGSizeMake(message.videoWidth, message.videoHeight) min:kChat_min_h];
         }
             break;
         case SHMessageBodyType_file://文件

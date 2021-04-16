@@ -158,23 +158,31 @@
 }
 
 #pragma mark - 获取Size
-+ (CGSize)getSizeWithMaxSize:(CGSize)maxSize size:(CGSize)size{
++ (CGSize)getSizeWithMaxSize:(CGSize)maxSize size:(CGSize)size min:(CGFloat)min{
     
     //规定的宽高都小于最大的 则使用规定的
     if (MIN(size.width, size.height)) {
         
         if (size.width > size.height) {
             //宽大 按照宽给高
-            CGFloat width = MIN(maxSize.width, size.height);
-            return CGSizeMake(width, width*size.height/size.width);
+            CGFloat width = MIN(maxSize.width, size.width);
+            size = CGSizeMake(width, width*size.height/size.width);
+            if (size.height < min) {
+                size.height = min;
+            }
         }else{
             //高大 按照高给宽
             CGFloat height = MIN(maxSize.height, size.height);
-            return  CGSizeMake(height*size.width/size.height, height);
+            size =  CGSizeMake(height*size.width/size.height, height);
+            if (size.width < min) {
+                size.width = min;
+            }
         }
+    }else{
+        size = maxSize;
     }
-    
-    return maxSize;
+
+    return size;
 }
 
 #pragma mark - 获取文本高度
