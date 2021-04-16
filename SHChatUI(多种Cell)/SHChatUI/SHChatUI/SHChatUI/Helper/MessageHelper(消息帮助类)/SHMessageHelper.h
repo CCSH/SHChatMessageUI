@@ -37,7 +37,7 @@
 + (NSString *)getChatTimeWithTime:(NSString *)time;
 
 //获取Size
-+ (CGSize)getSizeWithMaxSize:(CGSize)maxSize size:(CGSize)size;
++ (CGSize)getSizeWithMaxSize:(CGSize)maxSize size:(CGSize)size min:(CGFloat)min;
 
 //获取文本高度
 - (CGFloat)getHeightWithTextView:(UITextView *)textView maxH:(CGFloat)maxH minH:(CGFloat)minH;
