@@ -37,6 +37,9 @@
 ![image](https://github.com/CCSH/SHChatMessageUI/blob/master/QQ20180702-183212-HD.gif)
 
 ## 版本更新
+#### 2.1.3
+- 聊天计算size 过短过窄保护(#14)
+
 #### 2.1.2
 - 录音细节优化
 - 去除多余字段、简化内部逻辑增加注释
