@@ -419,7 +419,9 @@ UITableViewDataSource
         cell.delegate = self;
     }
     
-    cell.messageFrame = messageFrame;
+    [UIView performWithoutAnimation:^{
+        cell.messageFrame = messageFrame;
+    }];
     
     return cell;
 }
