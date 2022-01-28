@@ -40,15 +40,18 @@
     switch (_message.messageType) {
         case SHMessageBodyType_text://文字
         {
-            NSAttributedString *att = [SHEmotionTool getAttWithStr:message.text font:kChatFont_content];
+            NSMutableAttributedString *att = (NSMutableAttributedString *)[SHEmotionTool getAttWithStr:message.text font:kChatFont_content];
+            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+            paragraphStyle.lineSpacing = 5.0; // 设置行间距
+            [att addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, att.length)];
             
-            contentSize = [att boundingRectWithSize:CGSizeMake((kChat_content_maxW - 2*kChat_angle_w), CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+            _att = att;
+            contentSize = [SHTool getSizeWithAtt:att maxSize:CGSizeMake(kChat_content_maxW - 2*kChat_angle_w, CGFLOAT_MAX)];
             
-            //其他微调
-            if (kChatFont_content.lineHeight < kChat_min_h) {//为了使聊天内容与最小高度对齐
-                contentSize.height += (kChat_min_h - kChatFont_content.lineHeight);
-            }else{
-                contentSize.height += 2*kChat_margin;
+            contentSize.height += 2*kChat_margin;
+            
+            if (contentSize.height < kChat_min_h) {//为了使聊天内容与最小高度对齐
+                contentSize.height = kChat_min_h;
             }
             contentSize.width += 2*kChat_margin;
         }
@@ -75,7 +78,7 @@
         case SHMessageBodyType_note://通知
         {
             isCenter = YES;
-            contentSize = [message.note boundingRectWithSize:CGSizeMake(kChat_content_maxW - 2*kChat_margin, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:kChatFont_note} context:nil].size;
+            contentSize = [SHTool getSizeWithStr:message.note font:kChatFont_note maxSize:CGSizeMake(kChat_content_maxW - 2*kChat_margin, CGFLOAT_MAX)];
             //要预留出来边距
             contentSize.height += 2*kChat_margin;
             contentSize.width += 2*kChat_margin;

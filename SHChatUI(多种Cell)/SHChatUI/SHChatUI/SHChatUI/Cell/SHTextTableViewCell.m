@@ -31,16 +31,13 @@
 - (void)setMessageFrame:(SHMessageFrame *)messageFrame{
     [super setMessageFrame:messageFrame];
     
-    SHMessage *message = messageFrame.message;
-    
-    NSMutableAttributedString *str = (NSMutableAttributedString *)[SHEmotionTool getAttWithStr:message.text font:kChatFont_content];
-    [str addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, str.length)];
-    
-    self.textView.attributedText = str;
+//    SHMessage *message = messageFrame.message;
+
+    self.textView.attributedText = messageFrame.att;
     
     //设置frame
     CGFloat view_y = kChat_margin;
-    if (kChatFont_content.lineHeight < kChat_min_h) {//为了使聊天内容与最小高度对齐
+    if (self.bubbleBtn.height == kChat_min_h) {//为了使聊天内容与最小高度对齐
         view_y = (kChat_min_h - kChatFont_content.lineHeight)/2;
     }
     

@@ -24,7 +24,6 @@
 //是否显示头像
 @property (nonatomic, assign) BOOL showAvatar;
 
-
 //内部计算
 //时间CGRect
 @property (nonatomic, assign, readonly) CGRect timeF;
@@ -39,5 +38,7 @@
 
 //X初始位置
 @property (nonatomic, assign, readonly) CGFloat startX;
+//富文本
+@property (nonatomic, copy, readonly) NSAttributedString *att;
 
 @end
