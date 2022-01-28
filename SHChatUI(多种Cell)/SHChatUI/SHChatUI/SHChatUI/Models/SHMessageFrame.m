@@ -40,6 +40,7 @@
     switch (_message.messageType) {
         case SHMessageBodyType_text://文字
         {
+            //TODO: 有表情计算高度偏高
             NSMutableAttributedString *att = (NSMutableAttributedString *)[SHEmotionTool getAttWithStr:message.text font:kChatFont_content];
             NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
             paragraphStyle.lineSpacing = 5.0; // 设置行间距
