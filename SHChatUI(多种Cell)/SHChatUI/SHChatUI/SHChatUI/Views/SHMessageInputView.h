@@ -58,13 +58,13 @@
 @interface SHMessageInputView : UIView
 
 //父视图
-@property (nonatomic, strong) UIViewController *supVC;
+@property (nonatomic, weak) UIViewController *supVC;
 //代理
 @property (nonatomic, weak) id<SHMessageInputViewDelegate> delegate;
 //当前输入框类型
 @property (nonatomic, assign) SHInputViewType inputType;
 //多媒体数据
-@property (nonatomic, strong) NSArray *shareMenuItems;
+@property (nonatomic, copy) NSArray *shareMenuItems;
 
 //刷新视图
 - (void)reloadView;
