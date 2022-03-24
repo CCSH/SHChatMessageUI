@@ -55,3 +55,9 @@
 - 新增文件消息
 - 交互动画细节优化
 - 部分ui细节优化
+
+## 访客人数
+<img align="left" src = "https://profile-counter.glitch.me/ccsh-SHChatMessageUI/count.svg" alt ="ALI">
+
+
+
